@@ -18,6 +18,8 @@ class WechateController extends WebController
             $infoJson = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
             $infoArray = json_encode($infoJson, true);
             // 验证是否注册
+            dump($infoArray);
+
             $whether = $this->PurposeModel->selectFirst('use', [
                 'nick' => $infoArray['nickname'],
                 'openid' => $infoArray['openid'],
