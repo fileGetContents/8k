@@ -131,3 +131,7 @@ Route::any('suggest', 'FeedBackController@suggest');
 Route::any('user/suggest', 'FeedBackController@userSuggest');
 
 
+Route::any('wx/user/info', 'WechateController@userInfo');
+
+
+

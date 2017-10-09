@@ -23,8 +23,8 @@ class WxPayConfig
      *          https://mp.weixin.qq.com/advanced/advanced?action=table&token=1163208473&lang=zh_CN
      * @var string
      */
-    const APPID = 'wx53bb0f13b94ab34d';
-    const MCHID = '1397665302';
+    const APPID = 'wx0e80afcecb3d0cdb';
+    const MCHID = '1387630002';
     const KEY = 'xiangjiaolvxingbananatrip1234520';
     const APPSECRET = 'f3b35ead3c880e9712c4d38efbb6eb89';
     //=======【证书路径设置】=====================================
