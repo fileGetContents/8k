@@ -12,11 +12,11 @@ class WechateController extends WebController
     public function userInfo()
     {
         $config = new Wechate\WxPayConfig();
-
         if (isset($_GET['code'])) {
             // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
             $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=' . $config::APPSECRET . '&code=' . $_GET["code"] . '&grant_type=authorization_code ');
-            $accArray = collect($accJson)->toArray();
+            $accArray = json_decode($accJson);
+            var_dump($accArray);
             $info = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
             var_dump($info);
         } else {
