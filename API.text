@@ -1,0 +1,871 @@
+banana/start   香蕉小发现 周末不浪费
+传参:
+返回案例:
+small:香蕉小发现
+weekend:周末不浪费
+sift:香蕉精选
+array:3 [▼
+  "small" => array:4 [▼
+    0 => {#259 ▼
+      +"travel_id": 2
+      +"travel_name": "四川-成都-九寨沟"
+      +"travel_host_image": "img/s1.jpg"
+      +"travel_images": "a:3:{i:0;s:10:"img/s1.jpg";i:1;s:10:"img/s1.jpg";i:2;s:10:"img/s1.jpg";}"
+      +"travel_venue": "浙江省 杭州"
+      +"travel_notice": "游客须知"
+      +"travel_voyage": "航程"
+      +"travel_expense": 100
+      +"travel_bourn": "杭州"
+      +"travel_time": 1502701691
+      +"travel_tag": 20
+      +"travel_recommend": 10
+      +"travel_sort": 1502701691
+    }
+    1 => {#260 ▶}
+    2 => {#261 ▶}
+    3 => {#262 ▶}
+  ]
+  "weekend" => array:4 [▶]
+  "sift" => array:4 [▶]
+]
+
+banana/start   香蕉小发现 周末不浪费
+参数:
+
+返回参数：
+small:香蕉小发现
+weekend:周末不浪费
+sift:香蕉精选
+travel_id: 2                int              旅游id
+travel_name:                varchar          旅游名称
+travel_host_image:          varchar          主图
+travel_images:              varchar          图片(反序)
+travel_venue:               varchar          集合地点
+travel_notice               varchar          须知
+travel_voyage               varchar          航程
+travel_expense              varchar          费用
+travel_bourn                varchar          目的地
+travel_time                 varchar          添加时间
+travel_tag                  varchar          0:待审核 10:审核失败 20:审核成功
+travel_recommend            int              推荐位置(10:香蕉小发现  20:周末不浪费:30 :香蕉精选 )
+travel_sort                 int              排序:越小越排在前面
+travel_classify             enum              10:小众旅行 20:户外体检 30:处境优选
+
+
+
+
+
+
+
+banana/LikeName  匹配相同位置 每次返回5个
+传参:
+      like: 搜索位置
+      skip: 默认位子为0
+返回案例:
+array:5 [▼
+  0 => {#259 ▼
+    +"travel_id": 9
+    +"travel_name": "北京-九寨沟"
+    +"travel_host_image": "img/s2.jpg"
+    +"travel_images": "a:3:{i:0;s:10:"img/s1.jpg";i:1;s:10:"img/s1.jpg";i:2;s:10:"img/s1.jpg";}"
+    +"travel_venue": "浙江省 杭州"
+    +"travel_notice": "游客须知"
+    +"travel_voyage": "航程"
+    +"travel_expense": 100
+    +"travel_bourn": "杭州"
+    +"travel_time": 1502701691
+    +"travel_tag": 20
+    +"travel_recommend": 20
+    +"travel_sort": 1502701691
+  }
+  1 => {#260 ▶}
+  2 => {#261 ▶}
+  3 => {#262 ▶}
+  4 => {#263 ▶}
+]
+
+
+banana/TravelInfo 获取某个旅行的详细信息
+传参：
+    id:旅行的id
+返回案例:
+{#260 ▼
+  +"travel_id": 11
+  +"travel_name": "北京-九寨沟"
+  +"travel_host_image": "img/s1.jpg"
+  +"travel_images": "a:3:{i:0;s:10:"img/s1.jpg";i:1;s:10:"img/s1.jpg";i:2;s:10:"img/s1.jpg";}"
+  +"travel_venue": "浙江省 杭州"
+  +"travel_notice": "游客须知"
+  +"travel_voyage": "航程"
+  +"travel_expense": 100
+  +"travel_bourn": "杭州"
+  +"travel_time": 1502701691
+  +"travel_tag": 20
+  +"travel_recommend": 30
+  +"travel_sort": 1502701691
+}
+
+banana/User/Enrol  获取某个旅行的用户信息
+传值：
+   id:旅行产品id
+返回案例:
+array:3 [▼
+  "user_info" => array:6 [▼
+    0 => {#262 ▼
+      +"enrol_id": 1
+      +"enrol_travel_id": 2
+      +"enrol_user_id": 1
+      +"enrol_time": 1502701691
+      +"enrol_tag": "0"
+      +"enrol_tag_time": 1502701691
+      +"enrol_order": null
+      +"user_id": 1
+      +"user_name": "ajax2"
+      +"user_email": "111@qq.com"
+      +"user_tel": "182801955555"
+      +"user_images": null
+      +"user_money": "1"
+      +"user_pass": "eyJpdiI6ImFSXC8yVU9OUU80OHBDRHB2SW5VbWFBPT0iLCJ2YWx1ZSI6InhnWm1vcldCVU9aQjRYOEs1VW5OYmc9PSIsIm1hYyI6IjZjNTBhZjAzOTM2OGZmZTgyODNlYTNjNTYwMzk1Mjk4Mjg0ZWZlNDJkZjY2ZDQxN2QyNTk0NjQ1ZDBhMDFiMzAifQ=="
+      +"user_time": null
+    }
+    1 => {#263 ▶}
+    2 => {#264 ▶}
+    3 => {#265 ▶}
+    4 => {#266 ▶}
+    5 => {#267 ▶}
+  ]
+  "pay_user" => 2
+  "all_user" => 6
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+user/info 获取已经登录用户基础信息
+传值:
+返回案例:
+{#233 ▼
+  +"user_id": 1
+  +"user_name": "测试1"
+  +"user_email": "111@qq.com"
+  +"user_tel": "1822222222"
+  +"user_images": null
+  +"user_money": "1"
+}
+user/update/info  更新用戶信息
+传值:       email     邮箱  必填
+            telephone 电话  必填
+            nickname  昵称  必填
+返回案例:
+{"info":0,"message":"success"} // 成
+{"info":1,"message":"error"}  // 失败
+
+api/send/code  发送短信验证码
+参数:telephone  电话号码
+     pass       密码
+返回案例
+{"info":0,"code":86755}  // 发送成功
+{"info":1,"code":'错误信息'}  // 发送失败
+
+api/post/all  获取贴子
+参数:skip 页数  初始化开始0
+
+返回案例:
+    0 => {#239 ▼
+      +"post_id": 1
+      +"post_content": """
+               <p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>\r\n
+                    <div class="container">\r\n
+                        <ul class="docs-pictures clearfix">\r\n
+                            <li><img data-original="img/tibet-1.jpg" src="img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>\r\n
+                            <li><img data-original="img/tibet-2.jpg" src="img/thumbnails/tibet-2.jpg" alt="Tibetan Plateau"></li>\r\n
+                            <li><img data-original="img/tibet-3.jpg" src="img/thumbnails/tibet-3.jpg" alt="Jokhang Temple"></li>\r\n
+                            <li><img data-original="img/tibet-4.jpg" src="img/thumbnails/tibet-4.jpg" alt="Potala Palace 1"></li>\r\n
+                            <li><img data-original="img/tibet-5.jpg" src="img/thumbnails/tibet-5.jpg" alt="Potala Palace 2"></li>\r\n
+                            <li><img data-original="img/tibet-6.jpg" src="img/thumbnails/tibet-6.jpg" alt="Potala Palace 3"></li>\r\n
+                            <li><img data-original="img/tibet-7.jpg" src="img/thumbnails/tibet-7.jpg" alt="Lhasa River"></li>\r\n
+                            <li><img data-original="img/tibet-8.jpg" src="img/thumbnails/tibet-8.jpg" alt="Namtso 1"></li>\r\n
+                            <li><img data-original="img/tibet-9.jpg" src="img/thumbnails/tibet-9.jpg" alt="Namtso 2"></li>\r\n
+                        </ul>\r\n
+                    </div>
+        """
+      +"post_praise": 0
+      +"post_time": 1502871227
+      +"post_user_id": 1
+      +"post_praise_num": 1
+    }
+    1 => {#240 ▶}
+    2 => {#241 ▶}
+    3 => {#242 ▶}
+    4 => {#243 ▶}
+
+
+api/post/review  获取某个评论的详情以及他们的评论、检查当前用户是否点赞和关贴子点赞信息
+传参: id
+
+返回格式:json
+isLike = 0 没有点赞
+isLike = 1 已经点赞
+  "review" => array:5 [▼
+    0 => {#244 ▶}
+    1 => {#245 ▶}
+    2 => {#246 ▶}
+    3 => {#247 ▶}
+    4 => {#248 ▶}
+  ]
+  "post" => {#243 ▼
+    +"post_id": 1
+    +"post_content": """
+             <p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>\r\n
+                  <div class="container">\r\n
+                      <ul class="docs-pictures clearfix">\r\n
+                          <li><img data-original="img/tibet-1.jpg" src="img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>\r\n
+                          <li><img data-original="img/tibet-2.jpg" src="img/thumbnails/tibet-2.jpg" alt="Tibetan Plateau"></li>\r\n
+                          <li><img data-original="img/tibet-3.jpg" src="img/thumbnails/tibet-3.jpg" alt="Jokhang Temple"></li>\r\n
+                          <li><img data-original="img/tibet-4.jpg" src="img/thumbnails/tibet-4.jpg" alt="Potala Palace 1"></li>\r\n
+                          <li><img data-original="img/tibet-5.jpg" src="img/thumbnails/tibet-5.jpg" alt="Potala Palace 2"></li>\r\n
+                          <li><img data-original="img/tibet-6.jpg" src="img/thumbnails/tibet-6.jpg" alt="Potala Palace 3"></li>\r\n
+                          <li><img data-original="img/tibet-7.jpg" src="img/thumbnails/tibet-7.jpg" alt="Lhasa River"></li>\r\n
+                          <li><img data-original="img/tibet-8.jpg" src="img/thumbnails/tibet-8.jpg" alt="Namtso 1"></li>\r\n
+                          <li><img data-original="img/tibet-9.jpg" src="img/thumbnails/tibet-9.jpg" alt="Namtso 2"></li>\r\n
+                      </ul>\r\n
+                  </div>
+      """
+    +"post_praise": 0
+    +"post_time": 1502871227
+    +"post_user_id": 1
+    +"post_praise_num": 1
+  }
+  "prise" => array:2 [▼
+    0 => {#250 ▼
+      +"user_name": "ajax2"
+      +"user_images": null
+    }
+    1 => {#251 ▶}
+  ]
+]
+
+
+update/post/praise  为贴子点赞
+传参:id 帖子id
+返回参数:案例
+        {"info":0,"message":"失败"}
+        {"info":1,"message":"成功"}
+
+update/Like   为评论点赞
+传参:id   评论id
+返回案例
+       {"info":0,"message":"成功"}
+       {"info":1,"message":"失败"}
+user/review  为贴子点赞
+传参:post_id  贴子id
+     message  评论信息
+返回案例
+     {"info":0,"message":"成功"}
+     {"info":1,"message":"失败"}
+
+add/post 发帖
+传参:message  发帖内容
+返回案例
+     {"info":0,"message":"成功"}
+     {"info":1,"message":"失败"}
+
+user/login 用户登录
+传参:telephone 电话号码
+     pass 密码
+返回案例
+{"info":0,"message":"成功"}
+{"info":1,"message":"失败提示信息"}
+
+user/register  用户注册
+传参:telephone 电话号码
+     pass      密码
+{"info":0,"message":"成功"}
+{"info":1,"message":"失败信息提示"}
+
+update/visit  更新访问数量
+传参:
+返回案例
+success
+
+post/num  获取帖子数量
+参数:
+返回案例
+10
+
+
+good/info 某个商品详情(基础信息/套餐)
+参数:id  标题
+array:2 [▼
+  "good" => {#258 ▼
+    +"good_id": 1
+    +"good_name": "测试商品1"
+    +"good_details": "详情"
+    +"good_freight": "0"
+    +"good_sales": 10
+    +"good_time": 1502948651
+    +"good_recommend": 10
+    +"good_amount": 100
+  }
+  "info" => array:3 [▼
+    0 => {#259 ▼
+      +"info_id": 1
+      +"info_good_id": 1
+      +"info_type": "1"
+      +"info_price": "0"
+      +"info_freight": "0"
+    }
+    1 => {#260 ▶}
+    2 => {#261 ▶}
+  ]
+]
+
+good/amount  获取商品剩余份数
+传参 id:
+返回案例
+100
+
+
+good/tag 获取特定的商品
+传参: tag  0:默认 不推荐和不热销  10 :推荐  20:本周热销  30:最新推荐
+array:2 [▼
+  0 => {#262 ▼
+    +"good_id": 3
+    +"good_name": "测试商品3"
+    +"good_details": "详情3"
+    +"good_freight": "0"
+    +"good_sales": 10
+    +"good_time": 1492949651
+    +"good_recommend": 3
+    +"good_amount": 100
+    +"good_tag": "20"
+  }
+  1 => {#263 ▶}
+]
+
+like/good   获取相似的商品
+传参:
+      title 搜索字段  (不填为全部搜索)
+      limit 位置 初始化为0
+返回案例
+array:5 [▼
+  0 => {#264 ▼
+    +"good_id": 1
+    +"good_name": "测试商品1"
+    +"good_details": "详情"
+    +"good_freight": "0"
+    +"good_sales": 10
+    +"good_time": 1502948651
+    +"good_recommend": 1
+    +"good_amount": 100
+    +"good_tag": "0"
+  }
+  1 => {#265 ▶}
+  2 => {#266 ▶}
+  3 => {#267 ▶}
+  4 => {#268 ▶}
+]
+
+new/good
+传参  limit:位置 初始化为0 一次返回5个
+返回案例
+array:5 [▼
+  0 => {#266 ▼
+    +"good_id": 13
+    +"good_name": "测试商品13"
+    +"good_details": "详情13"
+    +"good_freight": "0"
+    +"good_sales": 10
+    +"good_time": 1496948651
+    +"good_recommend": 12
+    +"good_amount": 100
+    +"good_tag": "0"
+  }
+  1 => {#267 ▶}
+  2 => {#268 ▶}
+  3 => {#269 ▶}
+  4 => {#270 ▶}
+]
+
+user/address  添加送货地址
+ name => required,      收货人地址
+ province => required,  省
+ city => required,      城市
+ area => required,      县
+ telephone => required, 电话
+ address => required,   地址
+ code => required       邮政编码
+返回参数:
+{"info":0,"message":"成功"}
+{"info":1,"message":"失败"}
+
+del/address  删除送货地址
+传参:
+返回案例
+{info":0,"message":"成功"}
+{"info":1,"message":"删除失败"}
+
+get/address  获取地址
+传参:
+返回案例
+array:5 [▼
+  0 => {#259 ▼
+    +"address_id": 3
+    +"address_user_id": 1
+    +"address_contact": "1111111111"
+    +"address_city": "a:3:{i:0;s:3:"省";i:1;s:6:"城市";i:2;s:3:"县";}"
+    +"address_detail": "哈哈哈哈哈"
+    +"address_name": "呵呵呵呵"
+    +"address_code": 1111111111
+    +"address_time": 1502962177
+  }
+  1 => {#260 ▶}
+  2 => {#261 ▶}
+  3 => {#262 ▶}
+  4 => {#263 ▶}
+]
+
+good/order   商品订单生成
+传参:
+     tag       购买套餐
+     good_id   商品id
+     good_money 商品金额
+     good_num   数量
+     address_id 地址id
+     pay_money  支付金额
+     order_pay_logistics 物流金额
+
+返回案例:
+{"info":0,"message":"\u8ba2\u5355\u751f\u6210\u6210\u529f"} 成功
+{"info":1,"message":"\u8ba2\u5355\u751f\u6210\u6210\u529f"} 失败
+
+
+hotel/order 创建酒店房间订单
+传参:
+   time_start  : 入住酒店时间
+   time_live   : 离开酒店时间
+   room_num    : 房间数目
+   name        : 名称
+   telephone   : 电话号码
+   remark      : 备注
+   hotel_id    : 酒店id
+   room_id     : 房间编号
+   pay         : 实际支付金额
+   price       : 总价
+
+返回案例:
+{"info":0,"message":"success"}  创建订单成功
+{"info":0,"message":"error"}    创建订单失败
+
+hotel/list  获取列表酒店信息  每次返回五个
+传参
+     skip:页数 默认开始为0
+
+返回案例:
+array:1 [▼
+  0 => {#280 ▼
+    +"hotel_id": 1
+    +"hotel_name": "测试酒店名称1"
+    +"hotel_image": "img/post1.jpg"
+    +"hotel_images": null
+    +"hotel_address": "四川成都武侯区"
+    +"hotel_time": 1503278080
+    +"hotel_order": 1503278080
+  }
+]
+
+
+hotel/content   获取酒店房间详细信息
+传参:
+hotel 酒店信息
+room 房间信息
+
+返回案例:
+array:2 [▼
+  "hotel" => {#287 ▼
+    +"hotel_id": 1
+    +"hotel_name": "测试酒店名称1"
+    +"hotel_image": "img/post1.jpg"
+    +"hotel_images": null
+    +"hotel_address": "四川成都武侯区"
+    +"hotel_time": 1503278080
+    +"hotel_order": 1503278080
+  }
+  "room" => array:2 [▼
+    0 => {#288 ▶}
+    1 => {#289 ▶}
+  ]
+]
+
+Like/hotel/name  获取相似的名字酒店 每次返回五个
+传参:
+name: 名字
+skip: 传递参数默认0 (每次增加5)
+
+返回案例:
+array:1 [▼
+  0 => {#281 ▼
+    +"hotel_id": 1
+    +"hotel_name": "测试酒店名称1"
+    +"hotel_image": "img/post1.jpg"
+    +"hotel_images": null
+    +"hotel_address": "四川成都武侯区"
+    +"hotel_time": 1503278080
+        +"hotel_order": 1503278080
+  }
+]
+
+hotel/info  获取酒店信息和房间信息
+传参: id  酒店id
+
+返回案例:
+array:2 [▼
+  "hotel" => {#285 ▼
+    +"hotel_id": 1
+    +"hotel_name": "测试酒店名称1"
+    +"hotel_image": "img/post1.jpg"
+    +"hotel_images": null
+    +"hotel_address": "四川成都武侯区"
+    +"hotel_time": 1503278080
+    +"hotel_order": 1503278080
+  }
+  "room" => array:2 [▼
+    0 => {#286 ▼
+      +"room_id": 1
+      +"room_hotel_id": 1
+      +"room_name": "测试房间1"
+      +"room_info": "测试房间信息1"
+      +"room_image": "img/post1.jpg"
+      +"room_price": "100"
+      +"room_time": "1503278080"
+      +"room_num": 100
+      +"room_order": 1503278080
+    }
+    1 => {#287 ▶}
+  ]
+]
+
+
+hotel/address  获取出发地址相关信息
+user/order  获取用户订单
+传参: tag 0 (默认:待付款)  10已支付(代发货)  20 已经发货  -1(全部)
+
+返回案例:
+array:2 [▼
+  0 => {#275 ▼
+    +"order_id": 1
+    +"order_num": "11"
+    +"order_good_tag": 1
+    +"order_good_id": 1
+    +"order_good_money": "10"
+    +"order_good_num": 1
+    +"order_user_id": 1
+    +"order_user_address": "a:3:{i:0;s:3:"省";i:1;s:6:"城市";i:2;s:3:"县";}"
+    +"order_time": 1503221664
+    +"order_pay_tag": "0"
+    +"order_pay_time": null
+    +"order_pay_money": "10"
+    +"order_pay_logistics": "哈哈哈哈"
+  }
+  1 => {#276 ▶}
+]
+
+
+travel/list  获取特定项目的旅游列表  每次返回5个
+传参:
+     tag    10:小众旅行 20:户外体检 30:处境优选
+     skip   页数（开始为0 ）
+
+返回案例:
+array:5 [▼
+  0 => {#291 ▼
+    +"travel_id": 3
+    +"travel_name": "四川-成都-九寨沟"
+    +"travel_host_image": "img/s1.jpg"
+    +"travel_images": "a:3:{i:0;s:10:"img/s1.jpg";i:1;s:10:"img/s1.jpg";i:2;s:10:"img/s1.jpg";}"
+    +"travel_venue": "浙江省 杭州"
+    +"travel_notice": "游客须知"
+    +"travel_voyage": "航程"
+    +"travel_expense": 100
+    +"travel_bourn": "杭州"
+    +"travel_time": 1502701691
+    +"travel_tag": 20
+    +"travel_recommend": 10
+    +"travel_sort": 1502701691
+    +"travel_classify": "20"
+  }
+  1 => {#292 ▶}
+  2 => {#293 ▶}
+  3 => {#294 ▶}
+  4 => {#295 ▶}
+]
+
+is/login   检查是否登录
+传参:
+返回案例
+{"info":1,"message":"error"}         没有登录
+{"info":0,"message":"success"}       登录状态
+
+exit/login  退出登录
+传参:
+返回案例
+{"info":0,"message":"success"}    退出成功
+
+user/join  查看用户参与的帖子
+传参 user_id: 被选中的用户的id号
+ 返回案例:
+  review_num: 评论数量
+  praise_num: 帖子点赞数量
+  user_like: false  该用户没有点赞  true 该用户点过赞
+  like_num:评论点赞数量
+array:2 [▼
+  0 => array:4 [▼
+    "info" => array:2 [▼
+      "post" => {#300 ▼
+        +"post_id": 1
+        +"post_content": """
+                 <p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>\r\n
+                      <div class="container">\r\n
+                          <ul class="docs-pictures clearfix">\r\n
+                              <li><img data-original="img/tibet-1.jpg" src="img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>\r\n
+                              <li><img data-original="img/tibet-2.jpg" src="img/thumbnails/tibet-2.jpg" alt="Tibetan Plateau"></li>\r\n
+                              <li><img data-original="img/tibet-3.jpg" src="img/thumbnails/tibet-3.jpg" alt="Jokhang Temple"></li>\r\n
+                              <li><img data-original="img/tibet-4.jpg" src="img/thumbnails/tibet-4.jpg" alt="Potala Palace 1"></li>\r\n
+                              <li><img data-original="img/tibet-5.jpg" src="img/thumbnails/tibet-5.jpg" alt="Potala Palace 2"></li>\r\n
+                              <li><img data-original="img/tibet-6.jpg" src="img/thumbnails/tibet-6.jpg" alt="Potala Palace 3"></li>\r\n
+                              <li><img data-original="img/tibet-7.jpg" src="img/thumbnails/tibet-7.jpg" alt="Lhasa River"></li>\r\n
+                              <li><img data-original="img/tibet-8.jpg" src="img/thumbnails/tibet-8.jpg" alt="Namtso 1"></li>\r\n
+                              <li><img data-original="img/tibet-9.jpg" src="img/thumbnails/tibet-9.jpg" alt="Namtso 2"></li>\r\n
+                          </ul>\r\n
+                      </div>
+          """
+        +"post_praise": 0
+        +"post_time": 1502871227
+        +"post_user_id": 1
+        +"post_praise_num": 5
+      }
+      "review" => array:7 [▼
+        0 => {#298 ▼
+          +"review_id": 1
+          +"review_post_id": 1
+          +"review_user_id": 1
+          +"review_body": "哈哈哈哈哈哈哈"
+          +"review_time": 1502871227
+          +"review_user_num": 7
+          +"user_like": "true"
+          +"like_num": 6
+        }
+        1 => {#297 ▶}
+        2 => {#296 ▶}
+        3 => {#295 ▶}
+        4 => {#294 ▶}
+        5 => {#293 ▶}
+        6 => {#292 ▶}
+      ]
+    ]
+    "praise" => array:4 [▼
+      0 => {#290 ▼
+        +"user_name": "ajax2"
+        +"user_images": null
+      }
+      1 => {#289 ▶}
+      2 => {#288 ▶}
+      3 => {#285 ▶}
+    ]
+    "review_num" => 7
+    "praise_num" => 4
+  ]
+  1 => array:4 [▶]
+]
+
+
+
+user/all/post  获取某个用户全部发帖
+
+传参:user_id   获取全部帖子的用户id
+
+返回案例:
+array:3 [▼
+  0 => {#290 ▼
+    +"post_id": 1
+    +"post_content": """
+             <p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>\r\n
+                  <div class="container">\r\n
+                      <ul class="docs-pictures clearfix">\r\n
+                          <li><img data-original="img/tibet-1.jpg" src="img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>\r\n
+                          <li><img data-original="img/tibet-2.jpg" src="img/thumbnails/tibet-2.jpg" alt="Tibetan Plateau"></li>\r\n
+                          <li><img data-original="img/tibet-3.jpg" src="img/thumbnails/tibet-3.jpg" alt="Jokhang Temple"></li>\r\n
+                          <li><img data-original="img/tibet-4.jpg" src="img/thumbnails/tibet-4.jpg" alt="Potala Palace 1"></li>\r\n
+                          <li><img data-original="img/tibet-5.jpg" src="img/thumbnails/tibet-5.jpg" alt="Potala Palace 2"></li>\r\n
+                          <li><img data-original="img/tibet-6.jpg" src="img/thumbnails/tibet-6.jpg" alt="Potala Palace 3"></li>\r\n
+                          <li><img data-original="img/tibet-7.jpg" src="img/thumbnails/tibet-7.jpg" alt="Lhasa River"></li>\r\n
+                          <li><img data-original="img/tibet-8.jpg" src="img/thumbnails/tibet-8.jpg" alt="Namtso 1"></li>\r\n
+                          <li><img data-original="img/tibet-9.jpg" src="img/thumbnails/tibet-9.jpg" alt="Namtso 2"></li>\r\n
+                      </ul>\r\n
+                  </div>
+      """
+    +"post_praise": 0
+    +"post_time": 1502871227
+    +"post_user_id": 1
+    +"post_praise_num": 5
+    +"review": array:7 [▼
+      0 => {#294 ▼
+        +"review_id": 1
+        +"review_post_id": 1
+        +"review_user_id": 1
+        +"review_body": "哈哈哈哈哈哈哈"
+        +"review_time": 1502871227
+        +"review_user_num": 7
+      }
+      1 => {#295 ▶}
+      2 => {#296 ▶}
+      3 => {#297 ▶}
+      4 => {#298 ▶}
+      5 => {#299 ▶}
+      6 => {#300 ▶}
+    ]
+    +"user": array:4 [▼
+      0 => {#302 ▼
+        +"user_name": "ajax2"
+        +"user_images": null
+      }
+      1 => {#303 ▼
+        +"user_name": "测试2"
+        +"user_images": null
+      }
+      2 => {#304 ▶}
+      3 => {#305 ▶}
+    ]
+  }
+  1 => {#291 ▶}
+  2 => {#292 ▶}
+
+
+
+user/friend  获取用户的朋友
+传参:
+返回案例:
+array:4 [▼
+  0 => {#302 ▼
+    +"friend_id": 1
+    +"friend_user_id": 1
+    +"friend_friend_id": 2
+    +"friend_time": 1502962177
+    +"user_id": 1
+    +"user_name": "ajax2"
+    +"user_email": "111@qq.com"
+    +"user_tel": "182801955555"
+    +"user_images": null
+    +"user_money": "1"
+    +"user_pass": "eyJpdiI6ImFSXC8yVU9OUU80OHBDRHB2SW5VbWFBPT0iLCJ2YWx1ZSI6InhnWm1vcldCVU9aQjRYOEs1VW5OYmc9PSIsIm1hYyI6IjZjNTBhZjAzOTM2OGZmZTgyODNlYTNjNTYwMzk1Mjk4Mjg0ZWZlNDJkZjY2ZDQxN2QyNTk0NjQ1ZDBhMDFiMzAifQ=="
+    +"user_time": null
+  }
+  1 => {#303 ▶}
+  2 => {#304 ▶}
+  3 => {#305 ▶}
+]
+
+is/friend 检查是不是已经关注
+传参:
+friend_id : 用户od
+返回案例
+1 已经关注
+0 没有关注
+
+
+user/kims  获取合格的代金卷
+
+返回案例:
+array:1 [▼
+  0 => {#280 ▼
+    +"kims_id": 2
+    +"kims_user_id": 27
+    +"kims_money": "100"
+    +"kims_time": 1503374212
+    +"kims_over_time": 0
+    +"kims_tag": "0"
+  }
+]
+
+
+add/dialogue  添加消息
+
+传参:  friend_id  聊天对象id
+       dialogue   聊天信息
+返回案例:
+{"info":0,"message":"success"}
+
+update/dialogue  更新消息状态
+
+传参:
+    friend_id  聊天对象id
+返回案例:
+ {"info":0,"message":"success"}
+
+unread/dialogue  获取聊天记录 一次性返回(50条)
+
+传参:
+  friend_id  聊天对象id
+
+备注:  dialogue_user_id 如何等于user_id 表示是在对话框右边  反之在左边
+  返回案例
+  array:2 [▼
+    "dialogue" => array:6 [▼
+      0 => {#319 ▼
+        +"dialogue_id": 3
+        +"dialogue_user_id": 27
+        +"dialogue_friend_id": 10
+        +"dialogue_dialogue": "哈哈哈"
+        +"dialogue_time": 1503385679
+        +"dialogue_tag": "10"
+      }
+      1 => {#320 ▶}
+      2 => {#321 ▶}
+      3 => {#322 ▶}
+      4 => {#323 ▶}
+      5 => {#324 ▶}
+    ]
+    "user_id" => 27
+
+travel/time   获取某个旅行时间
+传参: id  旅游id
+
+返回案例:
+array:2 [▼
+  0 => {#238 ▼
+    +"info_id": 1
+    +"info_start": 1503516481
+    +"info_over": 1503515481
+    +"info_week": "星期八"
+    +"info_travel_id": 1
+  }
+  1 => {#239 ▶}
+]
+
+
+travel/order  添加商品订单
+传参:
+     adult  : 成人数量  require
+     child  ：儿童数量
+     tel    : 电话号码  require
+     name   : 名称      require
+     remark : 备注
+返回案例:
+     {"info":1,"message":"\u8ba2\u5355\u751f\u6210\u5931\u8d25"}  订单创建失败
+     {"info":0,"message":"success"}   订单创建成功
+
+
+
+
+

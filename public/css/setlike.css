@@ -1,0 +1,154 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.content{
+	width: 100%;
+	height: 90%;
+	overflow: scroll;
+	position: absolute;
+	background-color:#F0F0F0 ;
+}
+.tishi{
+	width: 87%;
+	margin-left: 5%;
+	margin-top: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+   color: #FC6936;
+   padding-left: 3%;
+  font-size: 0.7rem;
+  }
+.section2{
+	width: 90%;
+	height: auto;
+	border-radius:5px ;
+	margin-left: 5%;
+	background-color: #FFFFFF;
+	padding-bottom: 10px;
+}
+.section-top{
+	width: 100%;
+	height: 30px;
+
+	border-bottom: 1px solid #D6D6D6;
+	background-color: #DFDFDF;
+}
+.smalltit{
+	width: 70px;
+	height: 20px;
+	color: #FFFFFF;
+	float: left;
+	background-color:#5CB2FC ;
+	border-radius: 3px;
+	line-height: 20px;
+	margin-top: 10px;
+}
+.sectiontop{
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.tr{
+	width: 90%;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px dashed #A0A0A0;
+	margin-left: 5%;
+	font-size: 0.7rem;
+	color:#5CB2FC ;
+}
+.foot{
+	position: absolute;
+	height: 10%;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background:rgba(40,40,40,0.7) ;
+	
+}
+.postbtn{
+	width: 70px;
+	height: 30px;
+	float: right;
+	margin-right: 10px;
+	border: 0;
+	background:#0078D7 ;
+	color: #FFFFFF;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+.smallbtn{
+	width: 50px;
+	height: 20px;
+	color: #FFFFFF;
+	font-size: 0.5rem;
+	background-color: #FC6936;
+	border: 0;
+	border-radius: 3px;
+	margin: 10px 0 10px 10px;
+}
+.closebtn{
+	width: auto;
+	height: auto;
+	float: right;
+	margin-top: 10px;
+}
+    .open1{
+       
+        width: 60px;
+        height: 20px;
+        border-radius: 50px;
+        position: relative;
+    }
+    .bg1{
+    	 background: rgba(0,184,0,0.8);
+    }
+    .bg2{
+    	background: rgba(166,166,166,0.8);
+    }
+    .open2{
+        top: 0px;
+        right: 1px; 
+          width: 20px;
+        height: 20px;
+        border-radius: 48px;
+        position: absolute;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+    }
+     
+    .close{
+    	 top: 0px;
+        left: 1px; 
+          width: 20px;
+        height: 20px;
+        border-radius: 48px;
+        position: absolute;
+        background:#FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+    }
+.cancel{
+	width: 40%;
+	height: 30px;
+	background-color: #A6A6A6;
+	color: #FFFFFF;
+	float: left;
+	margin:10px 10% 0 5%;
+    border: 0;
+    border-radius: 5px;
+}
+.save{
+	width: 40%;
+	height: 30px;
+	background-color:#FC6936 ;
+	color: #FFFFFF;
+	float: left;
+	margin-top: 10px;
+	border: 0;
+	border-radius: 5px;
+}

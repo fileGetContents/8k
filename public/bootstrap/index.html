@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap 案例编写 </title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="carousel slide" id="carousel-302315">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-slide-to="0" data-target="#carousel-302315">
+                        </li>
+                        <li data-slide-to="1" data-target="#carousel-302315">
+                        </li>
+                        <li data-slide-to="2" data-target="#carousel-302315">
+                        </li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img alt="" src="images/5.jpg"/>
+                            <div class="carousel-caption">
+                                <h4>
+                                    First Thumbnail label
+                                </h4>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
+                                    porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="" src="images/5.jpg"/>
+                            <div class="carousel-caption">
+                                <h4>
+                                    Second Thumbnail label
+                                </h4>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
+                                    porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="" src="images/5.jpg"/>
+                            <div class="carousel-caption">
+                                <h4>
+                                    Third Thumbnail label
+                                </h4>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
+                                    porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-302315" data-slide="prev"><span
+                            class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control"
+                                                                                    href="#carousel-302315"
+                                                                                    data-slide="next"><span
+                        class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            </div>
+        </div>
+
+    <!--<div class="dropup">-->
+    <!--<button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">主题-->
+    <!--<span class="caret"></span>-->
+    <!--</button>-->
+    <!--<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
+    <!--<li role="presentation">-->
+    <!--<a role="menuitem" tabindex="-1" href="#">Java</a>-->
+    <!--</li>-->
+    <!--<li role="presentation">-->
+    <!--<a role="menuitem" tabindex="-1" href="#">数据挖掘</a>-->
+    <!--</li>-->
+    <!--<li role="presentation">-->
+    <!--<a role="menuitem" tabindex="-1" href="#">数据通信/网络</a>-->
+    <!--</li>-->
+    <!--<li role="presentation" class="divider"></li>-->
+    <!--<li role="presentation">-->
+    <!--<a role="menuitem" tabindex="-1" href="#">分离的链接</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <!--<ul class="nav nav-tabs">-->
+    <!--<li class="active"><a href="#">Home</a></li>-->
+    <!--<li><a href="#">SVN</a></li>-->
+    <!--<li><a href="#">iOS</a></li>-->
+    <!--<li><a href="#">VB.Net</a></li>-->
+    <!--<li><a href="#">Java</a></li>-->
+    <!--<li><a href="#">PHP</a></li>-->
+    <!--</ul>-->
+    <!--<nav class="navbar navbar-default" role="navigation">-->
+    <!--<div class="container-fluid">-->
+    <!--<div class="navbar-header">-->
+    <!--<button type="button" class="navbar-toggle" data-toggle="collapse"-->
+    <!--data-target="#example-navbar-collapse">-->
+    <!--<span class="sr-only">切换导航</span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="#">菜鸟教程</a>-->
+    <!--</div>-->
+    <!--<div class="collapse navbar-collapse" id="example-navbar-collapse">-->
+    <!--<ul class="nav navbar-nav">-->
+    <!--<li class="active"><a href="#">iOS</a></li>-->
+    <!--<li><a href="#">SVN</a></li>-->
+    <!--<li class="dropdown">-->
+    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+    <!--Java <b class="caret"></b>-->
+    <!--</a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">jmeter</a></li>-->
+    <!--<li><a href="#">EJB</a></li>-->
+    <!--<li><a href="#">Jasper Report</a></li>-->
+    <!--<li class="divider"></li>-->
+    <!--<li><a href="#">分离的链接</a></li>-->
+    <!--<li class="divider"></li>-->
+    <!--<li><a href="#">另一个分离的链接</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+
+    <!--<ol class="breadcrumb">-->
+    <!--<li><a href="#">Home</a></li>-->
+    <!--<li><a href="#">2013</a></li>-->
+    <!--<li class="active">十一月</li>-->
+    <!--</ol>-->
+
+
+    <!--<h4>胶囊式导航中的激活状态</h4>-->
+    <!--<ul class="nav nav-pills">-->
+    <!--<li class="active">-->
+    <!--<a href="#">首页-->
+    <!--<span class="badge">42</span>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="#">简介</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="#">消息-->
+    <!--<span class="badge">3</span>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<br>-->
+    <!--<h4>列表导航中的激活状态</h4>-->
+    <!--<ul class="nav nav-pills nav-stacked" style="max-width: 260px;">-->
+    <!--<li class="active">-->
+    <!--<a href="#">-->
+    <!--<span class="badge pull-right">42</span>首页</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="#">简介</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="#">-->
+    <!--<span class="badge pull-right">3</span>消息-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+
+
+    <!--<div class="row">-->
+    <!--<div class="col-sm-6 col-md-3">-->
+    <!--<a href="#" class="thumbnail">-->
+    <!--<img src="images/5.jpg"-->
+    <!--alt="通用的占位符缩略图">-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6 col-md-3">-->
+    <!--<a href="#" class="thumbnail">-->
+    <!--<img src="images/5.jpg"-->
+    <!--alt="通用的占位符缩略图">-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6 col-md-3">-->
+    <!--<a href="#" class="thumbnail">-->
+    <!--<img src="images/5.jpg"-->
+    <!--alt="通用的占位符缩略图">-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6 col-md-3">-->
+    <!--<a href="#" class="thumbnail">-->
+    <!--<img src="images/5.jpg"-->
+    <!--alt="通用的占位符缩略图">-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="alert alert-success">成功！很好地完成了提交。</div>-->
+    <!--<div class="alert alert-info">信息！请注意这个信息。</div>-->
+    <!--<div class="alert alert-warning">警告！请不要提交。</div>-->
+    <!--<div class="alert alert-danger">错误！请进行一些更改。</div>-->
+
+
+    <!--<div class="progress">-->
+    <!--<div class="progress-bar" role="progressbar" aria-valuenow="60"-->
+    <!--aria-valuemin="0" aria-valuemax="100" style="width: 40%;">-->
+    <!--<span class="sr-only">40% 完成</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="media">-->
+    <!--<a class="media-left" href="#">-->
+    <!--<img class="media-object" src="/wp-content/uploads/2014/06/64.jpg"-->
+    <!--alt="媒体对象">-->
+    <!--</a>-->
+    <!--<div class="media-body">-->
+    <!--<h4 class="media-heading">媒体标题</h4>-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="media">-->
+    <!--<a class="media-left" href="#">-->
+    <!--<img class="media-object" src="/wp-content/uploads/2014/06/64.jpg"-->
+    <!--alt="媒体对象">-->
+    <!--</a>-->
+    <!--<div class="media-body">-->
+    <!--<h4 class="media-heading">媒体标题</h4>-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--<div class="media">-->
+    <!--<a class="media-left" href="#">-->
+    <!--<img class="media-object" src="/wp-content/uploads/2014/06/64.jpg"-->
+    <!--alt="媒体对象">-->
+    <!--</a>-->
+    <!--<div class="media-body">-->
+    <!--<h4 class="media-heading">媒体标题</h4>-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--这是一些示例文本。这是一些示例文本。-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<ul class="list-group">-->
+    <!--<li class="list-group-item">免费域名注册</li>-->
+    <!--<li class="list-group-item">免费 Window 空间托管</li>-->
+    <!--<li class="list-group-item">图像的数量</li>-->
+    <!--<li class="list-group-item">24*7 支持</li>-->
+    <!--<li class="list-group-item">每年更新成本</li>-->
+    <!--</ul>-->
+
+    <!--<div class="panel panel-default">-->
+    <!--<div class="panel-body">-->
+    <!--这是一个基本的面板-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<nav id="myScrollspy" class="navbar navbar-default navbar-static" role="navigation">-->
+    <!--<div class="container-fluid">-->
+    <!--<div class="navbar-header">-->
+    <!--<button class="navbar-toggle" type="button" data-toggle="collapse"-->
+    <!--data-target=".bs-js-navbar-scrollspy">-->
+    <!--<span class="sr-only">切换导航</span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="#">教程名称</a>-->
+    <!--</div>-->
+    <!--<div class="collapse navbar-collapse bs-js-navbar-scrollspy">-->
+    <!--<ul class="nav navbar-nav">-->
+    <!--<li class="active"><a href="#ios">iOS</a></li>-->
+    <!--<li><a href="#svn">SVN</a></li>-->
+    <!--<li class="dropdown">-->
+    <!--<a href="#" id="navbarDrop1" class="dropdown-toggle"-->
+    <!--data-toggle="dropdown">Java-->
+    <!--<b class="caret"></b>-->
+    <!--</a>-->
+    <!--<ul class="dropdown-menu" role="menu"-->
+    <!--aria-labelledby="navbarDrop1">-->
+    <!--<li><a href="#jmeter" tabindex="-1">jmeter</a></li>-->
+    <!--<li><a href="#ejb" tabindex="-1">ejb</a></li>-->
+    <!--<li class="divider"></li>-->
+    <!--<li><a href="#spring" tabindex="-1">spring</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+    <!--<div data-spy="scroll" data-target="#myScrollspy" data-offset="0"-->
+    <!--style="height:200px;overflow:auto; position: relative;">-->
+    <!--<div class="section">-->
+    <!--<h4 id="ios">iOS-->
+    <!--<small><a href="#" onclick="removeSection(this);">-->
+    <!--&times; 删除该部分</a></small>-->
+    <!--</h4>-->
+    <!--<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple-->
+    <!--TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+    <!--<h4 id="svn">SVN-->
+    <!--<small></small>-->
+    <!--</h4>-->
+    <!--<p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache Software-->
+    <!--Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。</p>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+    <!--<h4 id="jmeter">jMeter-->
+    <!--<small><a href="#" onclick="removeSection(this);">-->
+    <!--&times; 删除该部分</a></small>-->
+    <!--</h4>-->
+    <!--<p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+    <!--<h4 id="ejb">EJB</h4>-->
+    <!--<p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+    <!--<h4 id="spring">Spring</h4>-->
+    <!--<p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。</p>-->
+    <!--<p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<script>-->
+    <!--$(function () {-->
+    <!--removeSection = function (e) {-->
+    <!--$(e).parents(".section").remove();-->
+    <!--$('[data-spy="scroll"]').each(function () {-->
+    <!--var $spy = $(this).scrollspy('refresh')-->
+    <!--});-->
+    <!--};-->
+    <!--$("#myScrollspy").scrollspy();-->
+    <!--});-->
+    <!--</script>-->
+
+    <!--<ul id="myTab" class="nav nav-tabs">-->
+    <!--<li class="active">-->
+    <!--<a href="#home" data-toggle="tab">-->
+    <!--菜鸟教程-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li><a href="#ios" data-toggle="tab">iOS</a></li>-->
+    <!--<li class="dropdown">-->
+    <!--<a href="#" id="myTabDrop1" class="dropdown-toggle"-->
+    <!--data-toggle="dropdown">Java-->
+    <!--<b class="caret"></b>-->
+    <!--</a>-->
+    <!--<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">-->
+    <!--<li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>-->
+    <!--<li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<div id="myTabContent" class="tab-content">-->
+    <!--<div class="tab-pane fade in active" id="home">-->
+    <!--<p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>-->
+    <!--</div>-->
+    <!--<div class="tab-pane fade" id="ios">-->
+    <!--<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple-->
+    <!--TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>-->
+    <!--</div>-->
+    <!--<div class="tab-pane fade" id="jmeter">-->
+    <!--<p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>-->
+    <!--</div>-->
+    <!--<div class="tab-pane fade" id="ejb">-->
+    <!--<p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<h4>提示工具（Tooltip）插件 - 锚</h4>-->
+    <!--这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip"-->
+    <!--title="默认的 Tooltip">-->
+    <!--默认的 Tooltip-->
+    <!--</a>.-->
+    <!--这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip"-->
+    <!--data-placement="left" title="左侧的 Tooltip">-->
+    <!--左侧的 Tooltip-->
+    <!--</a>.-->
+    <!--这是一个 <a href="#" data-toggle="tooltip" data-placement="top"-->
+    <!--title="顶部的 Tooltip">-->
+    <!--顶部的 Tooltip-->
+    <!--</a>.-->
+    <!--这是一个 <a href="#" data-toggle="tooltip" data-placement="bottom"-->
+    <!--title="底部的 Tooltip">-->
+    <!--底部的 Tooltip-->
+    <!--</a>.-->
+    <!--这是一个 <a href="#" data-toggle="tooltip" data-placement="right"-->
+    <!--title="右侧的 Tooltip">-->
+    <!--右侧的 Tooltip-->
+    <!--</a>-->
+
+    <!--<br>-->
+
+    <!--<h4>提示工具（Tooltip）插件 - 按钮</h4>-->
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip"-->
+    <!--title="默认的 Tooltip">-->
+    <!--默认的 Tooltip-->
+    <!--</button>-->
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip"-->
+    <!--data-placement="left" title="左侧的 Tooltip">-->
+    <!--左侧的 Tooltip-->
+    <!--</button>-->
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip"-->
+    <!--data-placement="top" title="顶部的 Tooltip">-->
+    <!--顶部的 Tooltip-->
+    <!--</button>-->
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip"-->
+    <!--data-placement="bottom" title="底部的 Tooltip">-->
+    <!--底部的 Tooltip-->
+    <!--</button>-->
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip"-->
+    <!--data-placement="right" title="右侧的 Tooltip">-->
+    <!--右侧的 Tooltip-->
+    <!--</button>-->
+    <!--<script>-->
+    <!--$(function () {-->
+    <!--$("[data-toggle='tooltip']").tooltip();-->
+    <!--});-->
+    <!--</script>-->
+    <div class="container" style="padding: 100px 50px 10px;">
+        <button type="button" class="btn btn-default" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="left"
+                data-content="左侧的 Popover 中的一些内容">
+            左侧的 Popover
+        </button>
+        <button type="button" class="btn btn-primary" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="top"
+                data-content="顶部的 Popover 中的一些内容">
+            顶部的 Popover
+        </button>
+        <button type="button" class="btn btn-success" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="bottom"
+                data-content="底部的 Popover 中的一些内容">
+            底部的 Popover
+        </button>
+        <button type="button" class="btn btn-warning" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="right"
+                data-content="右侧的 Popover 中的一些内容">
+            右侧的 Popover
+        </button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+</script>
+</body>
+</html>

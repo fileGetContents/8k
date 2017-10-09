@@ -1,0 +1,34 @@
+
+travel (旅游)
+travel_id
+travel_host_image
+travel_image         :反序列化 { }
+travel_venue         :集合地点
+travel_notice        :须知
+travel_voyage        :航程
+travel_expense       :费用
+travel_bourn         :目的地
+travel_time          :添加时间
+travel_recommend     :推荐排名
+
+travel_information(旅遊附加信息)
+info_id              :id
+travel_id             :旅游id
+
+
+goods(商品信息)
+good_id
+good_name           :商品名称
+good_details        :详情
+good_freight        :运费
+good_sales          :销量
+good_time           :时间
+good_recommend      :推荐排名
+
+
+goods_information(商品附加信息)
+info_goods_id       :商品id
+info_type           :套餐方式
+info_price          :价格
+info_
+

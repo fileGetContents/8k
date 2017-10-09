@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.header img {
+    margin: 0px 0 10px 0;
+    width: 100%;
+    height: auto;
+}
+
+.adver {
+    width: 70%;
+    height: 30px;
+    border-left: 1px solid #A0A0A0;
+    border-right: 1px solid #A0A0A0;
+    margin-left: 15%;
+    font-size: 0.7rem;
+    line-height: 15px;
+    text-align: center;
+}
+
+.tit {
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #3399FF;
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+
+.article {
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,14 @@
+$('.open1').click(function(){
+	if($(this).hasClass('bg1')){
+		$(this).removeClass('bg1');
+		$(this).addClass('bg2');
+		$(this).children('div').attr('class','close');
+		$(this).parent().siblings('span').css('color','#242030');
+	}
+	else{
+		$(this).removeClass('bg2');
+		$(this).addClass('bg1');
+		$(this).children('div').attr('class','open2');
+		$(this).parent().siblings('span').css('color','#5CB2FC');
+	}
+})
