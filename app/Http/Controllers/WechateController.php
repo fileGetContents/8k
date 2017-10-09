@@ -19,7 +19,7 @@ class WechateController extends WebController
         } else {
             $baseUrl = urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING']);
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=SCOPE&state=STATE#wechat_redirect ';
-            return '<script type="text/javascript">window.location.href=' . $url . ';</script>';
+            echo '<script type="text/javascript">window.location.href=' . $url . ';</script>';
         }
 
     }
