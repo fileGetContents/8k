@@ -17,6 +17,8 @@ class WechateController extends WebController
             // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
             $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=SECRET&code=' . $_GET["code"] . '&grant_type=authorization_code ');
             $accarr = collect($accJson)->toArray();
+
+            dump($accarr);die;
             $inof = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accarr["access_token"] . '&openid=' . $accarr['openid'] . '&lang=zh_CN ');
             dump($inof);
         } else {
