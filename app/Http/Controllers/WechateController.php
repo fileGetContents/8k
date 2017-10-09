@@ -7,7 +7,11 @@ use App\Http\Wechate;
 
 class WechateController extends WebController
 {
-
+    /**
+     * 微信自动登录
+     *
+     * @param Request $request
+     */
     public function userInfo(Request $request)
     {
         $config = new Wechate\WxPayConfig();
@@ -35,6 +39,7 @@ class WechateController extends WebController
                 ]);
                 $request->session()->put('user_id', $id);
             }
+
         } else {
             $baseUrl = urlencode('http://www.xcylkj.com/public/wx/user/info');
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';

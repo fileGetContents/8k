@@ -17,7 +17,11 @@ class UserController extends WebController
      */
     public function person()
     {
-        return view($this->file . 'person');
+        $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+
+        return view($this->file . 'person')->with(
+            ['user' => $user]
+        );
     }
 
     /**
@@ -63,7 +67,6 @@ class UserController extends WebController
 
         return view($this->file, '');
     }
-
 
 
 }

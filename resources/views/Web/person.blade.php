@@ -10,13 +10,13 @@
 <body>
 <div class="person-head">
     <div class="head-img">
-        <img src="{{asset('img/4.jpg')}}">
+        <img src="{{ $user->headimgurl }}">
     </div>
     {{--<button class="upload">上传头像</button>--}}
 </div>
 <div class="messbox">
     <span>昵称:</span>
-    <span style="margin-left: 5px;">qsq</span>
+    <span style="margin-left: 5px;">{{$user->nick}}</span>
     <span class="messright" id="nkname">
         <img src="{{asset('img/write.png')}}">
     </span>
@@ -24,7 +24,7 @@
 
 <div class="messbox">
     <span>手机号:</span>
-    <span style="margin-left: 5px;">17780685440</span>
+    <span style="margin-left: 5px;">{{$user->telephone}}</span>
     <span class="messright" id="phone">
         <img src="{{asset('img/write.png')}}">
     </span>
