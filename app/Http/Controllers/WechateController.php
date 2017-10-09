@@ -15,11 +15,10 @@ class WechateController extends WebController
 
         if (isset($_GET['code'])) {
             // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
-            $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=SECRET&code=' . $_GET["code"] . '&grant_type=authorization_code ');
-            $accarr = collect($accJson[0])->toArray();
-            var_dump($accarr);
-            $info = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accarr["access_token"] . '&openid=' . $accarr['openid'] . '&lang=zh_CN ');
-            var_dump($info);
+            $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=' . $config::APPSECRET . '&code=' . $_GET["code"] . '&grant_type=authorization_code ');
+            var_dump($accJson);
+//            $info = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accarr["access_token"] . '&openid=' . $accarr['openid'] . '&lang=zh_CN ');
+//            dump($info);
         } else {
             $baseUrl = urlencode('http://www.xcylkj.com/public/wx/user/info');
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
