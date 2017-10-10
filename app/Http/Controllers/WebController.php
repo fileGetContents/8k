@@ -25,9 +25,7 @@ class WebController extends Controller
      */
     public function test(Request $request)
     {
-
-
-
+        return view('test');
     }
 
 
@@ -88,9 +86,6 @@ class WebController extends Controller
     {
         return $this->PurposeModel->selectFirst('use', ['id' => $id]);
     }
-
-
-
 
 
 }
