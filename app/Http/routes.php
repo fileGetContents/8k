@@ -91,7 +91,7 @@ Route::any('up/user', 'ApiController@upUser');                                //
 Route::any('add/message', 'ApiController@addMessage');                        //  添加信息
 Route::any('up/file/all', 'ApiController@upFileAll');                         //  通用更新单个字段
 
-Route::any('test', 'WebController@test');        // 提交测试
+Route::any('test', 'WebController@test');                    // 提交测试
 
 Route::any('show/serve', 'ColumnController@showServer');                     // 用户选择服务项目
 Route::any('add/server', 'ColumnController@addServer');                      // 添加服务商
@@ -120,7 +120,6 @@ Route::any('form/add/model', 'ServerController@formAddModel');              // �
 Route::any('identify', 'ServerController@identify');                        // 先行赔付
 Route::any('identifyv', 'ServerController@identifyV');                      // v认证
 Route::any('add/identify', 'ServerController@addIdentify');                 // 添加认证服务
-
 
 Route::any('jifen', 'IntegralController@recharge');                        // 积分充值
 Route::any('add/recharge', 'IntegralController@addRecharge');              // 生成积分订单                                                // 生成积分订单

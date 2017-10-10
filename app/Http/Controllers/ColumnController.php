@@ -184,8 +184,6 @@ class ColumnController extends WebController
     }
 
 
-
-
     /**
      * 添加查看报价需求
      * @param Request $request
