@@ -25,7 +25,9 @@ class WebController extends Controller
      */
     public function test(Request $request)
     {
-        dump(urlencode('http://www.bananatrip.cn/'));
+
+
+
     }
 
 
@@ -86,5 +88,9 @@ class WebController extends Controller
     {
         return $this->PurposeModel->selectFirst('use', ['id' => $id]);
     }
+
+
+
+
 
 }
