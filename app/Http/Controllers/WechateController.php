@@ -49,4 +49,13 @@ class WechateController extends WebController
     }
 
 
+    /**
+     * 微信支付
+     */
+    public function pay()
+    {
+
+    }
+
+
 }

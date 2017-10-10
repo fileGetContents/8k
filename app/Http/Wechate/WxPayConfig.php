@@ -55,9 +55,8 @@ class WxPayConfig
      * @var int
      */
     const REPORT_LEVENL = 0;
-
     /**
      * 回调地址
      */
-    const  NOTIFY_URL = 'http://www.bananatrip.cn/notify/url';
+    const  NOTIFY_URL = 'http://www.xcylkj.com/notify/url';
 }

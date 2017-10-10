@@ -86,7 +86,7 @@ Route::group(["namespace" => "Admin"], function () {
 // API 接口管理
 Route::any('pur/del', 'ApiController@PurDel');
 
-Route::any('send/sms', 'ApiController@sendSMS');
+Route::any('send/sms', 'ApiController@sendSMS');    //  发送短信验证码
 Route::any('up/user', 'ApiController@upUser');                                //  更新用户信息
 Route::any('add/message', 'ApiController@addMessage');                        //  添加信息
 Route::any('up/file/all', 'ApiController@upFileAll');                         //  通用更新单个字段
@@ -131,6 +131,9 @@ Route::any('user/suggest', 'FeedBackController@userSuggest');
 
 
 Route::any('wx/user/info', 'WechateController@userInfo');
+Route::any('pay/wx', 'WechateController@pay');
+
+
 
 
 
