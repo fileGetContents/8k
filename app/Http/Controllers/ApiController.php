@@ -32,7 +32,7 @@ class ApiController extends Controller
                 'key' => '2c569923d5b095b89e532795ed471972', //您申请的APPKEY
                 'mobile' => $subject, //接受短信的用户手机号码
                 'tpl_id' => '47033', //您申请的短信模板ID，根据实际情况修改
-                'tpl_value' => '【驰瑞微帮】您的验证码是' . $info . '。如非本人操作，请忽略本短信' //您设置的模板变量，根据实际情况修改
+                'tpl_value' => '#code#=' . $info //您设置的模板变量，根据实际情况修改
             );
             $content = self::juhecurl($sendUrl, $smsConf, 1); //请求发送短信
             if ($content) {
