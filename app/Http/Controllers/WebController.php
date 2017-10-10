@@ -25,6 +25,8 @@ class WebController extends Controller
      */
     public function test(Request $request)
     {
+//        $map = file_get_contents('http://apis.map.qq.com/ws/place/v1/suggestion/?region=北京&keyword=美食&key=EOWBZ-23M3S-FHWOP-6H5NO-3BVO5-ENBTR');
+//        dump($map);
         return view('test');
     }
 

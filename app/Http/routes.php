@@ -93,6 +93,7 @@ Route::any('up/file/all', 'ApiController@upFileAll');                         //
 
 Route::any('test', 'WebController@test');                    // 提交测试
 
+
 Route::any('show/serve', 'ColumnController@showServer');                     // 用户选择服务项目
 Route::any('add/server', 'ColumnController@addServer');                      // 添加服务商
 Route::any('range/server/{id}', 'ColumnController@serverRange');             // 添加地址信息
@@ -133,6 +134,8 @@ Route::any('user/suggest', 'FeedBackController@userSuggest');
 Route::any('wx/user/info', 'WechateController@userInfo');
 Route::any('pay/wx', 'WechateController@pay');
 
+
+Route::any('map/similarity', 'MapController@getSimilarity');
 
 
 
