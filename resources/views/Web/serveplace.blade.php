@@ -20,7 +20,7 @@
             <input name="place" class="place" placeholder="街道名、小区/大厦、门牌号">
         </div>
     </div>
-    <div id="container"></div>
+    <div id="l-map"></div>
     <p class="tit">商户地址</p>
     <div class="box">
         @foreach($server as $value )
@@ -45,95 +45,79 @@
             </div>
         @endforeach
     </div>
-    <button class="addservebtn">>>添加更多服务<<</button>
+    <button class="addservebtn"><a href="{{ URL('add/server') }}">>>添加更多服务<<</a></button>
 </div>
 <div class="footer">
     <button class="goon">确定</button>
 </div>
 <span class="last">取消</span>
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
-<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
-<script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js"
-        charset="UTF-8"></script>
 <script type="text/javascript" src="{{asset('js/details.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/serveplace.js')}}"></script>
 <script type="text/javascript">CDATASection;
     hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');
 </script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mzvoFzcotiz37nQIpSmWapAd3NusKAGN"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    function G(id) {
+        return document.getElementById(id);
+    }
 
-<script>
-    var searchService, map, markers = [];
-    var init = function () {
-        var center = new qq.maps.LatLng(39.936273, 116.44004334);
-        map = new qq.maps.Map(document.getElementById('container'), {
-            center: center,
-            zoom: 13
+    var map = new BMap.Map("l-map");
+    map.centerAndZoom("北京", 12);                   // 初始化地图,设置城市和地图级别。
+
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+            {
+                "input": "suggestId"
+                , "location": map
+            });
+
+    ac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+        G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+        setPlace();
+    });
+
+    function setPlace() {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
         });
-        //设置圆形
-//        var cirle = new qq.maps.Circle({
-//            center: new qq.maps.LatLng(39.920, 116.405),
-//            radius: 2000,
-//            map: map
-//        });
-
-        var marker = new qq.maps.Marker({
-            //设置Marker的位置坐标
-            position: center,
-            //设置显示Marker的地图
-            map: map
-        });
-
-        var latlngBounds = new qq.maps.LatLngBounds();
-        //调用Poi检索类
-        searchService = new qq.maps.SearchService({
-            complete: function (results) {
-                var pois = results.detail.pois;
-                for (var i = 0, l = pois.length; i < l; i++) {
-                    var poi = pois[i];
-                    latlngBounds.extend(poi.latLng);
-                    var marker = new qq.maps.Marker({
-                        map: map,
-                        position: poi.latLng
-                    });
-
-                    marker.setTitle(i + 1);
-
-                    markers.push(marker);
-                }
-                map.fitBounds(latlngBounds);
-            }
-        });
-    };
-
-
-    init();
+        local.search(myValue);
+    }
 </script>
 
 <script>
     $(function () {
 
-        $(".bt_").click(function () {
-            var id = $(this).attr('wook');
-            var long = parseInt($('#' + id).html()) * 1000;
-            // 清楚覆盖物
-            markers.setMap(map);
-            cirle = new qq.maps.Circle({
-                center: new qq.maps.LatLng(39.920, 116.405),
-                radius: long,
-                map: map
-            });
-        });
-
-        $(".box_").click(function () {
-            var id = $(this).attr('wook');
-            var long = parseInt($('#' + id).html()) * 1000;
-            markers.setMap(map);
-            cirle = new qq.maps.Circle({
-                center: new qq.maps.LatLng(39.920, 116.405),
-                radius: long,
-                map: map
-            });
-        });
 
         $('.goon').click(function () {
 //            var pace = $('input[name=place]').val();

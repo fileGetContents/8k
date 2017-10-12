@@ -84,7 +84,7 @@ Route::group(["namespace" => "Admin"], function () {
 });
 
 // API 接口管理
-Route::any('pur/del', 'ApiController@PurDel');
+Route::any('pur/del', 'ApiController@PurDel');                                // 通用删除
 
 Route::any('send/sms', 'ApiController@sendSMS');                              //  发送短信验证码
 Route::any('up/user', 'ApiController@upUser');                                //  更新用户信息
@@ -93,11 +93,11 @@ Route::any('up/file/all', 'ApiController@upFileAll');                         //
 
 Route::any('test', 'WebController@test');                    // 提交测试
 
-
 Route::any('show/serve', 'ColumnController@showServer');                     // 用户选择服务项目
 Route::any('add/server', 'ColumnController@addServer');                      // 添加服务商
 Route::any('range/server/{id}', 'ColumnController@serverRange');             // 添加地址信息
 Route::any('add/range', 'ColumnController@addRange');                        // 添加服务半径
+
 
 Route::any('choose/server/{id}', 'ColumnController@chooseServer');             // 填写需求
 Route::any('demand/details/{id}', 'ColumnController@demandDetails');           // 需求详细
@@ -108,7 +108,7 @@ Route::any('waitbussiness', 'ColumnController@waitbussiness');
 
 Route::any('person', 'UserController@person');                              // 用户个人中心
 Route::any('user/need', 'UserController@userNeed');                         // 用户需求进度
-Route::any('need/{id}', 'UserController@');                                 // 需求相信
+Route::any('need/{id}', 'UserController@');                                 // 需求详情
 
 Route::any('company', 'ServerController@company');                          // 商户中心
 Route::any('replace', 'ServerController@replace');                          // 添加修改商户信息
@@ -120,12 +120,16 @@ Route::any('add/model/{id?}', 'ServerController@addModel');                 // �
 Route::any('form/add/model', 'ServerController@formAddModel');              // 添加模板
 Route::any('identify', 'ServerController@identify');                        // 先行赔付
 Route::any('identifyv', 'ServerController@identifyV');                      // v认证
+Route::any('insert/identifyv', 'ServerController@insertIdentifyV');
+
 Route::any('add/identify', 'ServerController@addIdentify');                 // 添加认证服务
 
 Route::any('jifen', 'IntegralController@recharge');                        // 积分充值
 Route::any('add/recharge', 'IntegralController@addRecharge');              // 生成积分订单                                                // 生成积分订单
 // ajax上传图片
 Route::any('update/image2', 'ApiController@ajaxUpdateFileImage');
+Route::any('update/image', 'ApiController@ajaxUpdateFileImage2');
+
 // 意见反馈
 Route::any('suggest', 'FeedBackController@suggest');
 Route::any('user/suggest', 'FeedBackController@userSuggest');

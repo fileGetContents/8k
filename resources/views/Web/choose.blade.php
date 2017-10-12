@@ -102,6 +102,27 @@
         $('input[type=radio]').click(function () {
             nextStep();
         });
+        // 地址选择
+        $('.address').keydown(function () {
+
+            $.ajax({
+                type: 'post',
+                data: {'keyword': $(this).val()},
+                dataType: 'json',
+                url: '{{URL("map/similarity")}}',
+                success: function (obj) {
+                    //$('#search_word_result').empty();
+                    console.log(obj);
+                    obj.data.map(function (value, index, array) {
+                        $(this).parent().append('<div>' + value['address'] + '</div>');
+                    })
+                },
+                error: function (obj) {
+
+                }
+            })
+        })
+
     });
 
     /**

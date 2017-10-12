@@ -140,11 +140,11 @@
         </div>
     </div>
 </div>
-<a href="#btnwrapper">
-    <div class="footer">
-        <button class="connectbtn">我要极速联系</button>
-    </div>
-</a>
+{{--<a href="#btnwrapper">--}}
+    {{--<div class="footer">--}}
+        {{--<button class="connectbtn">我要极速联系</button>--}}
+    {{--</div>--}}
+{{--</a>--}}
 
 {{--<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>--}}
 {{--<script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js"--}}

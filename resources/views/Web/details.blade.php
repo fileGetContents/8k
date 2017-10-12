@@ -11,11 +11,12 @@
 </head>
 <body onload="init()">
 <div class="content">
-    <p style="color: #3399FF;" data-toggle="modal" data-target="#mymodal">(153*****88)</p>
+    <p style="color: #3399FF;" data-toggle="modal" data-target="#mymodal">({{$phone}})</p>
     <div class="mess">
         <div>
             <p><span><img src="{{asset('img/people.png')}}" width="15px" height="auto"></span>{{ $need->quote }}/5</p>
             <p>收到报价</p>
+
         </div>
         <div>
             <p>
@@ -110,23 +111,23 @@
                     <h5 class="popup-sub-title ng-binding">报价后可获取对方电话</h5><!-- end ngIf: subTitle -->
                 </div>
 
-                    <div class="popup-body">
-                        <input type="number" id="price" placeholder="请输入参考报价" required>
-                    </div>
-                    <div class="popup-buttons">
-                        <!-- ngRepeat: button in buttons -->
-                        <button class="button button-default" data-dismiss="modal" aria-hidden="true">
-                            取消
-                        </button><!-- end ngRepeat: button in buttons -->
-                        <button id="tijiao" class="button  button-energized" type="submit">
-                            <b>电话联系</b>
-                        </button><!-- end ngRepeat: button in buttons -->
-                    </div>
+                <div class="popup-body">
+                    <input type="number" id="price" placeholder="请输入参考报价" required>
+                </div>
+                <div class="popup-buttons">
+                    <!-- ngRepeat: button in buttons -->
+                    <button class="button button-default" data-dismiss="modal" aria-hidden="true">
+                        取消
+                    </button><!-- end ngRepeat: button in buttons -->
+                    <button id="tijiao" class="button  button-energized" type="submit">
+                        <b>电话联系</b>
+                    </button><!-- end ngRepeat: button in buttons -->
+                </div>
             </div>
         </div>
     </div>
 </div>
-@if(session('user_id',1)== $need->user_id )
+@if(session('user_id',2) != $need->user_id )
     <a href="#btnwrapper" data-toggle="modal" data-target="#mymodal">
         <div class="footer">
             <button class="connectbtn">我要极速联系</button>

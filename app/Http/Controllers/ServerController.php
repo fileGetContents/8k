@@ -26,47 +26,44 @@ class ServerController extends WebController
 //                return back();
 //            }
 //        }
-        if ($request->isMethod('post')) {
-            $insert['documents'] = array();
-            // 图片上传
-            foreach ($_FILES as $key => $value) {
-                if ($value['error'] == 0) {
-                    $nameFile = 'documents/' . date('Ymd') . '/' . rand(10000, 99999);
-                    $nameFile2 = $nameFile . '.png';
-                    $storage = Storage::put(
-                        $nameFile2,
-                        file_get_contents($request->file($key)->getRealPath())
-                    );
-                    if ($storage) {
-                        $insert['documents'][] = asset($nameFile);
-                    }
-                }
-            }
-            $insert['name'] = $request->input('name');
-            $insert['telephone'] = $request->input('phone');
-            $insert['use_id'] = session('user_id', 1);
-            $insert['time'] = $_SERVER['REQUEST_TIME'];
-            if (!empty($insert['documents'])) {
-                $insert['documents'] = serialize($insert['documents']);
-            } else {
-                $insert['documents'] = null;
-            }
-            if (is_null($documents)) {
-                $this->PurposeModel->insertWhether('documents', $insert);
-            } else {
-                if ($documents->tag == 20) {
-                    $this->PurposeModel->up('documents', ['use_id' => session('user_id', 1)], $insert);
-                }
-            }
-            // 跳转界面
-            echo '<script>window.location.href="' . URL('company') . '"</script>';
-        }
         $use = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         return view($this->file . 'identifyV')->with([
             'user' => $use
         ]);
 
     }
+
+    /**
+     *添加/修改v认证
+     *
+     * @param Request $request
+     * @return json
+     */
+    public function insertIdentifyV(Request $request)
+    {
+        $input = $request->all();
+        $insert['name'] = $input['name'];
+        $insert['telephone'] = $input['telephone'];
+        $insert['time'] = $_SERVER['REQUEST_TIME'];
+        $insert['use_id'] = session('user_id', 1);
+        $insert['documents'][0] = $input['image0'];
+        $insert['documents'][1] = $input['image1'];
+        $insert['documents'][2] = $input['image2'];
+        $insert['documents'][3] = $input['image3'];
+        $insert['documents'] = serialize($insert['documents']);
+        $documents = $this->PurposeModel->selectFirst('documents', ['use_id' => session('user_id', 1)]);
+        if (is_null($documents)) {
+            $whether = $this->PurposeModel->up('documents', ['use_id' => session('user_id', 1)], $insert);
+        } else {
+            $whether = $this->PurposeModel->insertWhether('documents', $insert);
+        }
+        if ($whether) {
+            return collect(['info' => 0, 'message' => 'success'])->toJson();
+        } else {
+            return collect(['info' => 1, 'message' => 'error'])->toJson();
+        }
+    }
+
 
     /**
      * 服务商中心
@@ -310,17 +307,28 @@ class ServerController extends WebController
         foreach ($image as $value) {
             $urlImage[] = asset(date('ymd') . '/' . $value . '.png');
         }
+        $orderNum = $this->WayClass->createOrderNum();
         $whether = $this->PurposeModel->insertWhether('identify', [
             'images' => serialize($urlImage),
             'time' => $_SERVER['REQUEST_TIME'],
             'use_id' => session('user_id', 1),
             'price' => $request->input('price'),
+            'order_num' => $orderNum
         ]);
+        // 生成订单号
         if ($whether) {
-            echo collect(['info' => 0, 'message' => 'success']);
+            $Wechate = new WechateController();
+            $return = $Wechate->pay([
+                'body' => 'V认证支付',
+                'attach' => 'identify',
+                'trade_no' => $orderNum,
+                'total_fee' => $request->input('price') * 100,
+            ]);
+            return collect(['info' => 0, 'message' => $return])->toJson();
         } else {
-            echo collect(['info' => 1, 'message' => 'error']);
+            return collect(['info' => 1, 'message' => 'error']);
         }
+
 
     }
 

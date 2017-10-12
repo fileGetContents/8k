@@ -12,11 +12,13 @@ class WebController extends Controller
     public $file = 'Web.';
     public $PurposeModel;
     public $UserModel;
+    public $WayClass;
 
     public function __construct()
     {
         $this->PurposeModel = new  Model\PurposeModel();
         $this->UserModel = new Model\UserModel();
+        $this->WayClass = new Model\WayClassModel();
     }
 
     /**
@@ -29,7 +31,6 @@ class WebController extends Controller
 //        dump($map);
         return view('test');
     }
-
 
     /**
      * 获取全部不重复服务项目

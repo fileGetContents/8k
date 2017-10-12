@@ -1,17 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\WebController;
+use Illuminate\Support\Facades\DB;
 
 class PictureController extends WebController
 {
 
     public $file = 'Admin.';
-
 
     public function PictureAdd()
     {
@@ -29,12 +28,16 @@ class PictureController extends WebController
         $insert['column_id'] = $input['id'];
         $insert['sort'] = $input['soft'];
         $insert['prompting'] = self::createMean($input['mean'], $input['required']);
-        $insert['mean'] = $input['mean'];
-        $insert['required'] = $input['required'];
-        $insert['name'] = $input['name'];
+        $insert['mean'] = $input['mean'] . $_SERVER['REQUEST_TIME'];
+        if (isset($_POST['required'])) {
+            $insert['required'] = $input['required'];
+        } else {
+            $insert['required'] = 0;
+        }
+        $insert['name'] = $input['name'] . $_SERVER['REQUEST_TIME'];
         switch ($input['choose']) {
             case 1:
-                $insert['choose'] = self::createRadio(array_filter(explode('/', $input['string'])), $input['name']);
+                $insert['choose'] = self::createRadio(array_filter(explode('/', $input['string'])), $insert['name']);
                 break;
             case 2:
                 $insert['choose'] = self::createCheckbox(array_filter(explode('/', $input['string'])), $input['name']);
@@ -46,7 +49,7 @@ class PictureController extends WebController
                 $insert['choose'] = self::createTextarea($input['string'], $input['name']);
                 break;
             case 5:
-                $input['choose'] = self::createTime();
+                $insert['choose'] = self::createTime();
                 break;
         }
         $whether = $this->PurposeModel->insertWhether('options', $insert);
@@ -55,6 +58,7 @@ class PictureController extends WebController
         } else {
             return collect(['info' => 1, 'message' => 'error']);
         }
+
     }
 
 
@@ -86,7 +90,7 @@ class PictureController extends WebController
     {
         $string = '<table class="table1">';
         foreach ($choose as $key => $value) {
-            $string = '<tr><td><input type="radio" name="' . $fileName . '" class="' . $fileName . '" value="' . $value . '" />' . $value . '</td></tr>';
+            $string .= '<tr><td><input type="radio" name="' . $fileName . '" class="' . $fileName . '" value="' . $value . '" />' . $value . '</td></tr>';
         }
         $string .= '</table>';
         return $string;
@@ -105,7 +109,7 @@ class PictureController extends WebController
         foreach ($choose as $value) {
             $string .= '<tr><td><input type="checkbox" name="' . $fileName . '[]"  class="' . $fileName . '"  value="' . $value . '">' . $value . '</td></tr>';
         }
-        $string = '</table>';
+        $string .= '</table>';
         return $string;
     }
 
@@ -168,10 +172,28 @@ class PictureController extends WebController
         return $string;
     }
 
-
-    public function PictureList()
+    /**
+     * 查看V申请
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function PictureList(Request $request)
     {
-        return view($this->file . 'picture-list');
+        if ($request->isMethod('post')) {
+            $documents = DB::table('documents')
+                ->where('time', '>', strtotime($request->input('start')))
+                ->orWhere('time', '<', strtotime($request->input('over')))
+                ->get();
+        } else {
+            $documents = DB::table('documents')->get();
+        }
+        foreach ($documents as $key => $value) {
+            $documents[$key]->documents = unserialize($value->documents);
+        }
+        return view($this->file . 'picture-list')->with([
+            'doc' => $documents
+        ]);
+
+
     }
 
 

@@ -76,6 +76,8 @@ class ColumnController extends WebController
             'server' => $column,
             'id' => $request->id,
         ]);
+
+
     }
 
     /**
@@ -135,11 +137,10 @@ class ColumnController extends WebController
             $id = $this->PurposeModel->insertGetId('use_demand', $table);
             // 跳转补充说明
             if (is_numeric($id) && $id > 0) {
-                echo '补充说明';
-                die;
-            } else {
-                echo '添加失败';
+                // 跳转详细界面
+                return redirect('demand/details/' . $id);
             }
+            return back();
         }
         $options = $this->PurposeModel->selectAllOrder('options', array('column_id' => $id), 'sort', 'asc');
         return view($this->file . 'choose')->with([
@@ -155,7 +156,6 @@ class ColumnController extends WebController
     public function demandDetails(Request $request)
     {
         $demand = $this->PurposeModel->selectAllOrder('use_demand', [
-            'user_id' => session('user_id', 1),
             'id' => $request->id,
         ]);
         $need = array();
@@ -175,17 +175,21 @@ class ColumnController extends WebController
             $value->need = $mean;
             $needAll[] = $value;
         };
+        // 查询用户
+        $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
+        $phone = $this->WayClass->hiddenNumber($user->telephone);
         return view($this->file . 'details')->with([
             'need' => $needAll[0],  // 获取需求详情
             'start' => 0,        // 开始位置
             'id' => $request->id,
+            'phone' => $phone
         ]);
-
     }
 
 
     /**
      * 添加查看报价需求
+     *
      * @param Request $request
      * @return $this
      */
@@ -203,6 +207,7 @@ class ColumnController extends WebController
                 'demand_id' => $request->id,
             ]);
         }
+
         $need = self::selQouteInfo($request->id, $request->price);
         $needClass = unserialize($need->demand);
         $mean = parent::getClassMeta($needClass, $need->column_id);

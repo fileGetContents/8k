@@ -94,7 +94,7 @@ class PurposeModel extends Model
      * @param $where array  条件
      * @return mixed
      */
-    public function selectFirst($table, $where)
+    public function     selectFirst($table, $where)
     {
         return DB::table($table)->where($where)->first();
     }

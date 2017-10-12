@@ -15,7 +15,6 @@
     <link href="{{asset('admin/css/H-ui.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('admin/css/H-ui.admin.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('admin/lib/icheck/icheck.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('admin/lib/Hui-iconfont/1.0.1/iconfont.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('admin/lib/webuploader/0.1.5/webuploader.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{{asset('css/choose.css')}}"/>
     <link rel="stylesheet" href="{{asset('js/LCalendar/css/LCalendar.min.css')}}"/>
@@ -28,7 +27,6 @@
 </head>
 <body>
 <div class="pd-20">
-
     <div class="row cl">
         <label class="form-label col-2"><span class="c-red">*</span>分类栏目：</label>
         <div class="formControls col-2"> <span class="select-box">
@@ -86,7 +84,7 @@
                         <option value="2">多选</option>
                         <option value="3">地点</option>
                         <option value="4">输入</option>
-                        <option value="5">时间</option>
+                        <option value="5">时间（直接添加选项点击保存即可）</option>
                     </select>
 				</span>
         </div>
@@ -159,6 +157,7 @@
             } else {
                 var required = 0;
             }
+
             var string = '';
             $('.input_choose').map(function () {
                 string += $(this).val() + '/';              // 选项值
@@ -178,14 +177,17 @@
                 dataType: 'json',
                 url: '{{URL('ajax/add/column')}}',
                 success: function (obj) {
-
+                    if (obj.info == 0) {
+                        alert('添加成功');
+                        history.go(0)
+                    }
                 },
                 error: function (obj) {
 
                 }
 
-            });
 
+            });
         });
 
 

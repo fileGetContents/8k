@@ -167,7 +167,7 @@ class ApiController extends Controller
      * @param  wheFile string 条件
      * @param  upFile string  更新字段
      * @param  up  string
-     * @param Request $request
+     * @param array
      */
     public function upFileAll(Request $request)
     {
@@ -190,6 +190,28 @@ class ApiController extends Controller
     public function ajaxUpdateFileImage(Request $request)
     {
         $nameFile = date('Ymd') . '/' . $request->input("name");
+        $nameFile2 = $nameFile . '.png';
+        $storage = Storage::put(
+            $nameFile2,
+            file_get_contents($request->file('file')->getRealPath())
+        );
+        // 图片上传
+        if ($storage) {
+            //  $request->session()->put('nameFile', $nameFile);
+            return collect(array('nameFile' => asset($nameFile2)))->toJson();
+        } else {
+            return collect(array('nameFile' => 'error'))->toJson();
+        }
+
+    }
+
+    /**
+     *ajax添加图片
+     * @param Request $request
+     */
+    public function ajaxUpdateFileImage2(Request $request)
+    {
+        $nameFile = date('Ymd') . '/' . rand(100000, 999999);
         $nameFile2 = $nameFile . '.png';
         $storage = Storage::put(
             $nameFile2,
@@ -221,7 +243,6 @@ class ApiController extends Controller
             echo collect(['info' => 1, 'message' => 'error']);
         }
     }
-
 
 
 
