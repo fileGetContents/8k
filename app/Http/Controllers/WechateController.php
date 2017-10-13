@@ -36,11 +36,11 @@ class WechateController extends WebController
                     'openid' => $infoArray['openid'],
                     'headimgurl' => $infoArray['headimgurl'],
                 ]);
-                $request->session()->put('user_id', $id);
+                session(['user_id' => $id]);
             }
-            echo '<script type="text/javascript">window.location.href="http://www.xcylkj.com/public/person"</script>';
+            echo '<script type="text/javascript">window.location.href="http://www.xcylkj.com/person"</script>';
         } else {
-            $baseUrl = urlencode('http://www.xcylkj.com/public/wx/user/info');
+            $baseUrl = urlencode('http://www.xcylkj.co/wx/user/info');
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
             echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
         }
