@@ -178,11 +178,29 @@ class ColumnController extends WebController
         // 查询用户
         $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
         $phone = $this->WayClass->hiddenNumber($user->telephone);
+        //查询是否需要使用地图功能
+        $options = $this->PurposeModel->selectAll('options', ['column_id' => $demand[0]->column_id]);
+        $map = ['bool' => false, 'key' => '']; //
+        foreach ($options as $key => $value) {
+            if (substr_count($value->choose, 'suggestId2') > 0) {
+                if (substr_count($value->choose, 'suggestId') > 0) {
+                    $map = ['bool' => true, 'key' => $value->name];
+                    // 获取地点
+                    foreach ($needAll[0]->demand as $deKey => $v) {
+                        if ($deKey == $value->name) {
+                            $map['address'][0] = $v[0];
+                            $map['address'][1] = $v[1];
+                        }
+                    }
+                }
+            }
+        }
         return view($this->file . 'details')->with([
             'need' => $needAll[0],  // 获取需求详情
             'start' => 0,        // 开始位置
             'id' => $request->id,
-            'phone' => $phone
+            'phone' => $phone,
+            'map' => $map
         ]);
     }
 
@@ -207,10 +225,12 @@ class ColumnController extends WebController
                 'demand_id' => $request->id,
             ]);
         }
-
         $need = self::selQouteInfo($request->id, $request->price);
         $needClass = unserialize($need->demand);
         $mean = parent::getClassMeta($needClass, $need->column_id);
+        // 查询是否需要使用地图功能
+        $documents = $this->PurposeModel->selectAll('options', ['id' => $need->id]);
+
         return view($this->file . 'details2')->with([
             'server' => $server,
             'need' => $need,

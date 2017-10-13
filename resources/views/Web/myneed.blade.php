@@ -32,7 +32,7 @@
         <ul>
             @foreach($need as $value)
                 <li class="">
-                    <a href="{{ URL('')  }}">
+                    <a href="{{ URL('demand/details/'.$value->id)  }}">
                         <h2>—&nbsp;&nbsp;{{$value->column_name}}&nbsp;&nbsp;—</h2>
                         <p class="time">添加日期:{{ date('Y-m-d H:i:s',$value->add_time) }} </p>
                         <p class='myneed'>

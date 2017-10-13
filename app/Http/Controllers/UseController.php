@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use  Illuminate\Http\Request;
-use  App\Http\Requests;
-use  App\Http\Controllers;
+use Illuminate\Http\Request;
 
-class UserController extends WebController
+use App\Http\Requests;
+use App\Http\Controllers\WebController;
+
+class UseController extends WebController
 {
     /**
      * 个人中心
@@ -40,6 +42,7 @@ class UserController extends WebController
             $value->transact = $transact;
             $need[] = $value;
         };
+
         // 查询字段意思
         $needAll = array();
         foreach ($need as $value) {
@@ -47,6 +50,7 @@ class UserController extends WebController
             $value->need = $mean;
             $needAll[] = $value;
         }
+
         $num = $this->PurposeModel->selectCount('use_demand', ['user_id' => session('user_id', 1)]);
         return view($this->file . 'myneed')->with([
             'need' => $needAll,  // 获取需求详情
@@ -64,6 +68,5 @@ class UserController extends WebController
         echo 111;
         //   return view($this->file, '');
     }
-
 
 }

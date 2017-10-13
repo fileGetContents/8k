@@ -124,11 +124,12 @@ class PictureController extends WebController
     private function createText($choose, $fileName)
     {
         $string = '';
-        foreach ($choose as $value) {
+        foreach ($choose as $key => $value) {
+            $key = $key + 1;
             $string .= '<div class="choseplace">
                            <div class="dateimg">
                               <img src="' . asset('img/dizhi.png') . '" width="20px" height="auto"></div><div>
-                                 <input name="' . $fileName . '[]" class="place  ' . $fileName . '" placeholder="' . $value . '">
+                                 <input  id="suggestId' . $key . '" name="' . $fileName . '[]" class="place  ' . $fileName . '" placeholder="' . $value . '">
                            </div>
                            <span>&gt;&gt;</span>
                          </div>';

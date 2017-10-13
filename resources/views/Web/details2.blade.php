@@ -13,7 +13,7 @@
 <body onload="init()">
 <div class="content">
     <div class="ji">急</div>
-    <p style="color: #3399FF;">({{$myOrder->telephone}})</p>
+    <p style="color: #3399FF;">({{$myOrder["telephone"]}})</p>
     <div class="controduce">
         感谢您的报价，我觉得还不错，想和你详细沟通一下，上面是我的联系手机，麻烦尽快与我联系，谢谢!
         <img src="{{asset('img/ion3.png')}}">
@@ -36,7 +36,7 @@
         {{--</a></p>--}}
         {{--</div>--}}
         <p>需求进度：<span>对方希望尽快与您取得联系</span></p>
-        <p>Ta的联系电话号码是：{{$myOrder->telephone}}</p>
+        <p>Ta的联系电话号码是：{{$myOrder["telephone"]}}</p>
         <p style="color:#868686 ;">我已经帮他解决了需求！
             <button class="evaluate import">邀请他评价</button>
         </p>
@@ -166,7 +166,7 @@
         $('.active').click(function () {
             $.ajax({
                 type: 'post',
-                data: {'info': $('.textbox').html(), 'use_id': '{{$myOrder->id}}'},
+                data: {'info': $('.textbox').html(), 'use_id': '{{$myOrder["id"]}}'},
                 dataType: 'json',
                 url: '{{URL("add/message")}}',
                 success: function (obj) {

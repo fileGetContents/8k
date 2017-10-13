@@ -20,7 +20,7 @@
 <div class="choseplace">
     <div class="dateimg"><img src="{{asset('img/dizhi.png')}}" width="20px" height="auto"></div>
     <div>
-        <input name="address" class="place" placeholder="街道名、小区/大厦、门牌号" value="{{$profile->address}}">
+        <input name="address"   id="suggestId" class="place" placeholder="街道名、小区/大厦、门牌号" value="{{$profile->address}}">
     </div>
 </div>
 <p class="tit">商户介绍</p>
@@ -72,6 +72,84 @@
         });
     })
 </script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mzvoFzcotiz37nQIpSmWapAd3NusKAGN"></script>
+<script type="text/javascript">
+    // 百度搜索功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+    var map = new BMap.Map("l-map");
+    var point = new BMap.Point(116.404, 39.915);
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+            {
+                "input": "suggestId"
+                , "location": map
+            });
+    map.centerAndZoom(point, 15);
+    ac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+        G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+        setPlace();
+    });
+    function setPlace() {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+
+    function add_overlay($gongl) {
+        //清除覆盖物
+        map.clearOverlays();
+        // 创建地址解析器实例
+        if ($("#suggestId").val() == "") {
+            alert('请选择位置');
+            return false;
+        }
+        var myGeo = new BMap.Geocoder();
+        // 将地址解析结果显示在地图上,并调整地图视野
+        myGeo.getPoint($("#suggestId").val(), function (point) {
+            // var point = new BMap.Point(116.404, 39.915);//
+            map.centerAndZoom(point, 16);
+            var circle = new BMap.Circle(point, $gongl, {
+                strokeColor: "blue",
+                strokeWeight: 2,
+                strokeOpacity: 0.5
+            }); //创建圆
+            map.addOverlay(circle);            //增加圆
+        }, $("#suggestId").val());
+
+    }
+
+</script>
+
 
 </body>
 </html>

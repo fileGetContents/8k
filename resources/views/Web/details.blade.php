@@ -9,14 +9,13 @@
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </head>
-<body onload="init()">
+<body>
 <div class="content">
     <p style="color: #3399FF;" data-toggle="modal" data-target="#mymodal">({{$phone}})</p>
     <div class="mess">
         <div>
             <p><span><img src="{{asset('img/people.png')}}" width="15px" height="auto"></span>{{ $need->quote }}/5</p>
             <p>收到报价</p>
-
         </div>
         <div>
             <p>
@@ -36,11 +35,14 @@
     </div>
     <div class="section2">
         <div class="smalltit">需求详情</div>
-        <div class="del">
-            <img src="{{asset('img/del.png')}}">
-        </div>
+        @if(session('user_id',1) == $need->user_id  && $need->tag ==0)
+            <div class="del" id="{{$id}}">
+                <img src="{{asset('img/del.png')}}">
+            </div>
+        @endif
     </div>
-
+    <br/>
+    <br/>
     @foreach($need->demand as  $key=> $value)
         <div class="tr">
             <span class="import">
@@ -49,7 +51,7 @@
             <span>
                 @if(is_array($value))
                     @foreach($value as $v)
-                        {{  $v  }}<br/>
+                        {{  $v  }}&nbsp;&nbsp;&nbsp;
                     @endforeach
                 @else
                     {{$value}}
@@ -57,6 +59,17 @@
             </span>
         </div>
     @endforeach
+
+    @if($map['bool'])
+        <div id="allmap" style="width: 100%;height:200px;">
+        </div>
+        <div class="tr">
+            <span id="distance" class="import">{{ $map['address'][0] }}到{{ $map['address'][1] }}</span>
+            <span></span>
+        </div>
+    @endif
+
+
 </div>
 <div id="container"></div>
 <div class="section2">
@@ -127,31 +140,88 @@
         </div>
     </div>
 </div>
-@if(session('user_id',2) != $need->user_id )
+@if(session('user_id',1) != $need->user_id )
     <a href="#btnwrapper" data-toggle="modal" data-target="#mymodal">
         <div class="footer">
             <button class="connectbtn">我要极速联系</button>
         </div>
     </a>
 @endif
-{{--<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>--}}
-{{--<script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js"--}}
-{{--charset="UTF-8">--}}
-{{--</script>--}}
 <script type="text/javascript" src="{{asset('js/details.js')}}"></script>
-{{--<script type="text/javascript">CDATASection--}}
-{{--hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');--}}
-{{--</script>--}}>
-
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript">
     $(function () {
         $('#tijiao').click(function () {
             var string = '{{URL('demand/details2/'.$id)}}';
-
             window.location.href = string + '/' + $('#price').val();
+        });
+        $('.del').click(function () {
+            if (confirm('你确定要关闭该需求吗？')) {
+                $.ajax({
+                    type: 'post',
+                    data: {
+                        'table': 'use_demand',
+                        'where': 'id',
+                        'wheFile': $(this).attr('id'),
+                        'upFile': 'tag',
+                        'up': 20
+                    },
+                    dataType: 'json',
+                    url: '{{URL("up/file/all")}}',
+                    success: function (obj) {
+                        $('.del').css('display', 'none')
+                    },
+                    error: function (obj) {
+
+                    }
+                })
+            }
         })
+
+
     })
 </script>
+
+
+@if($map['bool'])
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=mzvoFzcotiz37nQIpSmWapAd3NusKAGN"></script>
+    <script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+        var output = "{{$map['address'][0]}}到{{$map['address'][1]}}";
+        var searchComplete = function (results) {
+            if (transit.getStatus() != BMAP_STATUS_SUCCESS) {
+                return;
+            }
+            var plan = results.getPlan(0);
+            output += plan.getDuration(true) + "\n";                //获取时间
+            output += "总路程为：";
+            output += plan.getDistance(true) + "\n";             //获取距离
+        };
+        var transit = new BMap.DrivingRoute(map, {
+            renderOptions: {map: map},
+            onSearchComplete: searchComplete,
+            onPolylinesSet: function () {
+                setTimeout(function () {
+                    $("#distance").html(output);
+                }, "1000");
+            }
+        });
+        // 添加控件
+        var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+        var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩   放平移控件
+        var top_right_navigation = new BMap.NavigationControl({
+            anchor: BMAP_ANCHOR_TOP_RIGHT,
+            type: BMAP_NAVIGATION_CONTROL_SMALL
+        }); //右上角，仅包含平移和缩放按钮
+        map.addControl(top_left_control);
+        map.addControl(top_left_navigation);
+        map.addControl(top_right_navigation);
+        {{--transit.search("{{$map['address'][0]}}", "{{$map['address'][1]}}");--}}
+        transit.search("{{$map['address'][0]}}", "{{$map['address'][1]}}")
+    </script>
+@endif
 </body>
 </html>

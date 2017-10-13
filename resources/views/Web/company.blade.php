@@ -108,7 +108,7 @@
             <div style="width: 20px;height: 20px;margin: 5px 10px 0 20px;float: left;">
                 <img src="{{asset('img/add.png')}}" width="20px" height="auto"/>
             </div>
-            <span style="float: left;">留下新脚印</span>
+            <span style="float: left;"><a href="{{URL('add/foot')}}">留下新脚印</a></span>
         </div>
         <div class="placebox3">
             <p class="boxtit">脚印痕迹:</p>

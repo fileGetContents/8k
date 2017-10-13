@@ -91,12 +91,12 @@ Route::any('up/user', 'ApiController@upUser');                                //
 Route::any('add/message', 'ApiController@addMessage');                        //  添加信息
 Route::any('up/file/all', 'ApiController@upFileAll');                         //  通用更新单个字段
 
-Route::any('test', 'WebController@test');                    // 提交测试
+Route::any('test', 'WebController@test');                                     // 提交测试
 
-Route::any('show/serve', 'ColumnController@showServer');                     // 用户选择服务项目
-Route::any('add/server', 'ColumnController@addServer');                      // 添加服务商
-Route::any('range/server/{id}', 'ColumnController@serverRange');             // 添加地址信息
-Route::any('add/range', 'ColumnController@addRange');                        // 添加服务半径
+Route::any('show/serve', 'ColumnController@showServer');                      // 用户选择服务项目
+Route::any('add/server', 'ColumnController@addServer');                       // 添加服务商
+Route::any('range/server/{id}', 'ColumnController@serverRange');              // 添加地址信息
+Route::any('add/range', 'ColumnController@addRange');                         // 添加服务半径
 
 
 Route::any('choose/server/{id}', 'ColumnController@chooseServer');             // 填写需求
@@ -106,9 +106,9 @@ Route::any('connectbussiness', 'ColumnController@connectbussiness');
 Route::any('alreadybussiness', 'ColumnController@alreadybussiness');
 Route::any('waitbussiness', 'ColumnController@waitbussiness');
 
-Route::any('person', 'UserController@person');                              // 用户个人中心
-Route::any('user/need', 'UserController@userNeed');                         // 用户需求进度
-Route::any('need/{id}', 'UserController@');                                 // 需求详情
+Route::any('person', 'UseController@person');                              // 用户个人中心
+Route::any('user/need', 'UseController@userNeed');                         // 用户需求
+//Route::any('need/{id}', 'UseController@needInfo');                         // 需求列表
 
 Route::any('company', 'ServerController@company');                          // 商户中心
 Route::any('replace', 'ServerController@replace');                          // 添加修改商户信息
@@ -124,8 +124,8 @@ Route::any('insert/identifyv', 'ServerController@insertIdentifyV');
 
 Route::any('add/identify', 'ServerController@addIdentify');                 // 添加认证服务
 
-Route::any('jifen', 'IntegralController@recharge');                        // 积分充值
-Route::any('add/recharge', 'IntegralController@addRecharge');              // 生成积分订单                                                // 生成积分订单
+Route::any('jifen', 'IntegralController@recharge');                         // 积分充值
+Route::any('add/recharge', 'IntegralController@addRecharge');               // 生成积分订单                                                // 生成积分订单
 // ajax上传图片
 Route::any('update/image2', 'ApiController@ajaxUpdateFileImage');
 Route::any('update/image', 'ApiController@ajaxUpdateFileImage2');
@@ -134,13 +134,7 @@ Route::any('update/image', 'ApiController@ajaxUpdateFileImage2');
 Route::any('suggest', 'FeedBackController@suggest');
 Route::any('user/suggest', 'FeedBackController@userSuggest');
 
-
 Route::any('wx/user/info', 'WechateController@userInfo');
 Route::any('pay/wx', 'WechateController@pay');
 
-
 Route::any('map/similarity', 'MapController@getSimilarity');
-
-
-
-

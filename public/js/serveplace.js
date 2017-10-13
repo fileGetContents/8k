@@ -6,6 +6,7 @@ $(window).ready(function jindu($) {
     var left = 200;
     var bgleft = 0;
     $bg.click(function (e) {
+        add_overlay();
         if (!statu) {
             bgleft = $bg.offset().left;
             left = e.pageX - bgleft;
@@ -27,4 +28,4 @@ $(window).ready(function jindu($) {
 $('.del').click(function () {
 
     this.parentNode.remove(this.parentNode);
-})
+});

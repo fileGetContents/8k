@@ -77,7 +77,7 @@
 [class="top-advert"] {display:none!important;display:none}
 [class="middle-advert"] {display:none!important;display:none}
 [class^="qq_topAd"] {display:none!important;display:none}
-#container{
+#l-map{
     width:90%;
     min-height:100px;
     margin-left: 5%;
