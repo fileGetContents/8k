@@ -38,7 +38,7 @@ class WechateController extends WebController
                 ]);
                 session(['user_id' => $id]);
             }
-            echo '<script type="text/javascript">window.location.href="http://www.xcylkj.com/public/person"</script>';
+            echo '<script type="text/javascript">window.location.href="http://www.xcylkj.com/person"</script>';
         } else {
             $baseUrl = urlencode('http://www.xcylkj.com/wx/user/info');
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
