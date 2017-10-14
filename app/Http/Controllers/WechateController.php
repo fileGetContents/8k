@@ -75,5 +75,45 @@ class WechateController extends WebController
         return $jsApiParameters;
     }
 
+    /**
+     *
+     * 用户标签
+     */
+    public function userTagsCreate(Request $request)
+    {
+
+    }
+
+    /**
+     * 创建一个自定义菜单
+     *
+     * @param Request $request
+     */
+    public function createMenu(Request $request)
+    {
+        $url = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=ACCESS_TOKEN';
+
+    }
+
+
+    private function demandMenu()
+    {
+
+    }
+
+
+    private function serverMenu()
+    {
+
+
+    }
+
+
+    public function getAccessToken()
+    {
+        $config = new Wechate\WxPayConfig();
+        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . $config::APPID . '&secret=' . $config::APPSECRET;
+        return file_get_contents($url);
+    }
 
 }

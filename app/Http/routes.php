@@ -138,3 +138,8 @@ Route::any('wx/user/info', 'WechateController@userInfo');
 Route::any('pay/wx', 'WechateController@pay');
 
 Route::any('map/similarity', 'MapController@getSimilarity');
+
+
+Route::any('wx/test', 'WechateController@getAccessToken'); // 微信测试
+
+

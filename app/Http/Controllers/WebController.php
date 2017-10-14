@@ -27,9 +27,50 @@ class WebController extends Controller
      */
     public function test(Request $request)
     {
-//        $map = file_get_contents('http://apis.map.qq.com/ws/place/v1/suggestion/?region=北京&keyword=美食&key=EOWBZ-23M3S-FHWOP-6H5NO-3BVO5-ENBTR');
-//        dump($map);
-        return view('test');
+
+        $string = '
+        {
+ 	"button":[
+ 	{
+    	"type":"click",
+    	"name":"今日歌曲",
+     	"key":"V1001_TODAY_MUSIC"
+	},
+	{
+		"name":"菜单",
+		"sub_button":[
+		{
+			"type":"view",
+			"name":"搜索",
+			"url":"http://www.soso.com/"
+		},
+                 {
+                         "type":"miniprogram",
+                         "name":"wxa",
+                         "url":"http://mp.weixin.qq.com",
+                         "appid":"wx286b93c14bbf93aa",
+                         "pagepath":"pages/lunar/index"
+                   },
+     		    {
+			"type":"click",
+			"name":"赞一下我们",
+			"key":"V1001_GOOD"
+	       	}]
+ }],
+"matchrule":{
+  "tag_id":"2",
+  "sex":"1",
+  "country":"中国",
+  "province":"广东",
+  "city":"广州",
+  "client_platform_type":"2",
+  "language":"zh_CN"
+  }
+}
+        ';
+        dump(json_decode($string));
+
+//        return view('test');
     }
 
     /**
