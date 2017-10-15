@@ -16,13 +16,10 @@ class WechateController extends WebController
     {
         $config = new Wechate\WxPayConfig();
         if (isset($_GET['code'])) {
-            // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
             $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=' . $config::APPSECRET . '&code=' . $_GET["code"] . '&grant_type=authorization_code ');
             $accArray = json_decode($accJson, true);
             $infoJson = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
             $infoArray = json_decode($infoJson, true);
-
-            dump($infoArray);die;
             $whether = $this->PurposeModel->selectFirst('use', [
                 'openid' => $infoArray['openid'],
             ]);
@@ -56,6 +53,8 @@ class WechateController extends WebController
         $openId = 'o_wyxwkPMUKj_K5pPRkPGMuo2SVk';
         // ②、统一下单
         $input = new Wechate\WxPayUnifiedOrder();
+        dump($pay);
+        die;
         $input->SetBody($pay['body']);                           // 设置商品或支付单简要描述
         $input->SetAttach($pay['attach']);                       // 附加信息
         $input->SetOut_trade_no($pay['trade_no']);               // 商户订单号
