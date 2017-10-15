@@ -309,7 +309,7 @@ class ServerController extends WebController
         $image = array_filter(explode('/', $request->input('string')));
         $urlImage = array();
         foreach ($image as $value) {
-            $urlImage[] = asset(date('ymd') . '/' . $value . '.png');
+            $urlImage[] = asset(date('Ymd') . '/' . $value . '.png');
         }
         $orderNum = $this->WayClass->createOrderNum();
         $whether = $this->PurposeModel->insertWhether('identify', [
