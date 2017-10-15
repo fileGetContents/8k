@@ -147,6 +147,7 @@ Route::any('wx/test', 'WechateController@getAccessToken');  // 微信测试
 Route::any('create/menu', 'WechateController@createMenu');  // 创建视图
 Route::any('menu/list', 'WechateController@getMenuList');   // 获取菜单
 Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接口
+Roue::any('user/tag', 'WechateController@createUserTag'); // 用户标签
 
 Route::any('service / provider', function () {
     echo '如何挑选服务商';

@@ -97,7 +97,6 @@ class WechateController extends WebController
         var_dump($server);
     }
 
-
     /**
      * 创建用户视图
      * @return array
@@ -252,6 +251,24 @@ class WechateController extends WebController
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
         dump($accJson);
+    }
+
+
+    /**
+     * 创建用户标签
+     */
+    public function createUserTag()
+    {
+        $acc = $this->getAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging?access_token=' . $acc['access_token'];
+        $data = [
+            'openid_list' => [
+                'o_wyxwkPMUKj_K5pPRkPGMuo2SVk'
+            ],
+            "tagid" => 2
+        ];
+        $json = $this->WayClass->sendPost($url, $data);
+        dump($json);
     }
 
 }
