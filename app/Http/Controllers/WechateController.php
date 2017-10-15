@@ -189,7 +189,7 @@ class WechateController extends WebController
                     ]
                 ],
                 [
-                    'name' => urlencode('跟多'),
+                    'name' => urlencode('更多'),
                     'sub_button' =>
                         [
                             [

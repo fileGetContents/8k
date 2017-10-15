@@ -204,5 +204,34 @@ class PictureController extends WebController
         return view($this->file . 'picture-show');
     }
 
+    /**
+     * 认证列表
+     * @return $this
+     */
+    public function identifyList(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $identify = DB::table('identify')
+                ->leftJoin('use', 'use.id', '=', 'identify.use_id')
+                ->orderBy('identify_id', 'desc')
+                ->where('time', '>', strtotime($request->input('start')))
+                ->orWhere('time', '<', strtotime($request->input('over')))
+                ->get();
+        } else {
+            $identify = DB::table('identify')
+                ->leftJoin('use', 'use.id', '=', 'identify.use_id')
+                ->orderBy('identify_id', 'desc')
+                ->get();
+        }
+
+        foreach ($identify as $key => $value) {
+            $identify[$key]->images = unserialize($value->images);
+        }
+
+        return view($this->file . 'indenty-list')->with([
+            'identify' => $identify
+        ]);
+    }
+
 
 }

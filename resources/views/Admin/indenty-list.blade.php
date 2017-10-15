@@ -31,7 +31,7 @@
 <div class="pd-20">
 
 
-    <form action="{{URL('picture-list')}}" method="post">
+    <form action="{{URL('identify-list')}}" method="post">
         <div class="text-c"> 日期范围：
             <input type="text" name="start" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})"
                    id="logmin"
@@ -54,47 +54,52 @@
                 <th width="100">名称</th>
                 <th width="100">联系方式</th>
                 <th>图片名称</th>
-                <th width="150" style="display: none;">Tags</th>
+                <th width="150">支付状态</th>
                 <th width="150">更新时间</th>
                 <th width="60">审核状态</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($doc as $value)
+            @foreach($identify as $value)
                 <tr class="text-c">
                     <td><input name="" type="checkbox" value=""></td>
-                    <td>{{$value->id}}</td>
-                    <td>{{$value->name}}</td>
+                    <td>{{$value->identify_id}}</td>
+                    <td>{{$value->nick}}</td>
                     <td>
                         {{$value->telephone}}
                     </td>
                     <td class="text-l">
-                        @if(is_array($value->documents))
-                            @foreach($value->documents as $v)
+                        @if(is_array($value->images))
+                            @foreach($value->images as $v)
                                 <a href="{!! $v !!}"><img width="80px" height="80px" src="{!! $v !!}" alt=""></a>
                             @endforeach
                         @endif
                     </td>
-                    <td class="text-c" style="display: none;"></td>
+                    <td class="text-c">
+                        @if($value->tag ==0)
+                            <span class="label label-success radius">待支付</span>
+                        @elseif($value->tag == 10)
+                            <span class="label label-success radius">已支付</span>
+                        @endif
+                    </td>
                     <td>{{date('Y-m-d H:i:s',$value->time)  }}</td>
                     <td class="td-status">
-                        @if($value->tag ==0)
+                        @if($value->admin_tag ==0)
                             <span class="label label-success radius">待审核</span>
-                        @elseif($value->tag == 10)
+                        @elseif($value->admin_tag == 10)
                             <span class="label label-success radius">审核通过</span>
-                        @elseif($value->tag == 20)
+                        @elseif($value->admin_tag == 20)
                             <span class="label label-defaunt radius">审核失败</span>
                         @endif
                     </td>
                     <td class="td-manage">
-
                         <a style="text-decoration:none" class="ml-5"
-                           onClick="picture_shenhe(this,'{{$value->id}}')" href="javascript:;" title="编辑">
+                           onClick="picture_shenhe(this,'{{$value->identify_id}}')" href="javascript:;" title="编辑">
                             <i class="Hui-iconfont">&#xe6df;</i>
                         </a>
-
-                        <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'{{$value->id}}')"
+                        <a style="text-decoration:none" class="ml-5"
+                           onClick="picture_del(this,'{{$value->identify_id}}')"
                            href="javascript:;" title="删除">
                             <i class="Hui-iconfont">&#xe6e2;</i>
                         </a>
@@ -146,14 +151,13 @@
                     shade: false
                 },
                 function () {
-
                     $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">审核通过</span>');
                     $.ajax({
                         data: {
-                            'table': 'documents',
-                            'where': 'id',
+                            'table': 'identify',
+                            'where': 'identify_id',
                             'wheFile': id,
-                            'upFile': 'tag',
+                            'upFile': 'admin_tag',
                             'up': 10
                         },
                         dadaType: 'json',
@@ -172,10 +176,10 @@
                     $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">审核失败</span>');
                     $.ajax({
                         data: {
-                            'table': 'documents',
-                            'where': 'id',
+                            'table': 'identify',
+                            'where': 'identify_id',
                             'wheFile': id,
-                            'upFile': 'tag',
+                            'upFile': 'admin_tag',
                             'up': 20
                         },
                         dadaType: 'json',
@@ -231,10 +235,9 @@
     /*图片-删除*/
     function picture_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
-
             $.ajax({
                 type: 'post',
-                data: {'table': 'documents', 'id': id},
+                data: {'table': 'identify', 'identify_id': id},
                 dataType: 'json',
                 url: '{{URL("pur/del")}}',
                 success: function (obj) {

@@ -81,6 +81,10 @@ Route::group(["namespace" => "Admin"], function () {
 
     Route::any('welcome', 'WelcomeController@Welcome');
 
+
+    Route::any('identify-list', 'PictureController@identifyList');// 认证申请
+
+
 });
 
 // API 接口管理
@@ -128,9 +132,7 @@ Route::any('jifen', 'IntegralController@recharge');                         // �
 Route::any('add/recharge', 'IntegralController@addRecharge');               // 生成积分订单
 
 
-Route::any('jifen/info', function () {
-    echo '积分详细';
-});
+Route::any('jifen/info', 'IntegralController@listRecharge');                // 积分详情
 // ajax上传图片
 Route::any('update/image2', 'ApiController@ajaxUpdateFileImage');
 Route::any('update/image', 'ApiController@ajaxUpdateFileImage2');
