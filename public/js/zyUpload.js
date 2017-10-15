@@ -197,7 +197,7 @@
                     formData.append("file", $("#fileImage")[0].files[0]);
                     formData.append("name", parseInt(num, 10));
                     $.ajax({
-                        url: 'http://localhost/8k/public/update/image2',
+                        url: 'http://www.xcylkj.com/update/image2',
                         type: 'POST',
                         data: formData,
                         processData: false,
