@@ -22,9 +22,7 @@ class WechateController extends WebController
             $infoJson = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
             $infoArray = json_decode($infoJson, true);
             $whether = $this->PurposeModel->selectFirst('use', [
-                // 'nick' => $infoArray['nickname'],
                 'openid' => $infoArray['openid'],
-                // 'headimgurl' => $infoArray['headimgurl'],
             ]);
             if (!is_null($whether)) {
                 session(['user_id' => $whether->id]);
@@ -44,12 +42,11 @@ class WechateController extends WebController
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
             echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
         }
-
     }
 
 
     /**
-     * 微信支付
+     *公众号支付
      */
     public function pay($pay)
     {
@@ -76,13 +73,13 @@ class WechateController extends WebController
     }
 
     /**
-     *
-     * 用户标签
+     * 切换用户标签
      */
     public function userTagsCreate(Request $request)
     {
 
     }
+
 
     /**
      * 创建一个自定义菜单
@@ -93,8 +90,10 @@ class WechateController extends WebController
     {
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=' . $acc['access_token'];
-        $json = $this->WayClass->sendPost($url, self::demandMenu());
-        dump($json);
+        $user = $this->WayClass->sendPost($url, self::demandMenu());
+        $server = $this->WayClass->sendPost($url, self::serverMenu());
+        dump($user);
+        dump($server);
     }
 
 
