@@ -329,7 +329,6 @@ class WechateController extends WebController
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
             echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
         }
-
     }
 
     /**
@@ -338,8 +337,10 @@ class WechateController extends WebController
     public function setTemplate()
     {
         $acc = $this->getAccessToken();
-        $url = 'https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=' . $acc['access_token'];
-        $json = $this->WayClass->sendPost($url, ['industry_id1' => 1, 'industry_id12' => 4]);
+        $url = 'https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=' . $acc['access_token'];
+
+        $json = file_get_contents("https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=" . $acc['access_token']);
+        // $json = $this->WayClass->sendPost($url, ['industry_id1' => 1, 'industry_id12' => 4]);
         var_dump($json);
     }
 
