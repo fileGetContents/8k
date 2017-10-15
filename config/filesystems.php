@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => 'D:\wamp22\www\8k\public',
+            'root' => 'D:\wwwroot\banana\wwwroot\public\images',
         ],
 
         'ftp' => [
