@@ -239,7 +239,7 @@ class WechateController extends WebController
     public function getMenuList()
     {
         $acc = $this->getAccessToken();
-        $url = ' https://api.weixin.qq.com/cgi-bin/menu/get?access_token=' . $acc['access_token'];
+        $url = 'https://api.weixin.qq.com/cgi-bin/menu/get?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
         dump($accJson);
     }

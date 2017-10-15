@@ -46,8 +46,9 @@ class WayClassModel extends Model
      * @param string $url 请求地址
      * @param array $post_data post键值对数据
      * @return string
-     *
+     *menuid
      * 424226748
+     * 424226803
      */
     public function sendPost($url, $post_data)
     {
