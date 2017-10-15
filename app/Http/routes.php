@@ -144,7 +144,7 @@ Route::any('map/similarity', 'MapController@getSimilarity');
 
 
 Route::any('wx/test', 'WechateController@getAccessToken');  // 微信测试
-Route::any('create/menu', 'WechateController@createMenu');  // 创建需求方视图
+Route::any('create/menu', 'WechateController@createMenu');  // 创建视图
 Route::any('menu/list', 'WechateController@getMenuList');   // 获取菜单
 Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接口
 
