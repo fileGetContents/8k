@@ -106,41 +106,41 @@ class WechateController extends WebController
         return [
             'button' => [
                 [
-                    'name' => '我的需求',
+                    'name' => urlencode('我的需求'),
                     'sub_button' => [
                         [
                             'type' => 'view',
-                            'name' => '需求进度',
+                            'name' => urlencode('需求进度'),
                             'url' => URL('user/need')
                         ],
                         [
                             'type' => 'view',
-                            'name' => '一键发布',
+                            'name' => urlencode('一键发布'),
                             'url' => URL('show/serve')
                         ],
                     ]
                 ],
                 [
-                    'name' => '更多',
+                    'name' => urlencode('更多'),
                     'sub_button' => [
                         [
                             'type' => 'view',
-                            'name' => '个人中心',
+                            'name' => urlencode('个人中心'),
                             'url' => URL('person')
                         ],
                         [
                             'type' => 'view',
-                            'name' => '如何挑选服务商',
+                            'name' => urlencode('如何挑选服务商'),
                             'url' => URL('service/provider')
                         ],
                         [
                             'type' => 'view',
-                            'name' => '服务商功能',
+                            'name' => urlencode('服务商功能'),
                             'url' => URL('service/provider')
                         ],
                         [
                             'type' => 'view',
-                            'name' => '关于8公里',
+                            'name' => urlencode('关于8公里'),
                             'url' => URL('abouts/us')
                         ],
                     ]
@@ -163,59 +163,55 @@ class WechateController extends WebController
             'button' => [
                 [
                     "type" => "view",
-                    "name" => '我的生意',
+                    "name" => urlencode('我的生意'),
                     "url" => URL('connectbussiness')
                 ],
                 [
-                    'name' => '我的福利',
+                    'name' => urlencode('我的福利'),
                     'sub_button' => [
                         [
                             'type' => 'view',
-                            'name' => '积分充值',
+                            'name' => urlencode('积分充值'),
                             'url' => URL('jifen')
                         ],
                         [
                             'type' => 'view',
-                            'name' => '积分记录',
+                            'name' => urlencode('积分记录'),
                             'url' => URL('jifen/info')
                         ],
                         [
                             'type' => 'view',
-                            'name' => '成单秘籍',
+                            'name' => urlencode('成单秘籍'),
                             'url' => URL('secrets')
                         ],
                     ]
                 ],
                 [
-                    'name' => '跟多',
+                    'name' => urlencode('跟多'),
                     'sub_button' =>
                         [
                             [
                                 'type' => 'view',
-                                'name' => '商户主页',
+                                'name' => urlencode('商户主页'),
                                 'url' => URL('company')
                             ],
                             [
                                 'type' => 'view',
-                                'name' => '个人中心',
+                                'name' => urlencode('个人中心'),
                                 'url' => URL('person')
                             ],
                             [
                                 'type' => 'view',
-                                'name' => '关于8公里',
+                                'name' => urlencode('关于8公里'),
                                 'url' => URL('abouts/us')
                             ],
                             [
                                 'type' => 'view',
-                                'name' => '通用设置',
+                                'name' => urlencode('通用设置'),
                                 'url' => 'www.baidu.com'
                             ]
-
                         ]
-
                 ]
-
-
             ],
             'matchrule' => [
                 'tag_id' => '2',
