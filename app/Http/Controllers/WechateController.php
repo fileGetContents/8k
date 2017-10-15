@@ -78,7 +78,11 @@ class WechateController extends WebController
     public function userTagsCreate(Request $request)
     {
         $tools = new Wechate\JsApiPay();
+
+        dump($tools->GetOpenid());
+        die;
         if (is_numeric($request->id)) { // 添加标签
+
             $this->createUserTag($tools->GetOpenid());
         } else {  // 删除标签
             $this->delUserTag($tools->GetOpenid());
