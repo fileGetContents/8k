@@ -77,16 +77,12 @@ class WechateController extends WebController
      */
     public function userTagsCreate(Request $request)
     {
-
-        die;
-        $opendId = $this->wxUserLogin('http://www.xcylkj.com/user/tag/' . $request->id);
-        dump($opendId);
-        die;
-        if (is_numeric($request->id)) { // 添加标签
-            $this->createUserTag($opendId);
-        } else {  // 删除标签
-            $this->delUserTag($opendId);
-        }
+//        $opendId = $this->wxUserLogin('http://www.xcylkj.com/user/tag/' . $request->id);
+//        if (is_numeric($request->id)) { // 添加标签
+//            $this->createUserTag($opendId);
+//        } else {  // 删除标签
+//            $this->delUserTag($opendId);
+//        }
         return view('changcreate');
     }
 
