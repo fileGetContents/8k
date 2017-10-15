@@ -154,7 +154,7 @@ Route::any('service / provider', function () {
 });
 
 
-Route::any('abouts / us', function () {
+Route::any('abouts/us', function () {
     echo '关于我们';
 });
 
