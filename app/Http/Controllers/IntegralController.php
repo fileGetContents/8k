@@ -34,15 +34,20 @@ class IntegralController extends WebController
         $insert = $request->all();
         $insert['use_id'] = session('user_id', 1);
         $insert['time'] = $_SERVER['REQUEST_TIME'];       // 添加时间
-        $insert['order_num'] = $_SERVER['REQUEST_TIME'];  // 订单号
+        $insert['order_num'] = $this->WayClass->createOrderNum();  // 订单号
         $whether = $this->PurposeModel->insertWhether('recharge', $insert);
         if ($whether) {
-            echo collect(['info' => 0, 'message' => 'success']);
+            $wechate = new WechateController();
+            $jsApiJson = $wechate->pay([
+                'body' => '积分充值',
+                'attach' => 'recharge', // 表名，
+                'trade_no' => $insert['order_num'],
+                'pay' => intval($insert['price']) * 100,
+            ]);
+            echo collect(['info' => 0, 'message' => $jsApiJson]);
         } else {
             echo collect(['info' => 1, 'message' => 'error']);
         }
-        // 发起微信支付接口
-
 
     }
 

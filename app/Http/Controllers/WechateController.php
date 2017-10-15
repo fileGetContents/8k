@@ -44,7 +44,6 @@ class WechateController extends WebController
         }
     }
 
-
     /**
      *公众号支付
      */
@@ -72,6 +71,7 @@ class WechateController extends WebController
         return $jsApiParameters;
     }
 
+
     /**
      * 切换用户标签
      */
@@ -93,8 +93,8 @@ class WechateController extends WebController
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=' . $acc['access_token']; // 个性化
         $user = $this->WayClass->sendPost($url2, self::demandMenu());
         $server = $this->WayClass->sendPost($url, self::serverMenu());
-        var_dump($user);
-        var_dump($server);
+//        var_dump($user);
+//        var_dump($server);
     }
 
     /**
@@ -239,7 +239,7 @@ class WechateController extends WebController
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/get?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
-        dump($accJson);
+        /// dump($accJson);
     }
 
     /**
@@ -250,25 +250,24 @@ class WechateController extends WebController
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
-        dump($accJson);
+        // dump($accJson);
     }
-
 
     /**
      * 创建用户标签
+     * @param  $openid string
+     * @return  string
      */
-    public function createUserTag()
+    public function createUserTag($openid)
     {
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging?access_token=' . $acc['access_token'];
         $data = [
-            'openid_list' => [
-                'o_wyxwkPMUKj_K5pPRkPGMuo2SVk'
-            ],
+            'openid_list' => [$openid],
             "tagid" => 2
         ];
         $json = $this->WayClass->sendPost($url, $data);
-        dump($json);
+        return $json;
     }
 
 }

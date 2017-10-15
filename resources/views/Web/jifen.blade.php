@@ -95,9 +95,7 @@
                 dataType: 'json',
                 url: '{{URL("add/recharge")}}',
                 success: function (obj) {
-                    if (obj.info == 0) {
-                        alert('发起微信支付')
-                    }
+                    console.log(obj)
                 },
                 error: function (obj) {
 
