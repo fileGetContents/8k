@@ -235,11 +235,24 @@ class WechateController extends WebController
         return json_decode($accJson, true);
     }
 
-
+    /**
+     *  查询自定义菜单
+     */
     public function getMenuList()
     {
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/get?access_token=' . $acc['access_token'];
+        $accJson = file_get_contents($url);
+        dump($accJson);
+    }
+
+    /**
+     * 删除自定义菜单
+     */
+    public function delMenu()
+    {
+        $acc = $this->getAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
         dump($accJson);
     }
