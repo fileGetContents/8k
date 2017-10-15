@@ -337,9 +337,9 @@ class WechateController extends WebController
     public function setTemplate()
     {
         $acc = $this->getAccessToken();
-        $url = 'https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=' . $acc['access_token'];
-//        $json = file_get_contents("https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=" . $acc['access_token']);
-        $json = $this->WayClass->sendPost($url, ['industry_id1' => 1, 'industry_id12' => 1]);
+        //  $url = 'https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=' . $acc['access_token'];
+        $json = file_get_contents("https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=" . $acc['access_token']);
+        //  $json = $this->WayClass->sendPost($url, ['industry_id1' => 1, 'industry_id12' => 1]);
         var_dump($json);
     }
 
