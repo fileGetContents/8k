@@ -126,6 +126,9 @@ Route::any('add/identify', 'ServerController@addIdentify');                 // �
 
 Route::any('jifen', 'IntegralController@recharge');                         // 积分充值
 Route::any('add/recharge', 'IntegralController@addRecharge');               // 生成积分订单
+
+
+
 Route::any('jifen/info', function () {
     echo '积分详细';
 });
@@ -147,7 +150,9 @@ Route::any('wx/test', 'WechateController@getAccessToken');  // 微信测试
 Route::any('create/menu', 'WechateController@createMenu');  // 创建视图
 Route::any('menu/list', 'WechateController@getMenuList');   // 获取菜单
 Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接口
-Route::any('user/tag', 'WechateController@createUserTag'); // 用户标签
+Route::any('user/tag/{id?}', 'WechateController@createUserTag'); // 用户标签
+
+
 
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 成单秘籍
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们

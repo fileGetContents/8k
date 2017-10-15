@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>我的需求</title>
     <link href="{{asset('css/myneed.css')}}" rel="stylesheet"/>
+    <link href="{{asset('css/bussiness.css')}}" rel="stylesheet">
     <style>
         .hind {
             display: none;
@@ -22,33 +23,32 @@
         <p>亲，您还没有发布过任何需求哦~</p>
     </div>
     <button class="announce">
-        <div> width="20px" height="auto"></div>
+        <div width="20px" height="auto"></div>
         <div><a href="{{URL('show/serve')}}">立刻发布需求， GO!</a></div>
     </button>
     <p class="advertise">[8公里，不再是距离，而是服务品质]</p>
 @else
     <div class="my_need">
         <p>您已经发布了{{ $num }}个需求</p>
-        <ul>
-            @foreach($need as $value)
-                <li class="">
-                    <a href="{{ URL('demand/details/'.$value->id)  }}">
-                        <h2>—&nbsp;&nbsp;{{$value->column_name}}&nbsp;&nbsp;—</h2>
-                        <p class="time">添加日期:{{ date('Y-m-d H:i:s',$value->add_time) }} </p>
-                        <p class='myneed'>
+        @foreach( $need as $value)
+            <div class="section" style="border: 1px slid red">
+                <a href="{{ URL('demand/details/'.$value->id) }}">
+                    <div class="section-mess">
+                        <p><span class="import">{{$value->column_name}}</span></p>
+                        <div class="clock"><img src="{{asset('img/clock.png')}}"></div>
+                        <div class="time">发布时间:{{ date('Y-m-d',$value->add_time) }}</div>
+                        <div class="mess-right">
                             @if($value->tag == 1)
                                 需求已解决
                             @else
                                 待解决
                             @endif
-                        </p>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
 
-        <button class="prev" style="display: none">上一个</button>
-        <button class="next">下一个</button>
     </div>
 @endif
 <script src="{{asset('js/jquery.min.js')}}"></script>
@@ -56,7 +56,6 @@
     $(function () {
         $("ul li").attr('class', 'hind').eq(0).attr('id', "show");
         var len = $('ul li').length;
-
         // 上一页
         $('.prev').click(function () {
             $(".next").css('display', 'block');

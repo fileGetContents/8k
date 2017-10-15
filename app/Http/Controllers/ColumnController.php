@@ -297,8 +297,6 @@ class ColumnController extends WebController
     public function connectbussiness(Request $request)
     {
         $need = self::selWhereAll(['server_id' => session('user', 2)]);
-
-
         return view($this->file . 'connectbussiness')->with([
             'need' => self::selWhereAll(['server_id' => session('user', 2)]),
             'id' => self::selFileAs('use_demand.id as id2', ['server_id' => session('user', 2)]),
@@ -320,7 +318,6 @@ class ColumnController extends WebController
             ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
             ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
             ->get();
-
         $id = DB::table('use_demand')
             ->where('quote', '>', 0)
             ->select('use_demand.id as id2')
@@ -328,7 +325,6 @@ class ColumnController extends WebController
             ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
             ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
             ->get();
-
         return view($this->file . 'alreadybussiness')->with([
             'need' => $quote,
             'id' => $id,

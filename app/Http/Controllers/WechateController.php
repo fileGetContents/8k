@@ -49,7 +49,7 @@ class WechateController extends WebController
     public function pay($pay)
     {
         $tools = new Wechate\JsApiPay();
-//        $openId = $tools->GetOpenid();
+        //$openId = $tools->GetOpenid();
         $openId = 'o_wyxwkPMUKj_K5pPRkPGMuo2SVk';
         // ②、统一下单
         $input = new Wechate\WxPayUnifiedOrder();
@@ -77,7 +77,13 @@ class WechateController extends WebController
      */
     public function userTagsCreate(Request $request)
     {
-
+        $tools = new Wechate\JsApiPay();
+        if (is_numeric($request->id)) { // 添加标签
+            $this->createUserTag($tools->GetOpenid());
+        } else {  // 删除标签
+            $this->delUserTag($tools->GetOpenid());
+        }
+        return view('changcreate');
     }
 
 
@@ -269,5 +275,24 @@ class WechateController extends WebController
         $json = $this->WayClass->sendPost($url, $data);
         return $json;
     }
+
+    /**
+     * 删除用户标签
+     * @param $openid
+     * @return string
+     */
+    public function delUserTag($openid)
+    {
+        $acc = $this->getAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging?access_token=' . $acc['access_token'];
+        $data = [
+            'openid_list' => [$openid],
+            'tagid' => 2,
+        ];
+        $json = $this->WayClass->sendPost($url, $data);
+        return $json;
+
+    }
+
 
 }
