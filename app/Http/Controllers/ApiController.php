@@ -202,7 +202,6 @@ class ApiController extends Controller
         } else {
             return collect(array('nameFile' => 'error'))->toJson();
         }
-
     }
 
     /**

@@ -328,12 +328,10 @@ class ServerController extends WebController
                 'trade_no' => $orderNum,
                 'total_fee' => $request->input('price') * 100,
             ]);
-            return collect(['info' => 0, 'message' => $return])->toJson();
+            echo collect(['info' => 0, 'message' => $return])->toJson();
         } else {
-            return collect(['info' => 1, 'message' => 'error']);
+            echo collect(['info' => 1, 'message' => 'error']);
         }
-
-
     }
 
 
