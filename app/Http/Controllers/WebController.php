@@ -96,7 +96,8 @@ class WebController extends Controller
         $wx = new WechateController();
         $acc = $wx->getAccessToken();
         $url = 'https://api.weixin.qq.com/sns/userinfo?access_token=' . $acc['access_token'] . '&openid=' . $openId . '&lang=zh_CN';
-        dump($url);
+        $json = file_get_contents($url);
+        dump($json);
     }
 
 
