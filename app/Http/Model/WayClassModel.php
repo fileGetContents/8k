@@ -46,12 +46,12 @@ class WayClassModel extends Model
      * @param string $url 请求地址
      * @param array $post_data post键值对数据
      * @return string
+     *
+     * 424226748
      */
     public function sendPost($url, $post_data)
     {
         $postData = urldecode(json_encode($post_data));
-
-        dump($postData);
         $options = array(
             'http' => array(
                 'method' => 'POST',
