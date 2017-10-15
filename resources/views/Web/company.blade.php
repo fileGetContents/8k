@@ -45,11 +45,17 @@
     <div class="no" style="display: block;">
         <div class="placebox">
             <img src="{{asset('img/dizhi.png')}}" width="20px" height="auto"/>
-            <span>@if($profile->address == null)
+            <span>
+                @if(is_null($profile))
                     暂无信息
                 @else
-                    {{$profile->address}}
+                    @if( $profile->address == null)
+                        暂无信息
+                    @else
+                        {{$profile->address}}
+                    @endif
                 @endif
+
             </span>
             <span class="messright">
                 <a href="{{URL('replace')}}"><img src="{{asset('img/write.png')}}"></a>
@@ -62,7 +68,9 @@
                 </span>
             </p>
             <ul class="baguetteBoxOne gallery">
-                {!! $profile->images !!}
+                @if(!is_null($profile))
+                    {!! $profile->images !!}
+                @endif
             </ul>
         </div>
         <div class="placebox3">
@@ -73,10 +81,14 @@
             </p>
             <div id="profile" style="margin:10px 0px 10px 5px">
                 <p>
-                    @if($profile->profile ==null)
-                        暂未填写商户介绍...
+                    @if(!is_null($profile))
+                        @if($profile->profile ==null)
+                            暂未填写商户介绍...
+                        @else
+                            {{ $profile->profile }}
+                        @endif
                     @else
-                        {{ $profile->profile }}
+                        暂未填写商户介绍...
                     @endif
                 </p>
             </div>
@@ -96,9 +108,7 @@
                     @endforeach
                 </ul>
                 <div style="clear:both "></div>
-
             @endforeach
-
         </div>
     </div>
 
