@@ -143,13 +143,15 @@ Route::any('pay/wx', 'WechateController@pay');
 Route::any('map/similarity', 'MapController@getSimilarity');
 
 
-Route::any('wx/test', 'WechateController@getAccessToken'); // 微信测试
-Route::any('create/menu', 'WechateController@createMenu'); // 创建需求方视图
+Route::any('wx/test', 'WechateController@getAccessToken');  // 微信测试
+Route::any('create/menu', 'WechateController@createMenu');  // 创建需求方视图
+Route::any('menu/list', 'WechateController@getMenuList'); // 获取菜单
 
 
 Route::any('service/provider', function () {
     echo '如何挑选服务商';
 });
+
 
 Route::any('abouts/us', function () {
     echo '关于我们';
