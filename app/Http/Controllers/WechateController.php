@@ -77,8 +77,10 @@ class WechateController extends WebController
      */
     public function userTagsCreate(Request $request)
     {
-        $tools = new Wechate\JsApiPay();
-        dump($tools->GetOpenid());
+
+        $opendId = $this->wxUserLogin('http://www.xcylkj.com/user/tag/' . $request->id);
+
+        dump($opendId);
         die;
         if (is_numeric($request->id)) { // 添加标签
 
@@ -297,5 +299,42 @@ class WechateController extends WebController
 
     }
 
+
+    /**
+     *
+     * 以登录的方式获取openid
+     * @param $stringUrl1
+     */
+    public function wxUserLogin($stringUrl1)
+    {
+        $config = new Wechate\WxPayConfig();
+        if (isset($_GET['code'])) {
+            $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=' . $config::APPSECRET . '&code=' . $_GET["code"] . '&grant_type=authorization_code ');
+            $accArray = json_decode($accJson, true);
+            $infoJson = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
+            $infoArray = json_decode($infoJson, true);
+            $whether = $this->PurposeModel->selectFirst('use', [
+                'openid' => $infoArray['openid'],
+            ]);
+            if (!is_null($whether)) {
+                session(['user_id' => $whether->id]);
+                // 更新头像
+                $this->PurposeModel->up('use', ['id' => $whether->id], ['headimgurl' => $infoArray['headimgurl']]);
+            } else {
+                $id = $this->PurposeModel->insertGetId('use', [
+                    'nick' => $infoArray['nickname'],
+                    'openid' => $infoArray['openid'],
+                    'headimgurl' => $infoArray['headimgurl'],
+                ]);
+                session(['user_id' => $id]);
+            }
+            return $infoArray['openid'];
+        } else {
+            $baseUrl = urlencode($stringUrl1);
+            $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+            echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
+        }
+
+    }
 
 }
