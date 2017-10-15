@@ -125,7 +125,10 @@ Route::any('insert/identifyv', 'ServerController@insertIdentifyV');
 Route::any('add/identify', 'ServerController@addIdentify');                 // 添加认证服务
 
 Route::any('jifen', 'IntegralController@recharge');                         // 积分充值
-Route::any('add/recharge', 'IntegralController@addRecharge');               // 生成积分订单                                                // 生成积分订单
+Route::any('add/recharge', 'IntegralController@addRecharge');               // 生成积分订单
+Route::any('jifen/info', function () {
+    echo '积分详细';
+});
 // ajax上传图片
 Route::any('update/image2', 'ApiController@ajaxUpdateFileImage');
 Route::any('update/image', 'ApiController@ajaxUpdateFileImage2');
@@ -141,5 +144,18 @@ Route::any('map/similarity', 'MapController@getSimilarity');
 
 
 Route::any('wx/test', 'WechateController@getAccessToken'); // 微信测试
+Route::any('create/menu', 'WechateController@createMenu'); // 创建需求方视图
 
+
+Route::any('service/provider', function () {
+    echo '如何挑选服务商';
+});
+
+Route::any('abouts/us', function () {
+    echo '关于我们';
+});
+
+Route::any('secrets', function () {
+    echo '成单秘籍';
+});
 

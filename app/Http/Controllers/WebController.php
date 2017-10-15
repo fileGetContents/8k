@@ -28,8 +28,7 @@ class WebController extends Controller
     public function test(Request $request)
     {
 
-        $string = '
-        {
+        $string = '{
  	"button":[
  	{
     	"type":"click",
@@ -66,10 +65,73 @@ class WebController extends Controller
   "client_platform_type":"2",
   "language":"zh_CN"
   }
-}
-        ';
-        dump(json_decode($string));
+}';
+        echo '<pre>';
+        var_dump(json_decode($string, true));
+        $arr = [
+            'button' => [
+                [
+                    "type" => "view",
+                    "name" => '我的生意',
+                    "url" => URL('connectbussiness')
+                ],
+                [
+                    'name' => '我的福利',
+                    'sub_button' => [
+                        [
+                            'type' => 'view',
+                            'name' => '积分充值',
+                            'url' => URL('jifen')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '积分记录',
+                            'url' => URL('jifen/info')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '成单秘籍',
+                            'url' => URL('secrets')
+                        ],
+                    ]
+                ],
+                [
+                    'name' => '跟多',
+                    'sub_button' =>
+                        [
+                            [
+                                'type' => 'view',
+                                'name' => '商户主页',
+                                'url' => URL('company')
+                            ],
+                            [
+                                'type' => 'view',
+                                'name' => '个人中心',
+                                'url' => URL('person')
+                            ],
+                            [
+                                'type' => 'view',
+                                'name' => '关于8公里',
+                                'url' => URL('abouts/us')
+                            ],
+                            [
+                                'type' => 'view',
+                                'name' => '通用设置',
+                                'url' => 'www.baidu.com'
+                            ]
 
+                        ]
+
+                ]
+
+
+            ],
+            'matchrule' => [
+                'tag_id' => 'user',
+                'language' => 'zh_CN',
+            ]
+        ];
+        echo json_encode($arr);
 //        return view('test');
     }
 

@@ -91,29 +91,153 @@ class WechateController extends WebController
      */
     public function createMenu(Request $request)
     {
-        $url = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=ACCESS_TOKEN';
-
+        $acc = $this->getAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=' . $acc['access_token'];
+        $json = $this->WayClass->sendPost($url, self::demandMenu());
+        dump($json);
     }
 
 
+    /**
+     * 创建用户视图
+     * @return array
+     */
     private function demandMenu()
     {
-
+        return [
+            'button' => [
+                [
+                    'name' => '我的需求',
+                    'sub_button' => [
+                        [
+                            'type' => 'view',
+                            'name' => '需求进度',
+                            'url' => URL('user/need')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '一键发布',
+                            'url' => URL('show/serve')
+                        ],
+                    ]
+                ],
+                [
+                    'name' => '更多',
+                    'sub_button' => [
+                        [
+                            'type' => 'view',
+                            'name' => '个人中心',
+                            'url' => URL('person')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '如何挑选服务商',
+                            'url' => URL('service/provider')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '服务商功能',
+                            'url' => URL('service/provider')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '关于8公里',
+                            'url' => URL('abouts/us')
+                        ],
+                    ]
+                ],
+            ],
+            'matchrule' => [
+                'tag_id' => 'user',
+                'language' => 'zh_CN',
+            ]
+        ];
     }
 
-
+    /**
+     * 创建服务商视角
+     * @return array
+     */
     private function serverMenu()
     {
+        return [
+            'button' => [
+                [
+                    "type" => "view",
+                    "name" => '我的生意',
+                    "url" => URL('connectbussiness')
+                ],
+                [
+                    'name' => '我的福利',
+                    'sub_button' => [
+                        [
+                            'type' => 'view',
+                            'name' => '积分充值',
+                            'url' => URL('jifen')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '积分记录',
+                            'url' => URL('jifen/info')
+                        ],
+                        [
+                            'type' => 'view',
+                            'name' => '成单秘籍',
+                            'url' => URL('secrets')
+                        ],
+                    ]
+                ],
+                [
+                    'name' => '跟多',
+                    'sub_button' =>
+                        [
+                            [
+                                'type' => 'view',
+                                'name' => '商户主页',
+                                'url' => URL('company')
+                            ],
+                            [
+                                'type' => 'view',
+                                'name' => '个人中心',
+                                'url' => URL('person')
+                            ],
+                            [
+                                'type' => 'view',
+                                'name' => '关于8公里',
+                                'url' => URL('abouts/us')
+                            ],
+                            [
+                                'type' => 'view',
+                                'name' => '通用设置',
+                                'url' => 'www.baidu.com'
+                            ]
 
+                        ]
+
+                ]
+
+
+            ],
+            'matchrule' => [
+                'tag_id' => 'user',
+                'language' => 'zh_CN',
+            ]
+        ];
 
     }
 
 
+    /**
+     * 获取微信AccessToken
+     *
+     * @return array
+     */
     public function getAccessToken()
     {
         $config = new Wechate\WxPayConfig();
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . $config::APPID . '&secret=' . $config::APPSECRET;
-        return file_get_contents($url);
+        $accJson = file_get_contents($url);
+        return json_decode($accJson, true);
     }
 
 }
