@@ -50,8 +50,6 @@ class WayClassModel extends Model
     public function sendPost($url, $post_data)
     {
         $postData = http_build_query($post_data);
-        dump($postData);
-        die;
         $options = array(
             'http' => array(
                 'method' => 'POST',
@@ -68,11 +66,12 @@ class WayClassModel extends Model
 
     /**
      * @param $url string 地址
-     * @param $jsonStr string
+     * @param $array array
      * @return array
      */
-    public function postJson($url, $jsonStr)
+    public function postJson($url, $array)
     {
+        $jsonStr = json_encode($array);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_URL, $url);

@@ -90,8 +90,8 @@ class WechateController extends WebController
     {
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=' . $acc['access_token'];
-        $user = $this->WayClass->sendPost($url, self::demandMenu());
-        $server = $this->WayClass->sendPost($url, self::serverMenu());
+        $user = $this->WayClass->postJson($url, self::demandMenu());
+        $server = $this->WayClass->postJson($url, self::serverMenu());
         var_dump($user);
         var_dump($server);
     }
