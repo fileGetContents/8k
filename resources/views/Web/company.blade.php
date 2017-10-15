@@ -20,10 +20,10 @@
 <body>
 <div class="person-head">
     <div class="head-img">
-        <img src="{{asset('img/4.jpg')}}">
+        <img src="{{$user->headimgurl}}">
     </div>
     <div class="messwrapper">
-        <p><img src="{{$user->headimgurl}}">商户电话:{{ $user->telephone }}</p>
+        <p><img src="{{asset('img/phone-handset.png')}}">商户电话:{{ $user->telephone }}</p>
     </div>
     <div class="person"><img src="{{asset('img/persn.png')}}" width="30px" height="auto"/></div>
     <div class="btnwrapper">
