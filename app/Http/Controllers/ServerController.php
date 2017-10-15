@@ -88,11 +88,11 @@ class ServerController extends WebController
             }
             $server[$key]->column = $column[$key];
         }
-        if (session('user_id', -1)) {
+        if (session('user_id', -1) == -1) {
             $wx = new WechateController();
             $wx->wxUserLogin('http://www.xcylkj.com/company');
         }
-        $user = $this->PurposeModel->selectFirst('use', ['id' => session('use_id', 1)]);
+        $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         return view($this->file . 'company')->with([
             'server' => $server,
             'profile' => self::getProAdd(),
