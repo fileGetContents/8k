@@ -208,7 +208,7 @@ class WechateController extends WebController
                             [
                                 'type' => 'view',
                                 'name' => urlencode('通用设置'),
-                                'url' => 'www.baidu.com'
+                                'url' => URL('abouts/us')
                             ]
                         ]
                 ]
