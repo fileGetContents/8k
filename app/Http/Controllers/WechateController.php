@@ -332,4 +332,16 @@ class WechateController extends WebController
 
     }
 
+    /**
+     * 设置所属行业
+     */
+    public function setTemplate()
+    {
+        $acc = $this->getAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=' . $acc['access_token'];
+        $json = $this->WayClass->sendPost($url, ['industry_id1' => 34, 'industry_id12' => 41]);
+        dump($json);
+    }
+
+
 }
