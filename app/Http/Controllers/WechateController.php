@@ -21,6 +21,8 @@ class WechateController extends WebController
             $accArray = json_decode($accJson, true);
             $infoJson = file_get_contents('https://api.weixin.qq.com/sns/base?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
             $infoArray = json_decode($infoJson, true);
+
+            dump($infoArray);die;
             $whether = $this->PurposeModel->selectFirst('use', [
                 'openid' => $infoArray['openid'],
             ]);
