@@ -50,6 +50,9 @@ class WayClassModel extends Model
     public function sendPost($url, $post_data)
     {
         $postData = json_encode($post_data);
+
+        dump($postData);
+        die;
         $options = array(
             'http' => array(
                 'method' => 'POST',
