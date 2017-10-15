@@ -77,6 +77,8 @@ class WechateController extends WebController
      */
     public function userTagsCreate(Request $request)
     {
+
+        die;
         $opendId = $this->wxUserLogin('http://www.xcylkj.com/user/tag/' . $request->id);
         dump($opendId);
         die;
