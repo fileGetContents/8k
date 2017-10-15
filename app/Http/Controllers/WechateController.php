@@ -49,7 +49,7 @@ class WechateController extends WebController
      */
     public function pay($pay)
     {
-        $tools = new Wechate\JsApiPay();
+//        $tools = new Wechate\JsApiPay();
 //        $openId = $tools->GetOpenid();
         $openId = 'o_wyxwkPMUKj_K5pPRkPGMuo2SVk';
         // ②、统一下单

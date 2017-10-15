@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Model;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use App\Http\Wechate;
 
 class WebController extends Controller
 {
@@ -27,112 +27,7 @@ class WebController extends Controller
      */
     public function test(Request $request)
     {
-
-        $string = '{
- 	"button":[
- 	{
-    	"type":"click",
-    	"name":"今日歌曲",
-     	"key":"V1001_TODAY_MUSIC"
-	},
-	{
-		"name":"菜单",
-		"sub_button":[
-		{
-			"type":"view",
-			"name":"搜索",
-			"url":"http://www.soso.com/"
-		},
-                 {
-                         "type":"miniprogram",
-                         "name":"wxa",
-                         "url":"http://mp.weixin.qq.com",
-                         "appid":"wx286b93c14bbf93aa",
-                         "pagepath":"pages/lunar/index"
-                   },
-     		    {
-			"type":"click",
-			"name":"赞一下我们",
-			"key":"V1001_GOOD"
-	       	}]
- }],
-"matchrule":{
-  "tag_id":"2",
-  "sex":"1",
-  "country":"中国",
-  "province":"广东",
-  "city":"广州",
-  "client_platform_type":"2",
-  "language":"zh_CN"
-  }
-}';
-        echo '<pre>';
-        var_dump(json_decode($string, true));
-        $arr = [
-            'button' => [
-                [
-                    "type" => "view",
-                    "name" => '我的生意',
-                    "url" => URL('connectbussiness')
-                ],
-                [
-                    'name' => '我的福利',
-                    'sub_button' => [
-                        [
-                            'type' => 'view',
-                            'name' => '积分充值',
-                            'url' => URL('jifen')
-                        ],
-                        [
-                            'type' => 'view',
-                            'name' => '积分记录',
-                            'url' => URL('jifen/info')
-                        ],
-                        [
-                            'type' => 'view',
-                            'name' => '成单秘籍',
-                            'url' => URL('secrets')
-                        ],
-                    ]
-                ],
-                [
-                    'name' => '跟多',
-                    'sub_button' =>
-                        [
-                            [
-                                'type' => 'view',
-                                'name' => '商户主页',
-                                'url' => URL('company')
-                            ],
-                            [
-                                'type' => 'view',
-                                'name' => '个人中心',
-                                'url' => URL('person')
-                            ],
-                            [
-                                'type' => 'view',
-                                'name' => '关于8公里',
-                                'url' => URL('abouts/us')
-                            ],
-                            [
-                                'type' => 'view',
-                                'name' => '通用设置',
-                                'url' => 'www.baidu.com'
-                            ]
-
-                        ]
-
-                ]
-
-
-            ],
-            'matchrule' => [
-                'tag_id' => 'user',
-                'language' => 'zh_CN',
-            ]
-        ];
-        echo json_encode($arr);
-//        return view('test');
+        $this->WxUserInfo();
     }
 
     /**
@@ -191,6 +86,17 @@ class WebController extends Controller
     protected function getUserInfo($id = 1)
     {
         return $this->PurposeModel->selectFirst('use', ['id' => $id]);
+    }
+
+
+    public function WxUserInfo()
+    {
+        $tools = new Wechate\JsApiPay();
+        $openId = $tools->GetOpenid();
+        $wx = new WechateController();
+        $acc = $wx->getAccessToken();
+        $url = 'https://api.weixin.qq.com/sns/userinfo?access_token=' . $acc['access_token'] . '&openid=' . $openId . '&lang=zh_CN';
+        dump($url);
     }
 
 
