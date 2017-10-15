@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => 'D:\wwwroot\bagongli\wwwroot\public\images',
+            'root' => 'D:\wwwroot\bagongli\wwwroot\public',
         ],
 
         'ftp' => [
