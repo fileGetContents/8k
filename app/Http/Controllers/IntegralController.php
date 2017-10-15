@@ -14,7 +14,7 @@ class IntegralController extends WebController
      */
     public function recharge()
     {
-        if (session('user_id', -1)) {
+        if (session('user_id', -1) == -1) {
             $wx = new WechateController();
             $wx->wxUserLogin('http://www.xcylkj.com/jifen');
         }
