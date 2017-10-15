@@ -83,7 +83,7 @@ class WechateController extends WebController
         } else {  // 删除标签
             $this->delUserTag($opendId);
         }
-        return view('changcreate');
+        return view($this->file . 'changcreate');
     }
 
 
