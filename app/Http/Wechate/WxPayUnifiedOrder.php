@@ -10,7 +10,7 @@ class WxPayUnifiedOrder extends WxPayDataBase
      **/
     public function SetAppid($value)
     {
-        $this->values['appid'] = $value;
+        $this->values['appid'] = WxPayConfig::APPID;
     }
 
     /**
