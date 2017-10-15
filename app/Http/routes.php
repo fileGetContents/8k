@@ -148,7 +148,8 @@ Route::any('wx/test', 'WechateController@getAccessToken');  // 微信测试
 Route::any('create/menu', 'WechateController@createMenu');  // 创建视图
 Route::any('menu/list', 'WechateController@getMenuList');   // 获取菜单
 Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接口
-Route::any('user/tag/{id?}', 'WechateController@createUserTag'); // 用户标签
+Route::any('user/tag', 'WechateController@createUserTag');  // 用户标签
+Route::any('chang/tag/{id?}', 'WechateController@userTagsCreate');  // 切换用户标签
 
 
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 成单秘籍
