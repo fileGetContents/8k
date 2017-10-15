@@ -149,12 +149,7 @@ Route::any('menu/list', 'WechateController@getMenuList');   // 获取菜单
 Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接口
 Route::any('user/tag', 'WechateController@createUserTag'); // 用户标签
 
-Route::any('service/provider', function () {
-    echo '如何挑选服务商';
-});
-
-
+Route::any('service/provider', 'ArticleController@serviceProvider'); // 成单秘籍
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
-
 Route::any('secrets', 'ArticleController@secrets');     // 成单秘籍
 

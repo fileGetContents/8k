@@ -22,8 +22,8 @@
         <p>亲，您还没有发布过任何需求哦~</p>
     </div>
     <button class="announce">
-        <div><img src="{{asset('img/laba.png')}}" width="20px" height="auto"></div>
-        <div> 立刻发布需求， GO!</div>
+        <div> width="20px" height="auto"></div>
+        <div><a href="{{URL('show/serve')}}">立刻发布需求， GO!</a></div>
     </button>
     <p class="advertise">[8公里，不再是距离，而是服务品质]</p>
 @else

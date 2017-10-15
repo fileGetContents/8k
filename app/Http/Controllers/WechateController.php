@@ -53,8 +53,6 @@ class WechateController extends WebController
         $openId = 'o_wyxwkPMUKj_K5pPRkPGMuo2SVk';
         // ②、统一下单
         $input = new Wechate\WxPayUnifiedOrder();
-        dump($pay);
-        die;
         $input->SetBody($pay['body']);                           // 设置商品或支付单简要描述
         $input->SetAttach($pay['attach']);                       // 附加信息
         $input->SetOut_trade_no($pay['trade_no']);               // 商户订单号
