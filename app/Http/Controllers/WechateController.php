@@ -147,7 +147,7 @@ class WechateController extends WebController
                 ],
             ],
             'matchrule' => [
-                'tag_id' => 'user',
+                'tag_id' => '1',
                 'language' => 'zh_CN',
             ]
         ];
@@ -218,7 +218,7 @@ class WechateController extends WebController
 
             ],
             'matchrule' => [
-                'tag_id' => 'user',
+                'tag_id' => '2',
                 'language' => 'zh_CN',
             ]
         ];
