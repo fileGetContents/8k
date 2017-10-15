@@ -11,7 +11,7 @@ class ArticleController extends WebController
 {
 
     /**
-     *
+     * 关于我们
      */
     public function aboutUs()
     {
@@ -27,7 +27,7 @@ class ArticleController extends WebController
     public function secrets()
     {
         $secrets = $this->PurposeModel->selectFirst('article', ['id' => 5]);
-        return view('secrets')->with([
+        return view($this->file . 'secrets')->with([
             'about' => $secrets
         ]);
     }
@@ -39,7 +39,7 @@ class ArticleController extends WebController
     public function serviceProvider()
     {
         $provider = $this->PurposeModel->selectFirst('article', ['id' => 5]);
-        return view('provider')->with([
+        return view($this->file . 'provider')->with([
             'about' => $provider
         ]);
     }

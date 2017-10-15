@@ -10,7 +10,7 @@
 <div class="content">
     <div class="person-head">
         <div class="head-img">
-            <img src="{{asset('img/4.jpg')}}">
+            <img src="{{$use->headimgurl}}">
             <p>您当前账户剩余积分:<span class="data">{{ $user->recharge }}</span></p>
         </div>
     </div>

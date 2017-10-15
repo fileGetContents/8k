@@ -9,6 +9,8 @@
 <body>
 <div class="">
     <img src="{{asset('img/5121204193.gif')}}" alt="">
+    <p>切换视图中。。。</p>
 </div>
+
 </body>
 </html>

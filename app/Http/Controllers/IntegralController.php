@@ -14,6 +14,10 @@ class IntegralController extends WebController
      */
     public function recharge()
     {
+        if (session('user_id', -1)) {
+            $wx = new WechateController();
+            $wx->wxUserLogin('http://www.xcylkj.com/jifen');
+        }
         $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         return view($this->file . 'jifen')->with([
             'user' => $user
