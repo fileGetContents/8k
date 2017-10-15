@@ -111,12 +111,12 @@ class WechateController extends WebController
                         [
                             'type' => 'view',
                             'name' => urlencode('需求进度'),
-                            'url' => URL('user/need')
+                            'url' => 'http://www.xcylkj.com/user/need',
                         ],
                         [
                             'type' => 'view',
                             'name' => urlencode('一键发布'),
-                            'url' => URL('show/serve')
+                            'url' => 'http://www.xcylkj.com/show/serve'
                         ],
                     ]
                 ],
@@ -126,22 +126,22 @@ class WechateController extends WebController
                         [
                             'type' => 'view',
                             'name' => urlencode('个人中心'),
-                            'url' => URL('person')
+                            'url' => 'http://www.xcylkj.com/person'
                         ],
                         [
                             'type' => 'view',
                             'name' => urlencode('如何挑选服务商'),
-                            'url' => URL('service/provider')
+                            'url' => 'http://www.xcylkj.com/service/provider'
                         ],
                         [
                             'type' => 'view',
                             'name' => urlencode('服务商功能'),
-                            'url' => URL('service/provider')
+                            'url' => 'http://www.xcylkj.com/service/provider'
                         ],
                         [
                             'type' => 'view',
                             'name' => urlencode('关于8公里'),
-                            'url' => URL('abouts/us')
+                            'url' => 'http://www.xcylkj.com/abouts/us'
                         ],
                     ]
                 ],
@@ -164,7 +164,7 @@ class WechateController extends WebController
                 [
                     "type" => "view",
                     "name" => urlencode('我的生意'),
-                    "url" => URL('connectbussiness')
+                    "url" => 'http://www.xcylkj.com/connectbussiness'
                 ],
                 [
                     'name' => urlencode('我的福利'),
@@ -172,17 +172,17 @@ class WechateController extends WebController
                         [
                             'type' => 'view',
                             'name' => urlencode('积分充值'),
-                            'url' => URL('jifen')
+                            'url' => 'http://www.xcylkj.com/jifen'
                         ],
                         [
                             'type' => 'view',
                             'name' => urlencode('积分记录'),
-                            'url' => URL('jifen/info')
+                            'url' => 'http://www.xcylkj.com/jifen/info'
                         ],
                         [
                             'type' => 'view',
                             'name' => urlencode('成单秘籍'),
-                            'url' => URL('secrets')
+                            'url' => 'http://www.xcylkj.com/secrets'
                         ],
                     ]
                 ],
@@ -193,22 +193,22 @@ class WechateController extends WebController
                             [
                                 'type' => 'view',
                                 'name' => urlencode('商户主页'),
-                                'url' => URL('company')
+                                'url' => 'http://www.xcylkj.com/company'
                             ],
                             [
                                 'type' => 'view',
                                 'name' => urlencode('个人中心'),
-                                'url' => URL('person')
+                                'url' => 'http://www.xcylkj.com/person'
                             ],
                             [
                                 'type' => 'view',
                                 'name' => urlencode('关于8公里'),
-                                'url' => URL('abouts/us')
+                                'url' => 'http://www.xcylkj.com/abouts/us'
                             ],
                             [
                                 'type' => 'view',
                                 'name' => urlencode('通用设置'),
-                                'url' => URL('abouts/us')
+                                'url' => 'http://www.xcylkj.com/abouts/us'
                             ]
                         ]
                 ]
