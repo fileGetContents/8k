@@ -25,10 +25,10 @@
 <div class="content">
     <ul class="nav3">
         <ul class="nav2" id="nav2">
-            <li style="width: 49%">按日期
+            <li style="width: 49%;text-align: center">按日期
                 <div class="down"><img src="{{asset('img/down2.png')}}"></div>
             </li>
-            <li style="width: 49%">
+            <li style="width: 49% ;text-align: center">
                 <a href="{{URL('jifen/info')}}">我的积分</a>
             </li>
         </ul>

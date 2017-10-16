@@ -95,7 +95,7 @@
                 dataType: 'json',
                 url: '{{URL("add/recharge")}}',
                 success: function (obj) {
-                    console.log(obj)
+                    console.log(obj);
                 },
                 error: function (obj) {
 
