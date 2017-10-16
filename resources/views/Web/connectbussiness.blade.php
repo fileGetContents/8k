@@ -39,7 +39,7 @@
     </ul>
     @if(!$iden)
         <div class="approve">
-        <span class="right">升级认证，成交率大增 >
+        <span class="right"><a href="{{URL('http://www.xcylkj.com/identify')}}">升级认证，成交率大增 ></a>
         </span>
         </div>
     @endif
