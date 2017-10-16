@@ -275,9 +275,6 @@ class WechateController extends WebController
         $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging?access_token=' . $acc['access_token'];
         // 获取用户的openid
         $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
-        dump($openid);
-        echo 1111;
-        die;
         $data = [
             'openid_list' => [$openid],
             "tagid" => 2
@@ -334,8 +331,6 @@ class WechateController extends WebController
                 ]);
                 session(['user_id' => $id]);
             }
-
-            dump($infoArray);
             return $infoArray['openid'];
         } else {
             $baseUrl = urlencode($stringUrl1);
