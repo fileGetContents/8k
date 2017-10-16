@@ -32,10 +32,6 @@
             <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
             <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
-        <li>
-            <div class="jifen"><img src="{{asset('img/shezhi.png')}}"></div>
-            通用设置
-        </li>
     </ul>
     @if(!$iden)
         <div class="approve">
@@ -72,7 +68,6 @@
         </div>
     @endforeach
 
-
     <div class="nofound">
         <p><img src="{{asset('img/nofound.png')}}"></p>
         <p>没有更多记录了</p>
@@ -83,8 +78,7 @@
         </div>
         <div>专属顾问 刘女士 18789090989</div>
     </div>
-
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bussiness.js"></script>
+    <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bussiness.js')}}"></script>
 </body>
 </html>

@@ -32,10 +32,6 @@
             <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
             <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
-        <li>
-            <div class="jifen"><img src=" {{asset('img/shezhi.png')}}"></div>
-            通用设置
-        </li>
     </ul>
     @if(!$iden)
         <div class="approve">
@@ -83,10 +79,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="boxwrapper">
-                    <div>今日需求</div>
-                    <div>全部</div>
-                    <div>去设置</div>
-                    <div data-dismiss="modal" aria-hidden="true">取消</div>
+                    <div><a href="{{URL("alreadybussiness?time=now")}}">今日需求</a></div>
+                    <div><a href="{{URL('alreadybussiness?time=two')}}">近两天需求</a></div>
+                    <div><a href="{{URL('alreadybussiness?time=there')}}">近三天需求</a></div>
+                    <div><a href="{{URL('alreadybussiness')}}">全部</a></div>
                 </div>
             </div>
         </div>
@@ -95,7 +91,6 @@
 
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
-
 
 </body>
 </html>
