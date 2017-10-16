@@ -157,3 +157,6 @@ Route::any('service/provider', 'ArticleController@serviceProvider'); // 如何�
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
 Route::any('secrets', 'ArticleController@secrets');     // 成单秘籍
 
+Route::any('notify/url', 'WechateController@');         // 回调地址
+
+
