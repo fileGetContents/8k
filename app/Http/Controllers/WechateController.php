@@ -49,7 +49,9 @@ class WechateController extends WebController
     public function pay($pay)
     {
         $tools = new Wechate\JsApiPay();
-        $openId = $tools->GetOpenid();
+        //$openId = $tools->GetOpenid();
+        $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+        $openId = $user->openid;
         // ②、统一下单
         $input = new Wechate\WxPayUnifiedOrder();
         $input->SetBody($pay['body']);                           // 设置商品或支付单简要描述
