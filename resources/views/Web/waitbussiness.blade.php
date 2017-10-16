@@ -22,18 +22,12 @@
 </div>
 <div class="content">
     <ul class="nav2" id="nav2">
-        <li class="active2">按热度
-            <div class="down"><img src="{{asset('img/down.png')}}"></div>
-        </li>
         <li>按日期
-            <div class="down"><img src="{{asset('img/down2.png')}}"></div>
-        </li>
-        <li>按分类
             <div class="down"><img src="{{asset('img/down2.png')}}"></div>
         </li>
         <li>
             <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
-            我的积分
+            <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
     </ul>
     <div class="contain" id="contain">
