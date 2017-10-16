@@ -37,9 +37,13 @@
             通用设置
         </li>
     </ul>
-    <div class="approve"><span class="right">升级认证，成交率大增 ></span></div>
-    <div class="nofound">
+    @if(!$iden)
+    <div class="approve">
+        <span class="right">升级认证，成交率大增 ></span>
+    </div>
+    @endif
 
+    <div class="nofound">
         @foreach($need as $value)
             <div class="section">
                 <a href="{{URL('demand/details2/'.$id[$num]->id2.'/'.$value->price)}}">
