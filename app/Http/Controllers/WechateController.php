@@ -276,6 +276,7 @@ class WechateController extends WebController
         // 获取用户的openid
         $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
         dump($openid);
+        echo 1111;
         die;
         $data = [
             'openid_list' => [$openid],
