@@ -36,6 +36,10 @@ class ColumnController extends WebController
      */
     public function addServer(Request $request)
     {
+        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+        if (!is_null($server) && $server->telephone) {
+            return redirect('person');
+        }
         if ($request->isMethod('post')) {
             $server['server'] = serialize($request->all());
             $server['use_id'] = session('user_id', 1);

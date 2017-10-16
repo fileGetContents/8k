@@ -270,16 +270,22 @@ class WechateController extends WebController
      */
     public function createUserTag()
     {
-        $acc = $this->getAccessToken();
-        $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging?access_token=' . $acc['access_token'];
-        // 获取用户的openid
-        $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
-        $data = [
-            'openid_list' => [$openid],
-            "tagid" => 2
-        ];
-        $json = $this->WayClass->sendPost($url, $data);
-        return $json;
+//        $acc = $this->getAccessToken();
+//        $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging?access_token=' . $acc['access_token'];
+//        // 获取用户的openid
+//        $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
+//        // 查看是否成为服务商
+//        $server = $this->PurposeModel->selectFirst('use_server', ['use_id' => session('user_id', 1)]);
+//        if (is_null($server)) {  // 跳转服务商
+//            return redirect('add/server');
+//        }
+//        $data = [
+//            'openid_list' => [$openid],
+//            "tagid" => 2
+//        ];
+//        $json = $this->WayClass->sendPost($url, $data);
+//        //return $json;
+        return view($this->file . 'change');
     }
 
     /**
