@@ -24,12 +24,12 @@
 </div>
 <div class="content">
     <ul class="nav3">
-        <li data-toggle="modal" data-target="#shaixuan">
-            <div class="jifen"><img src=" {{asset('img/saixuan.png')}}"></div>
+        <li style="width:49%;" data-toggle="modal" data-target="#shaixuan">
+            <div class="jifen" style="margin-left: 30%"><img src=" {{asset('img/saixuan.png')}}"></div>
             快速筛选
         </li>
-        <li>
-            <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
+        <li style="width: 49%">
+            <div class="jifen" style="margin-left: 30%"><img src="{{asset('img/jifen.png')}}"></div>
             <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
     </ul>

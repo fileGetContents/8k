@@ -25,8 +25,7 @@
         <li>按日期
             <div class="down"><img src="{{asset('img/down2.png')}}"></div>
         </li>
-        <li style="text-align: right">
-            <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
+        <li>
             <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
     </ul>
