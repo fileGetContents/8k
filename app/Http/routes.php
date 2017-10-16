@@ -151,6 +151,8 @@ Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接�
 Route::any('user/tag', 'WechateController@createUserTag');  // 用户标签
 Route::any('chang/tag/{id?}', 'WechateController@userTagsCreate');  // 切换用户标签
 Route::any('set/template', 'WechateController@setTemplate');   // 设置所属行业
+Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标签
+Route::any('create/user/tag', 'WechateController@createUserTag'); // 添加用户标签
 
 
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 成单秘籍

@@ -149,6 +149,11 @@ class WechateController extends WebController
                             'name' => urlencode('关于8公里'),
                             'url' => 'http://www.xcylkj.com/abouts/us'
                         ],
+                        [
+                            'type' => 'view',
+                            'name' => urlencode('切换服务商视图'),
+                            'url' => 'http://www.xcylkj.com/create/user/tag',
+                        ]
                     ]
                 ],
             ],
@@ -209,8 +214,8 @@ class WechateController extends WebController
                             ],
                             [
                                 'type' => 'view',
-                                'name' => urlencode('通用设置'),
-                                'url' => 'http://www.xcylkj.com/abouts/us'
+                                'name' => urlencode('切换视图'),
+                                'url' => 'http://www.xcylkj.com/del/user/tag'
                             ]
                         ]
                 ]
