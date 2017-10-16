@@ -38,7 +38,6 @@
             <span class="right"><a href="{{URL('http://www.xcylkj.com/identify')}}">升级认证，成交率大增 ></a></span>
         </div>
     @endif
-
     <div class="nofound">
         @foreach($need as $value)
             <div class="section">
@@ -87,6 +86,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <script src="{{asset('js/jquery.min.js')}}"></script>

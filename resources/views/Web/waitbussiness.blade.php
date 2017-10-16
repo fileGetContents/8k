@@ -25,7 +25,7 @@
         <li>按日期
             <div class="down"><img src="{{asset('img/down2.png')}}"></div>
         </li>
-        <li>
+        <li style="text-align: right">
             <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
             <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
@@ -71,7 +71,7 @@
                             @if( $value->quote ==0 )
                                 <div>当前无人抢单</div>
                             @else
-                                <div>{{ $value->quote }}</div>
+                                <div>{{$value->quote}}</div>
                             @endif
                         </div>
                         <div class="ji">急</div>
@@ -86,7 +86,8 @@
     <div class="nofound"><p><img src="{{asset('img/nofound.png')}}"></p>
         <p>没有更多记录了</p></div>
     <div class="tit" style="margin-top: 10px;">
-        <div style="margin-left: 20%;margin-top: 5px;"><img src="img/phone.png" width="20px" height="auto"></div>
+        <div style="margin-left: 20%;margin-top: 5px;"><img src="{{URL('img/phone.png')}}" width="20px" height="auto">
+        </div>
         <div>专属顾问 刘女士 18789090989</div>
     </div>
 

@@ -33,6 +33,7 @@
             <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
     </ul>
+
     @if(!$iden)
         <div class="approve">
         <span class="right"><a href="{{URL('http://www.xcylkj.com/identify')}}">升级认证，成交率大增 ></a>
@@ -67,20 +68,6 @@
             </a>
         </div>
     @endforeach
-
-    <div class="modal fade" id="shaixuan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="boxwrapper">
-                    <div><a href="{{URL("alreadybussiness?time=now")}}">今日需求</a></div>
-                    <div><a href="{{URL('alreadybussiness?time=two')}}">近两天需求</a></div>
-                    <div><a href="{{URL('alreadybussiness?time=there')}}">近三天需求</a></div>
-                    <div><a href="{{URL('alreadybussiness')}}">全部</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="nofound">
         <p><img src="{{asset('img/nofound.png')}}"></p>
         <p>没有更多记录了</p>
@@ -91,7 +78,9 @@
         </div>
         <div>专属顾问 刘女士 18789090989</div>
     </div>
-    <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/bussiness.js')}}"></script>
+
+</div>
+<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bussiness.js')}}"></script>
 </body>
 </html>
