@@ -354,7 +354,6 @@ class ColumnController extends WebController
             }
         }
         if (isset($_GET['time'])) {
-            $need = self::selWhereAll($where['add_time']);
             $need = DB::table('use_demand')
                 ->where('add_time', '>', $where['add_time'])
                 ->where(['quote' => 0])
@@ -362,13 +361,14 @@ class ColumnController extends WebController
                 ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
                 ->get();
-            dump($where['add_time']);
-            dump($need);
-            die;
-
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0], ['add_time', '>', $where['add_time']]);
         } else {
-            $need = self::selWhereAll(0);
+            $need = DB::table('use_demand')
+                ->where(['quote' => 0])
+                ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
+                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
+                ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
+                ->get();
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0]);
         }
         return view($this->file . 'waitbussiness')->with([
