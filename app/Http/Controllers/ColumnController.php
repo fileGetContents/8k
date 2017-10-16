@@ -371,12 +371,26 @@ class ColumnController extends WebController
                 ->get();
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0]);
         }
+
+
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
             'id' => $id,
             'num' => 0,
+            'iden' => self::isIdentify()
         ]);
     }
+
+    private function isIdentify()
+    {
+        $iden = $this->PurposeModel->selectFirst('identify', ['admin_tag' => 20, 'use_id' => session('user_id', 1)]);
+        if (is_null($iden)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
 //,'user_id','demand','add_time','tag','column_id','demand_other','quote','quote_id','use_id','server_id','demand_id','time','price','nick','telephone','pay','server','column_name','parent_id','depth'
     /**
