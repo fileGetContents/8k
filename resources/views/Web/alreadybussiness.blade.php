@@ -24,14 +24,14 @@
 </div>
 <div class="content">
     <ul class="nav3">
-        <li style="width:49%;" data-toggle="modal" data-target="#shaixuan">
-            <div class="jifen" style="margin-left: 30%"><img src=" {{asset('img/saixuan.png')}}"></div>
-            快速筛选
-        </li>
-        <li style="width: 49%">
-            <div class="jifen" style="margin-left: 30%"><img src="{{asset('img/jifen.png')}}"></div>
-            <a href="{{URL('jifen/info')}}">我的积分</a>
-        </li>
+        <ul class="nav2" id="nav2">
+            <li style="width: 49%">按日期
+                <div class="down"><img src="{{asset('img/down2.png')}}"></div>
+            </li>
+            <li style="width: 49%">
+                <a href="{{URL('jifen/info')}}">我的积分</a>
+            </li>
+        </ul>
     </ul>
     @if(!$iden)
         <div class="approve">
