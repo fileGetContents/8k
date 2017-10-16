@@ -68,6 +68,19 @@
         </div>
     @endforeach
 
+    <div class="modal fade" id="shaixuan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="boxwrapper">
+                    <div><a href="{{URL("alreadybussiness?time=now")}}">今日需求</a></div>
+                    <div><a href="{{URL('alreadybussiness?time=two')}}">近两天需求</a></div>
+                    <div><a href="{{URL('alreadybussiness?time=there')}}">近三天需求</a></div>
+                    <div><a href="{{URL('alreadybussiness')}}">全部</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="nofound">
         <p><img src="{{asset('img/nofound.png')}}"></p>
         <p>没有更多记录了</p>
