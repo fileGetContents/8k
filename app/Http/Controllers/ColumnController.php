@@ -340,7 +340,6 @@ class ColumnController extends WebController
      */
     public function waitbussiness(Request $request)
     {
-
         if (isset($_GET['time'])) {
             switch ($_GET['time']) {
                 case 'now':
@@ -355,16 +354,16 @@ class ColumnController extends WebController
             }
         }
         if (isset($_GET['time'])) {
-            $need = self::selWhereAll(['quote' => 0], ['add_time', '>', $where['add_time']]);
+            $need = self::selWhereAll($where['add_time']);
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0], ['add_time', '>', $where['add_time']]);
         } else {
-            $need = self::selWhereAll(['quote' => 0]);
+            $need = self::selWhereAll(0);
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0]);
         }
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
             'id' => $id,
-            'num' => 0
+            'num' => 0,
         ]);
     }
 
@@ -378,7 +377,8 @@ class ColumnController extends WebController
     {
         if ($where2) {
             return DB::table('use_demand')
-                ->where($where)
+                ->where('add_time', '>', $where)
+                ->where(['quote' => 0])// 待解决
                 ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
                 ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
