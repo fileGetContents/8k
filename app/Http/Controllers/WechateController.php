@@ -334,6 +334,8 @@ class WechateController extends WebController
                 ]);
                 session(['user_id' => $id]);
             }
+
+            dump($infoArray);
             return $infoArray['openid'];
         } else {
             $baseUrl = urlencode($stringUrl1);
