@@ -42,6 +42,7 @@ class ColumnController extends WebController
             $server['time'] = $_SERVER['REQUEST_TIME'];
             $id = $this->PurposeModel->insertGetId('use_server', $server);
             if (is_numeric($id) && $id > 0) {
+                $this->UserModel->addRecharge(30, '服务商积分');
                 header('Location: ' . URL('range/server/' . $id));
             } else {
                 echo '<script> alert("添加服务失败")</script>';

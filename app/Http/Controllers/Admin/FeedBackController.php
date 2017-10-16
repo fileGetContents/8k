@@ -24,7 +24,7 @@ class FeedBackController extends Controller
     {
         $feed = DB::table('feedback')
             ->leftjoin('use', "feedback.use_id", '=', 'use.id')
-            ->orderBy('time', 'DESC')->paginate();
+            ->orderBy('time', 'DESC')->get();
         return view($this->file . 'feedback-list')->with([
             'feed' => $feed
         ]);

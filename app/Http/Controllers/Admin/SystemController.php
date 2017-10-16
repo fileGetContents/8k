@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class SystemController extends Controller
 {
@@ -14,7 +15,7 @@ class SystemController extends Controller
 
     public function SystemBase()
     {
-        return view($this->file. 'system-base');
+        return view($this->file . 'system-base');
     }
 
 
@@ -45,6 +46,18 @@ class SystemController extends Controller
     public function SystemShielding()
     {
         return view($this->file . 'system-shielding');
+    }
+
+    /**
+     *积分充记录
+     * @return $this
+     */
+    public function recharge()
+    {
+        $recharge = DB::table('recharge')->leftJoin('use', 'use.id', '=', 'recharge.use_id')->get();
+        return view($this->file . 'recharge-list2')->with([
+            'recharge' => $recharge
+        ]);
     }
 
 

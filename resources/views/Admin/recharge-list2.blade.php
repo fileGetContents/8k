@@ -19,70 +19,55 @@
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>意见反馈</title>
+    <title>用户管理</title>
 </head>
 <body>
-<nav class="breadcrumb">
-    <i class="Hui-iconfont">&#xe67f;</i> 首页
-    <span class="c-gray en">&gt;</span> 评论管理
-    <span class="c-gray en">&gt;</span> 意见反馈
-    <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px"
-       href="javascript:location.replace(location.href);" title="刷新">
-        <i class="Hui-iconfont">&#xe68f;</i>
-    </a>
-</nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span
+            class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r mr-20"
+                                                  style="line-height:1.6em;margin-top:3px"
+                                                  href="javascript:location.replace(location.href);" title="刷新"><i
+                class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
+
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
             <tr class="text-c">
-                <th width="25">
-                    <input type="checkbox" name="" value="">
-                </th>
-                <th width="60">ID</th>
-                <th width="60">用户名</th>
-                <th>留言内容</th>
+                <th width="25"><input type="checkbox" name="" value=""></th>
+                <th width="40">ID</th>
+                <th width="150">昵称</th>
+                <th width="90">订单号</th>
+                <th width="150">金额</th>
+                <th>积分</th>
+                <th width="130">创建时间</th>
+                <th width="100">支付状态</th>
+                <th width="100" style="display: none"></th>
                 <th width="100">操作</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($feed as $value)
+            @foreach($recharge as $value)
                 <tr class="text-c">
                     <td><input type="checkbox" value="1" name=""></td>
-                    <td>{{ $value->id }}</td>
-                    <td><a href="javascript:;" onclick="member_show('张三','member-show','10001','360','400')">
-                            <i class="avatar size-L radius">
-                                <img alt="" src="http://static.h-ui.net/h-ui/images/avatar-default-S.gif">
-                            </i>
-                        </a>
-                    </td>
-                    <td class="text-l">
-                        <div class="c-999 f-12">
-                            <time title="{{date('Y-m-d H:i:s',$value->time)}}"
-                                  datetime="{{date('Y-m-d H:i:s', $value->time)}}">{{date('Y-m-d H:i:s',$value->time)}}</time>
-                            @if($value->telephone == null)
-                                <span class="ml-20">none</span>
-                            @else
-                                <span class="ml-20">{{ $value->telephone }}</span>
-                            @endif
-                        </div>
-                        <div>{{$value->feedback}}</div>
-                    </td>
+                    <td>{{$value->recharge_id}}</td>
+                    <td>{{$value->nick}}</td>
+                    <td>{{$value->order_num}}</td>
+                    <td>{{$value->price}}</td>
+                    <td>{{$value->recharge}}</td>
+                    <td class="text-l"></td>
+                    <td>{{date('Y-m-d H:i:s',$value->time)}}</td>
+                    <td class="td-status" style="display: none"></td>
                     <td class="td-manage">
-                        {{--<a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add','4','','510')"--}}
-                        {{--style="text-decoration:none">--}}
-                        {{--<i class="Hui-iconfont">&#xe6df;</i>--}}
-                        {{--</a>--}}
-                        <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5"
-                           style="text-decoration:none">
-                            <i class="Hui-iconfont">&#xe6e2;</i>
-                        </a>
+                        @if($value->tag ==0)
+                            <span class="label label-success radius">待支付</span>
+                        @elseif($value->tag ==10)
+                            <span class="label label-success radius">已支付</span>
+                        @endif
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-
     </div>
 </div>
 <script type="text/javascript" src="{{asset('admin/lib/jquery/1.9.1/jquery.min.js')}}"></script>
@@ -99,10 +84,10 @@
             "bStateSave": true,//状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-                {"orderable": false, "aTargets": [0, 2, 4]}// 制定列不参与排序
+                {"orderable": false, "aTargets": [0, 8, 9]}// 制定列不参与排序
             ]
         });
-        $('.table-sort tv  body').on('click', 'tr', function () {
+        $('.table-sort tbody').on('click', 'tr', function () {
             if ($(this).hasClass('selected')) {
                 $(this).removeClass('selected');
             }
@@ -150,22 +135,10 @@
     /*用户-删除*/
     function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
-            $.ajax({
-                type: 'post',
-                data: {'table': 'feedback', 'id': id},
-                dataType: 'json',
-                url: '{{URL('pur/del')}}',
-                success: function (obj) {
-                },
-                error: function (obj) {
-                }
-            });
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
         });
     }
 </script>
-
-
 </body>
 </html>

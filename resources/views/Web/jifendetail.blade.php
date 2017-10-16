@@ -13,7 +13,7 @@
     </div>
     <div>您的剩余积分：
         <span class="import">{{$user->recharge}}</span></div>
-    <div style="float: right;margin-right: 10px;">积分说明</div>
+    <div style="float: right;margin-right: 10px;"></div>
 </div>
 <div class="list">
     <span style="margin-left: 5px;">以下是您的积分使用清单</span>

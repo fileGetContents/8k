@@ -44,10 +44,10 @@ Route::group(["namespace" => "Admin"], function () {
     Route::any('admin-role', 'AdminController@AdminRole');
     Route::any('admin-role-add', 'AdminController@AdminRoleAdd');
 
-    Route::any('article-add/{id}', 'ArticleController@ArticleAdd');
-    Route::any('article-list', 'ArticleController@ArticleList');
+    Route::any('article-add/{id}', 'ArticleController@ArticleAdd'); // 添加修改文章
+    Route::any('article-list', 'ArticleController@ArticleList');  // 文章管理
 
-    Route::any('feedback-list', 'FeedBackController@FeedBackList');
+    Route::any('feedback-list', 'FeedBackController@FeedBackList'); // 意见反馈
 
     Route::any('admin/login', 'LoginController@Login');
     Route::any('admin/index', 'LoginController@Index');
@@ -64,7 +64,7 @@ Route::group(["namespace" => "Admin"], function () {
     Route::any('picture-list', 'PictureController@PictureList');
     Route::any('picture-show', 'PictureController@PictureShow');
 
-    Route::any('product-add', 'ProductController@ProductAdd');
+    Route::any('product-add', 'ProductController@ProductAdd'); // 添加选项
     Route::any('product-brand', 'ProductController@ProductBrand');
     Route::any('product-category', 'ProductController@ProductCateGory');
     Route::any('product-category-add', 'ProductController@ProductCateGoryAdd');
@@ -79,12 +79,10 @@ Route::group(["namespace" => "Admin"], function () {
     Route::any('system-log', 'SystemController@SystemLog');
     Route::any('system-shielding', 'SystemController@SystemShielding');
 
+
     Route::any('welcome', 'WelcomeController@Welcome');
-
-
-    Route::any('identify-list', 'PictureController@identifyList');// 认证申请
-
-
+    Route::any('identify-list', 'PictureController@identifyList');// 申请认证管理
+    Route::any('recharge-list', 'SystemController@recharge');         // 积分充值记录
 });
 
 // API 接口管理

@@ -30,5 +30,20 @@ class UserModel extends PurposeModel
 
     }
 
+    /**
+     * 添加积分信息
+     * @param $recharge
+     * @param $text
+     */
+    public function addRecharge($recharge, $text)
+    {
+        DB::table('info_recharge')->insert([
+            'info_recharge' => $recharge,
+            'info_text' => $text,
+            'info_time' => $_SERVER['REQUEST_TIME'],
+            'use_id' => session('use', 1)
+        ]);
+    }
+
 
 }
