@@ -358,6 +358,8 @@ class WechateController extends WebController
         $xmkOK = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";  // 成功
         $xmkNO = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[ERROR]]></return_code><return_msg><![CDATA[NO]]></return_msg></xml>";    // 失败
         $xml = file_get_contents('php://input', 'r');   // 获取xml数
+
+
         echo $xmkOK; // 返回成功
     }
 
