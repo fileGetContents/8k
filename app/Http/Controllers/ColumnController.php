@@ -362,7 +362,7 @@ class ColumnController extends WebController
                 ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
                 ->get();
-
+            dump($where['add_time']);
             dump($need);
             die;
 
