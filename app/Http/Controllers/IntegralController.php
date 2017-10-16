@@ -44,7 +44,7 @@ class IntegralController extends WebController
             $wechate = new WechateController();
             $jsApiJson = $wechate->pay([
                 'body' => '积分充值',
-                'attach' => 'recharge', // 表名，
+                'attach' => 'recharge',   //表名，
                 'trade_no' => $insert['order_num'],
                 'total_fee' => intval($insert['price']) * 100,
             ]);
