@@ -269,16 +269,19 @@ class WechateController extends WebController
      * @param  $openid string
      * @return  string
      */
-    public function createUserTag($openid)
+    public function createUserTag()
     {
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging?access_token=' . $acc['access_token'];
+        // 获取用户的openid
+        $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
         $data = [
             'openid_list' => [$openid],
             "tagid" => 2
         ];
         $json = $this->WayClass->sendPost($url, $data);
         return $json;
+
     }
 
     /**
@@ -286,12 +289,13 @@ class WechateController extends WebController
      * @param $openid
      * @return string
      */
-    public function delUserTag($openid = '')
+    public function delUserTag()
     {
         $acc = $this->getAccessToken();
+        $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
         $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging?access_token=' . $acc['access_token'];
         $data = [
-            'openid_list' => ['o_wyxwkPMUKj_K5pPRkPGMuo2SVk'],
+            'openid_list' => [$openid],
             'tagid' => 2,
         ];
         $json = $this->WayClass->sendPost($url, $data);

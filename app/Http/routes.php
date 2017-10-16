@@ -148,12 +148,10 @@ Route::any('wx/test', 'WechateController@getAccessToken');  // 微信测试
 Route::any('create/menu', 'WechateController@createMenu');  // 创建菜单
 Route::any('menu/list', 'WechateController@getMenuList');   // 获取菜单
 Route::any('del/menu', 'WechateController@delMenu');        // 菜单删除接口
-Route::any('user/tag', 'WechateController@createUserTag');  // 用户标签
-Route::any('chang/tag/{id?}', 'WechateController@userTagsCreate');  // 切换用户标签
 Route::any('set/template', 'WechateController@setTemplate');   // 设置所属行业
-Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标签
-Route::any('create/user/tag', 'WechateController@createUserTag'); // 添加用户标签
 
+Route::any('create/user/tag', 'WechateController@createUserTag'); // 添加用户标签
+Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标签
 
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 如何挑选服务商
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
