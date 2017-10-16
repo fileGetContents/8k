@@ -30,7 +30,7 @@
         </li>
         <li>
             <div class="jifen"><img src="{{asset('img/jifen.png')}}"></div>
-            我的积分
+            <a href="{{URL('jifen/info')}}">我的积分</a>
         </li>
         <li>
             <div class="jifen"><img src=" {{asset('img/shezhi.png')}}"></div>
