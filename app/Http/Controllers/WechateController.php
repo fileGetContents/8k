@@ -261,7 +261,7 @@ class WechateController extends WebController
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
-         dump($accJson);
+        dump($accJson);
     }
 
     /**
@@ -286,12 +286,12 @@ class WechateController extends WebController
      * @param $openid
      * @return string
      */
-    public function delUserTag($openid)
+    public function delUserTag($openid = '')
     {
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging?access_token=' . $acc['access_token'];
         $data = [
-            'openid_list' => [$openid],
+            'openid_list' => ['o_wyxwkPMUKj_K5pPRkPGMuo2SVk'],
             'tagid' => 2,
         ];
         $json = $this->WayClass->sendPost($url, $data);
