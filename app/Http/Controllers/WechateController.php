@@ -142,7 +142,7 @@ class WechateController extends WebController
                         [
                             'type' => 'view',
                             'name' => urlencode('服务商功能'),
-                            'url' => 'http://www.xcylkj.com/service/provider'
+                            'url' => 'http://www.xcylkj.com/add/server'
                         ],
                         [
                             'type' => 'view',

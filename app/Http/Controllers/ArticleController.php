@@ -34,12 +34,12 @@ class ArticleController extends WebController
 
 
     /**
-     *成单秘籍
+     *如何挑选服务商
      * @return $this
      */
     public function serviceProvider()
     {
-        $provider = $this->PurposeModel->selectFirst('article', ['id' => 5]);
+        $provider = $this->PurposeModel->selectFirst('article', ['id' => 1]);
         return view($this->file . 'provider')->with([
             'about' => $provider
         ]);

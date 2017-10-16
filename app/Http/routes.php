@@ -155,7 +155,7 @@ Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标�
 Route::any('create/user/tag', 'WechateController@createUserTag'); // 添加用户标签
 
 
-Route::any('service/provider', 'ArticleController@serviceProvider'); // 成单秘籍
+Route::any('service/provider', 'ArticleController@serviceProvider'); // 如何挑选服务商
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
 Route::any('secrets', 'ArticleController@secrets');     // 成单秘籍
 
