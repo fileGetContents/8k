@@ -25,7 +25,7 @@
 </div>
 @foreach($recharge as $value)
     <div class="list">
-        <span>积分: {{ $value->info_recharge }}info_recharge</span>
+        <span>积分: {{ $value->info_recharge }}</span>
         <span>{{date('Y-m-d H:i:s',$value->info_time)}}</span>
         <span>{{$value->info_text}}</span>
     </div>
