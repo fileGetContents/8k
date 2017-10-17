@@ -37,16 +37,16 @@
         {{--</div>--}}
         <p>需求进度：<span>对方希望尽快与您取得联系</span></p>
         <p>Ta的联系电话号码是：{{$myOrder["telephone"]}}</p>
-        <p style="color:#868686 ;">我已经帮他解决了需求！
-            <button class="evaluate import">邀请他评价</button>
-        </p>
+        {{--<p style="color:#868686 ;">我已经帮他解决了需求！--}}
+        {{--<button class="evaluate import">邀请他评价</button>--}}
+        {{--</p>--}}
         <p>您给TA的留言：</p>
         <div class="btnwrapper2">
             @if($user->server == 0 )
-                <div class="btn2" data-toggle="modal" data-target="#mymodal">认证服务商</div>
+                <div class="btn2"><a href="{{URL('identifyv')}}">认证服务商</a></div>
             @endif
             @if($user->pay ==0)
-                <div class="btn2" data-toggle="modal" data-target="#mymodal2">先行赔付</div>
+                <div class="btn2"><a href="{{URL('identify')}}">先行赔付</a></div>
             @endif
         </div>
         <textarea class="textbox">我的电话号码是：{{$user->telephone}}，服务地点在空间，我们专业提供手机回收服务，希望可以帮您解决问题哦！</textarea>
@@ -120,6 +120,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="mymodal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -133,7 +134,7 @@
                         我知道了
                     </button><!-- end ngRepeat: button in buttons -->
                     <button class="button  button-energized" type="submit">
-                        <b>了解先行赔付</b>
+                        <b><a href="{{URL()}}">了解先行赔付</a></b>
                     </button><!-- end ngRepeat: button in buttons -->
                 </div>
             </div>
@@ -141,9 +142,9 @@
     </div>
 </div>
 {{--<a href="#btnwrapper">--}}
-    {{--<div class="footer">--}}
-        {{--<button class="connectbtn">我要极速联系</button>--}}
-    {{--</div>--}}
+{{--<div class="footer">--}}
+{{--<button class="connectbtn">我要极速联系</button>--}}
+{{--</div>--}}
 {{--</a>--}}
 
 {{--<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>--}}

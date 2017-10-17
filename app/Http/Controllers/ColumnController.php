@@ -244,6 +244,7 @@ class ColumnController extends WebController
             'user' => parent::getUserInfo(session('user_id', 2)),
             'myOrder' => parent::getUserInfo($need->use_id),
         ]);
+
     }
 
     /**
