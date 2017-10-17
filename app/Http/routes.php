@@ -129,7 +129,6 @@ Route::any('add/identify', 'ServerController@addIdentify');                 // �
 Route::any('jifen', 'IntegralController@recharge');                         // 积分充值
 Route::any('add/recharge', 'IntegralController@addRecharge');               // 生成积分订单
 
-
 Route::any('jifen/info', 'IntegralController@listRecharge');                // 积分详情
 // ajax上传图片
 Route::any('update/image2', 'ApiController@ajaxUpdateFileImage');

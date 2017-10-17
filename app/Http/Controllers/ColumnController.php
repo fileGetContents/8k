@@ -36,6 +36,12 @@ class ColumnController extends WebController
      */
     public function addServer(Request $request)
     {
+        // 查看是否添加手机号
+        $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+        if ($userInfo->telephone == null) {
+            echo '<script>alert("请先添加手机号")</script>';
+            echo '<script>window.location.href= ' . URL('person') . ' </script>';
+        }
 //        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
 //        if (!is_null($server) && $server->telephone) {
 //            return redirect('person');
@@ -46,8 +52,16 @@ class ColumnController extends WebController
             $server['time'] = $_SERVER['REQUEST_TIME'];
             $id = $this->PurposeModel->insertGetId('use_server', $server);
             if (is_numeric($id) && $id > 0) {
-                $this->UserModel->addRecharge(30, '服务商积分');
-                echo '  <script type="text/javascript">window.location.href="' . URL('range/server/' . $id) . '";</script>';
+                // 成为服务商奖励积分
+                $info_recharge = $this->PurposeModel->selectFirst('info_recharge', [
+                    'use_id' => session('user_id'),
+                    'info_recharge' => 30,
+                    'info_text' => '服务商积分'
+                ]);
+                if (is_null($info_recharge)) {
+                    $this->UserModel->addRecharge(session('user_id'), 30, '服务商积分');
+                }
+                echo '<script type="text/javascript">window.location.href="' . URL('range/server/' . $id) . '";</script>';
             } else {
                 echo '<script> alert("添加服务失败")</script>';
             }
