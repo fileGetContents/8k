@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="{{asset('css/jifendetail.css')}}"/>
     <style>
         .list {
-            width: 30%;
+            width: 100%;
+        }
+        .list span {
+            width: 33.3%;
         }
     </style>
 </head>
