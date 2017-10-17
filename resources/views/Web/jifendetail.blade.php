@@ -20,7 +20,7 @@
 </div>
 @foreach($recharge as $value)
     <div class="list">
-        <span class="leftfont">{{date('Y-m-d H:i:s',$value->time)}}</span>
+        <span class="leftfont">{{date('Y-m-d H:i:s',$value->info_time)}}</span>
         <span class="rightfont">{{$value->info_test}}</span>
     </div>
 @endforeach
