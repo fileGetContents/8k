@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="{{asset('css/person.css')}}">
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     <style>
-        .input-text{
+        .input-text {
             height: 20px;
+        }
+
+        #cappp {
+            background-color: white;
+            height: 40px;
         }
     </style>
 </head>
@@ -34,8 +39,8 @@
 </div>
 <div class="messbox" style="display: none" id="code">
     <span>验证码:</span>
-    <span style="margin-left: 5px;width: 15px"><input  style="height: 20px" type="text" name="code"> </span>
-    <span class="messright">获取验证码</span>
+    <span style="margin-left: 5px;width: 15px"><input style="height: 20px;width: 40px" type="text" name="code"> </span>
+    <input type="button" id="cappp" value="获取验证码">
 </div>
 <button id="save" style="display: none;" class="save">确定</button>
 
@@ -60,7 +65,7 @@
             $('#code').css('display', 'block')
         });
         var code = '';
-        $('.code').click(function () {
+        $('#cappp').click(function () {
             if (!(/^1[34578]\d{9}$/).test($('input[name=phone]').val())) {
                 alert('手机格式错误');
                 return false;
@@ -71,9 +76,7 @@
                 data: {'telephone': $('input[name=phone]').val()},
                 url: '{{URL('send/sms')}}',
                 success: function (obj) {
-                    if (obj.info == 0) {
-                        code = obj.message
-                    }
+                    sms();
                 },
                 error: function (obj) {
                 }
@@ -122,9 +125,26 @@
             })
 
         });
+    });
 
-    })
+
+    // 短信
+    var wait = 60;
+    function sms() {
+        if (wait == 0) {
+            document.getElementById("cappp").removeAttribute("disabled");
+            document.getElementById("cappp").value = "获取验证码";
+            wait = 60;
+        } else {
+            document.getElementById("cappp").setAttribute("disabled", true);
+            document.getElementById("cappp").value = "重新发送(" + wait + ")";
+            wait--;
+            setTimeout(function () {
+                sms()
+            }, 1000);
+        }
+    }
+
 </script>
-
 </body>
 </html>
