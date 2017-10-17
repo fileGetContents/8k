@@ -8,16 +8,18 @@
     <style>
         .div {
             text-align: center;
-            position: absolute;
-            left: 35%;
-            top: 35%;
+            margin-top: 40%;
+        }
+
+        .div p {
+            font: 12px 微软雅黑, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
     </style>
 </head>
 <body>
 <div class="div">
     <img src="{{asset('img/5121204193.gif')}}" alt="">
-    <p>切换视图。。。</p>
+    <p>正在切换菜单,预计5-10分钟后,重新进入公众号可以查看</p>
 </div>
 
 </body>
