@@ -10,6 +10,10 @@
         .file_bar {
             display: none;
         }
+
+        .filePicker {
+            min-width: 90px;
+        }
     </style>
 </head>
 <body>

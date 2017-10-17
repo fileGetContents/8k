@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{asset('css/zyUpload.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/addfoot.css')}}" type="text/css">
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+    <style>
+        .filePicker {
+            min-width: 90px;
+        }
+    </style>
 </head>
 <body>
 <div class="content">

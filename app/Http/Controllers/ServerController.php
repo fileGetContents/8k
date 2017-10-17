@@ -119,8 +119,7 @@ class ServerController extends WebController
      *
      * @param Request $request
      */
-    public
-    function ajaxReplace(Request $request)
+    public function ajaxReplace(Request $request)
     {
         if ($request->isMethod('post')) {
             if ($request->input('string') != '') {
