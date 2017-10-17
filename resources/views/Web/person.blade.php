@@ -115,7 +115,7 @@
                 data: {'nick': $("input[name=nkname]").val(), 'telephone': $('input[name=phone]').val()},
                 success: function (obj) {
                     if (obj.info == 0) {
-                        alert('更新成功');
+                        window.location.href = "{{URL('person')}}"
                     } else {
                         alert('更新失败');
                     }
