@@ -385,7 +385,7 @@ class WechateController extends WebController
                             $recharge = $this->PurposeModel->selectFirst($data['attach'], ['order_num' => $data['out_trade_no']]);
                             if (!is_null($recharge)) {
                                 DB::table('use')->where(['id' => $recharge->use_id])->increment('recharge', $recharge->recharge); // 添加用户积分
-                                $this->UserModel->addRecharge($recharge->recharge, '积分充值');// 积分详情
+                                $this->UserModel->addRecharge($recharge->use_id, $recharge->recharge, '积分充值');// 积分详情
                                 echo $xmkOK;
                             } else {
                                 echo $xmkNO;

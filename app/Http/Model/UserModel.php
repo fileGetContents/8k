@@ -35,13 +35,13 @@ class UserModel extends PurposeModel
      * @param $recharge
      * @param $text
      */
-    public function addRecharge($recharge, $text)
+    public function addRecharge($user_id, $recharge, $text)
     {
         DB::table('info_recharge')->insert([
             'info_recharge' => $recharge,
             'info_text' => $text,
             'info_time' => $_SERVER['REQUEST_TIME'],
-            'use_id' => session('use', 1)
+            'use_id' => $user_id
         ]);
     }
 
