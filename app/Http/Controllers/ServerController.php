@@ -301,7 +301,7 @@ class ServerController extends WebController
     {
         $dentify = $this->PurposeModel->selectFirst('identify', ['use_id' => session('user_id')]);
         if (!is_null($dentify)) {
-            if ($dentify->admin_tag == 0 || $dentify->admin_tag) {
+            if ($dentify->admin_tag == 0 || $dentify->admin_tag == 10) {
                 return back();   // 返回上一界面
             }
         }
