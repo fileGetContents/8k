@@ -41,7 +41,7 @@ class ColumnController extends WebController
         if ($userInfo->telephone == null) {
             echo '<meta charset="utf-8"/>';
             echo '<script>alert("请先添加手机号")</script>';
-            echo '<script>window.location.href= ' . URL('person') . '</script>';
+            echo '<script>window.location.href= "' . URL('person') . '"</script>';
             die;
         }
 //        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
