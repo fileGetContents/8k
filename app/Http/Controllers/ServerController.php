@@ -147,8 +147,7 @@ class ServerController extends WebController
      *
      * @return mixed
      */
-    private
-    function foot()
+    private function foot()
     {
         return $this->PurposeModel->selectAll('foot', ['use_id' => session('user_id', 1)]);
     }
@@ -158,8 +157,7 @@ class ServerController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public
-    function addFoot()
+    public function addFoot()
     {
 
         return view($this->file . 'addfoot');
@@ -223,8 +221,7 @@ class ServerController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public
-    function addModel(Request $request)
+    public function addModel(Request $request)
     {
         if (is_null($request->id)) {
             // 添加
@@ -248,8 +245,7 @@ class ServerController extends WebController
 
     }
 
-    private
-    function selModelColumn($id)
+    private function selModelColumn($id)
     {
         return DB::table('mode')
             ->where(['mode_id' => $id])
@@ -263,8 +259,7 @@ class ServerController extends WebController
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public
-    function formAddModel(Request $request)
+    public function formAddModel(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -285,8 +280,7 @@ class ServerController extends WebController
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public
-    function datails(Request $request)
+    public function datails(Request $request)
     {
         return view($this->file . 'datails');
     }
