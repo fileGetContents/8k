@@ -48,7 +48,6 @@
         </div>
     @endif
     @foreach($need as $key=> $value)
-
         @if(!is_null($value))
             <div class="section">
                 <a href="{{URL('demand/details/'.$id[$num]->id2)}}">
@@ -75,11 +74,9 @@
                     </div>
                 </a>
             </div>
-
             <?php
             $num++
             ?>
-
         @endif
     @endforeach
     <div class="nofound"><p><img src="{{asset('img/nofound.png')}}"></p>

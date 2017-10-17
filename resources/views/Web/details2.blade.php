@@ -96,7 +96,7 @@
     <div style="margin-left: 10%;">
         <img src="{{asset('img/phone.png')}}" width="20px" height="auto">
     </div>
-    <div>专属顾问 刘女士 18789090989</div>
+    {{--<div>专属顾问 刘女士 18789090989</div>--}}
 </div>
 
 </div>

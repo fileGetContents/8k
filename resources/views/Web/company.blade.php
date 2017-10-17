@@ -38,7 +38,6 @@
 <ul id="ul">
     <li class="hover">商户信息</li>
     <li>服务脚印</li>
-    <li>服务评价</li>
 </ul>
 <div id="contener" class="contener">
     <!--商户信息-->
