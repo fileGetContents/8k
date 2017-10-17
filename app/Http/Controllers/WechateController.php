@@ -366,7 +366,9 @@ class WechateController extends WebController
         $xml = file_get_contents('php://input', 'r');   // 获取xml数
         $base = new Wechate\WxPayResults();
         $data = $base->FromXml($xml);
-        DB::table('admin')->insert(['admin' => serialize($data)]);
+//        $string = 'a:17:{s:5:"appid";s:18:"wx0e80afcecb3d0cdb";s:6:"attach";s:8:"recharge";s:9:"bank_type";s:3:"CFT";s:8:"cash_fee";s:1:"1";s:8:"fee_type";s:3:"CNY";s:12:"is_subscribe";s:1:"Y";s:6:"mch_id";s:10:"1387630002";s:9:"nonce_str";s:32:"kzmdd1pxa3wt6e1xx9q6fdz3xjko338d";s:6:"openid";s:28:"o_wyxwkPMUKj_K5pPRkPGMuo2SVk";s:12:"out_trade_no";s:24:"201710151349244541168229";s:11:"result_code";s:7:"SUCCESS";s:11:"return_code";s:7:"SUCCESS";s:4:"sign";s:32:"C8AD2D08AB3915F879495000501D8A86";s:8:"time_end";s:14:"20171017150141";s:9:"total_fee";s:1:"1";s:10:"trade_type";s:5:"JSAPI";s:14:"transaction_id";s:28:"4200000013201710178611489895";}';
+//        $data = unserialize($string);
+        // DB::table('admin')->insert(['admin' => serialize($data)]);
         switch ($data['return_code']) {
             case  'FAIL';
                 echo $xmkNO;
@@ -374,13 +376,13 @@ class WechateController extends WebController
             case 'SUCCESS';
                 if ($data['result_code'] == "SUCCESS") {
                     if ($data['attach'] == 'recharge') { // 积分充值
-                        $row = DB::table($data['attach'])
-                            ->where('order_num', '=', $data['out_trade_no'])
+                        $row = DB::table('recharge')
+                            ->where(['order_num' => $data['out_trade_no']])
                             ->update(array(
-                                'order_tag' => 10, // 支付完成
+                                'tag' => 10, // 支付完成
                             ));
                         if ($row) {
-                            $recharge = $this->PurposeModel->selectFirst($data['attach'], ['order_num', '=', $data['out_trade_no']]);
+                            $recharge = $this->PurposeModel->selectFirst($data['attach'], ['order_num' => $data['out_trade_no']]);
                             if (!is_null($recharge)) {
                                 DB::table($data['attach'])->increment('recharge', $recharge->recharge);
                                 $this->UserModel->addRecharge($recharge->recharge, '积分充值');
@@ -395,7 +397,7 @@ class WechateController extends WebController
                         $row = DB::table($data['attach'])
                             ->where('order_num', '=', $data['out_trade_no'])
                             ->update(array(
-                                'order_tag' => 10, // 支付完成
+                                'tag' => 10, // 支付完成
                             ));
                         if ($row) {
                             echo $xmkOK;
