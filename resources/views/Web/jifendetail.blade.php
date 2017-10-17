@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <title>积分收支记录</title>
     <link rel="stylesheet" href="{{asset('css/jifendetail.css')}}"/>
+    <style>
+        .list {
+            width: 30%;
+        }
+    </style>
 </head>
 <body>
 <div class="header">
@@ -21,8 +26,8 @@
 @foreach($recharge as $value)
     <div class="list">
         <span>积分: {{ $value->info_recharge }}info_recharge</span>
-        <span class="leftfont">{{date('Y-m-d H:i:s',$value->info_time)}}</span>
-        <span class="rightfont">{{$value->info_text}}</span>
+        <span>{{date('Y-m-d H:i:s',$value->info_time)}}</span>
+        <span>{{$value->info_text}}</span>
     </div>
 @endforeach
 
