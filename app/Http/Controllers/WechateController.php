@@ -360,13 +360,15 @@ class WechateController extends WebController
      */
     public function wxCallBack(Request $request)
     {
-        DB::table('admin')->insert(['admin' => 1111]);
-        die;
+
         header("Content-type:text/xml;charset=utf-8");
         $xmkOK = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";  // 成功
         $xmkNO = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[ERROR]]></return_code><return_msg><![CDATA[NO]]></return_msg></xml>";    // 失败
         $xml = file_get_contents('php://input', 'r');   // 获取xml数
         $base = new Wechate\WxPayResults();
+
+        DB::table('admin')->insert(['admin' => serialize($base)]);
+
         $data = $base->FromXml($xml);
         switch ($data['return_code']) {
             case  'FAIL';
@@ -384,7 +386,8 @@ class WechateController extends WebController
                         if ($row) {
                             $recharge = $this->PurposeModel->selectFirst($data['attach'], ['order_num', '=', $data['out_trade_no']]);
                             if (!is_null($recharge)) {
-                                DB::table($data['attach'])->increment('recharge', $recharge->recharge);$this->UserModel->addRecharge($recharge->recharge, '积分充值');
+                                DB::table($data['attach'])->increment('recharge', $recharge->recharge);
+                                $this->UserModel->addRecharge($recharge->recharge, '积分充值');
                                 echo $xmkOK;
                             } else {
                                 echo $xmkNO;
