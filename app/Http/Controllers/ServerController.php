@@ -170,8 +170,7 @@ class ServerController extends WebController
      *
      * @param Request $request
      */
-    public
-    function ajaxFoot(Request $request)
+    public function ajaxFoot(Request $request)
     {
         $insert = array();
         if ($request->input('images') != '') {
@@ -182,7 +181,7 @@ class ServerController extends WebController
         $insert['message'] = $request->input('message');
         $insert['address'] = $request->input('address');
         $insert['time'] = $_SERVER['REQUEST_TIME'];
-        $insert['use_id'] = session('use_id', 1);
+        $insert['use_id'] = session('user_id', 1);
         $whether = $this->PurposeModel->insertWhether('foot', $insert);
         if ($whether) {
             echo collect(['info' => 0, 'message' => 'success']);
@@ -197,8 +196,7 @@ class ServerController extends WebController
      *
      * @return mixed
      */
-    private
-    function getProAdd()
+    private function getProAdd()
     {
         return $this->PurposeModel->selectFirst('profile', ['use_id' => session('user_id', 1)]);
     }
@@ -208,8 +206,7 @@ class ServerController extends WebController
      * 添加模板
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public
-    function model()
+    public function model()
     {
         $mode = DB::table('mode')
             ->where(['use_id' => session('user_id', 1)])
