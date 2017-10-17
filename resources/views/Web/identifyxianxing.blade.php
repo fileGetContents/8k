@@ -6,6 +6,11 @@
     <title>v认证</title>
     <link rel="stylesheet" href="{{asset('css/identifyxianxing.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/zyUpload.css')}}" type="text/css">
+    <style>
+        .filePicker {
+            min-width: 90px;
+        }
+    </style>
 </head>
 <body>
 <div class="content">
