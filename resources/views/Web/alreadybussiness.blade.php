@@ -24,10 +24,10 @@
 <div class="content">
     <ul class="nav3">
         <ul class="nav2" id="nav2">
-            <li style="width: 33% ;text-align: center">
+            <li style="width:49% ;text-align: center">
                 <a href="{{URL('jifen/info')}}">我的积分</a>
             </li>
-            <li style="width: 33% ;text-align: center">
+            <li style="width: 49% ;text-align: center">
                 <a href="{{URL('model')}}">通用设置</a>
             </li>
         </ul>
