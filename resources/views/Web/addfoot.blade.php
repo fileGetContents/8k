@@ -43,7 +43,6 @@
     </div>
 </div>
 <div id="mask"></div>
-
 <div class="foot"><span></span>
     <button class="postbtn">发布</button>
 </div>
@@ -66,6 +65,12 @@
                 dataType: 'json',
                 url: '{{ URL("ajax/foot") }}',
                 success: function (obj) {
+                    if (obj.info == 0) {
+                        alert('添加成功');
+                        window.location.href = "{{URL('company')}}"
+                    } else {
+                        alert('添加失败')
+                    }
                 },
                 error: function (obj) {
                 }
