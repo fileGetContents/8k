@@ -74,6 +74,7 @@
                 url: '{{ URL("add/identify") }}',
                 success: function (obj) {
                     jsApiCall(obj);
+                    history.go(0);
                 },
                 error: function (obj) {
 

@@ -300,9 +300,11 @@ class ServerController extends WebController
     public function identify()
     {
         $dentify = $this->PurposeModel->selectFirst('identify', ['use_id' => session('user_id')]);
-//        if (!is_null($dentify)) { // 返回上一界面
-//            return back();
-//        }
+        if (!is_null($dentify)) {
+            if ($dentify->admin_tag == 0 || $dentify->admin_tag) {
+                return back();   // 返回上一界面
+            }
+        }
         return view($this->file . 'identifyxianxing');
     }
 
