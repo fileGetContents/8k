@@ -62,10 +62,10 @@ class IntegralController extends WebController
      */
     public function listRecharge()
     {
-        if (session('user_id', -1) == -1) {
-            $wx = new WechateController();
-            $wx->wxUserLogin(URL("jifen/info"));
-        }
+//        if (session('user_id', -1) == -1) {
+//            $wx = new WechateController();
+//            $wx->wxUserLogin(URL("jifen/info"));
+//        }
         $info = $this->PurposeModel->selectAll('info_recharge', ['use_id' => session('user_id', 1)]);
         $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
 

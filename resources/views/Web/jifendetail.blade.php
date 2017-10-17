@@ -9,9 +9,12 @@
         .list {
             width: 100%;
         }
-        .list span {
-            width: 33.3%;
+        .center{
+            text-align: left;
+            width: 20px;
         }
+
+
     </style>
 </head>
 <body>
@@ -28,9 +31,9 @@
 </div>
 @foreach($recharge as $value)
     <div class="list">
-        <span>积分: {{ $value->info_recharge }}</span>
-        <span>{{date('Y-m-d H:i:s',$value->info_time)}}</span>
-        <span>{{$value->info_text}}</span>
+        <span class="left">积分: {{ $value->info_recharge }}&nbsp;&nbsp;&nbsp;</span>
+        <span class="center">{{date('Y-m-d H:i:s',$value->info_time)}}&nbsp;&nbsp;&nbsp;</span>
+        <span class="right">{{$value->info_text}}&nbsp;&nbsp;&nbsp;</span>
     </div>
 @endforeach
 
