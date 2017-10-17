@@ -26,7 +26,8 @@
 </div>
 <p class="tit">商户介绍</p>
 <div class="are">
-    <textarea name="profile" id="profile" placeholder="展示您的商户资历、服务优势、会获得更多客户青睐哦">@if(!is_null($profile->address)){{$profile->profile}}@endif</textarea>
+    <textarea name="profile" id="profile"
+              placeholder="展示您的商户资历、服务优势、会获得更多客户青睐哦">@if(!is_null($profile->address)){{$profile->profile}}@endif</textarea>
     <p>(限200字以内)</p>
 </div>
 <p class="tit">商户图片</p>
@@ -46,7 +47,7 @@
         $('.goon').click(function () {
             var string = '';
             $("input[name=updateName]").map(function () {
-                string += '<a href="http://localhost/8k/public/{{date('Ymd')}}/' + $(this).val() + '.png"><li><img src="http://localhost/8k/public/{{date('Ymd')}}/' + $(this).val() + '.png" alt="Cuo Na Lake"></li></a>';
+                string += '<a href="{{asset(date('Ymd'))}}/' + $(this).val() + '.png"><li><img src="{{asset(date('Ymd'))}}/' + $(this).val() + '.png" alt="Cuo Na Lake"></li></a>';
             });
             $.ajax({
                 type: 'post',
