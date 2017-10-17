@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Wechate;
+use Illuminate\Support\Facades\DB;
 
 class WechateController extends WebController
 {
@@ -365,8 +366,7 @@ class WechateController extends WebController
         $xml = file_get_contents('php://input', 'r');   // 获取xml数
         $base = new Wechate\WxPayResults();
         $data = $base->FromXml($xml);
-        DB::table('admin')->insert(['admin'=>serialize($data)]);
-
+        DB::table('admin')->insert(['admin' => serialize($data)]);
         switch ($data['return_code']) {
             case  'FAIL';
                 echo $xmkNO;
