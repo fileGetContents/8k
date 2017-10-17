@@ -411,9 +411,7 @@ class WechateController extends WebController
                     echo $xmkNO;
                 }
         }
-
-
-        echo $xmkOK; // 返回成功
+        //echo $xmkOK; // 返回成功
     }
 
 
