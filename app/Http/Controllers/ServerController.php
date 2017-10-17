@@ -108,9 +108,6 @@ class ServerController extends WebController
      */
     public function replace(Request $request)
     {
-
-        dump(self::getProAdd());
-        die;
         return view($this->file . 'replace')->with([
             'profile' => self::getProAdd(),
         ]);
