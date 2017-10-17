@@ -101,6 +101,7 @@ class ServerController extends WebController
         ]);
     }
 
+
     /**
      * 修改地址或者简介
      * @param Request $request
@@ -118,7 +119,8 @@ class ServerController extends WebController
      *
      * @param Request $request
      */
-    public function ajaxReplace(Request $request)
+    public
+    function ajaxReplace(Request $request)
     {
         if ($request->isMethod('post')) {
             if ($request->input('string') != '') {
@@ -126,9 +128,9 @@ class ServerController extends WebController
             }
             $update['profile'] = $request->input('profile');
             $update['address'] = $request->input('address');
-            $is = $this->PurposeModel->selectFirst('profile', ['use_id' => session('use_id', 1)]);
+            $is = $this->PurposeModel->selectFirst('profile', ['use_id' => session('user_id', 1)]);
             if ($is) {
-                $whether = $this->PurposeModel->up('profile', ['use_id' => session('use_id', 1)], $update);
+                $whether = $this->PurposeModel->up('profile', ['use_id' => session('user_id', 1)], $update);
             } else {
                 $update['use_id'] = session('user_id', 1);
                 $whether = $this->PurposeModel->insertWhether('profile', $update);
@@ -146,7 +148,8 @@ class ServerController extends WebController
      *
      * @return mixed
      */
-    private function foot()
+    private
+    function foot()
     {
         return $this->PurposeModel->selectAll('foot', ['use_id' => session('user_id', 1)]);
     }
@@ -156,7 +159,8 @@ class ServerController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function addFoot()
+    public
+    function addFoot()
     {
 
         return view($this->file . 'addfoot');
@@ -167,7 +171,8 @@ class ServerController extends WebController
      *
      * @param Request $request
      */
-    public function ajaxFoot(Request $request)
+    public
+    function ajaxFoot(Request $request)
     {
         $insert = array();
         if ($request->input('images') != '') {
@@ -193,7 +198,8 @@ class ServerController extends WebController
      *
      * @return mixed
      */
-    private function getProAdd()
+    private
+    function getProAdd()
     {
         return $this->PurposeModel->selectFirst('profile', ['use_id' => session('user_id', 1)]);
     }
@@ -203,7 +209,8 @@ class ServerController extends WebController
      * 添加模板
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function model()
+    public
+    function model()
     {
         $mode = DB::table('mode')
             ->where(['use_id' => session('user_id', 1)])
@@ -220,7 +227,8 @@ class ServerController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function addModel(Request $request)
+    public
+    function addModel(Request $request)
     {
         if (is_null($request->id)) {
             // 添加
@@ -244,7 +252,8 @@ class ServerController extends WebController
 
     }
 
-    private function selModelColumn($id)
+    private
+    function selModelColumn($id)
     {
         return DB::table('mode')
             ->where(['mode_id' => $id])
@@ -258,7 +267,8 @@ class ServerController extends WebController
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function formAddModel(Request $request)
+    public
+    function formAddModel(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -279,7 +289,8 @@ class ServerController extends WebController
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function datails(Request $request)
+    public
+    function datails(Request $request)
     {
         return view($this->file . 'datails');
     }
@@ -290,7 +301,8 @@ class ServerController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function identify()
+    public
+    function identify()
     {
         $dentify = $this->PurposeModel->selectFirst('identify', ['use_id' => session('user_id')]);
         if (!is_null($dentify)) { // 返回上一界面
@@ -304,7 +316,8 @@ class ServerController extends WebController
      *
      * @param Request $request
      */
-    public function addIdentify(Request $request)
+    public
+    function addIdentify(Request $request)
     {
         $this->validate($request, [
             'string' => 'required',
