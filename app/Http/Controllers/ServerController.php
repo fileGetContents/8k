@@ -337,6 +337,4 @@ class ServerController extends WebController
             echo collect(['info' => 1, 'message' => 'error']);
         }
     }
-
-
 }

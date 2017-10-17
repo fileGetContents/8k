@@ -36,10 +36,10 @@ class ColumnController extends WebController
      */
     public function addServer(Request $request)
     {
-        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
-        if (!is_null($server) && $server->telephone) {
-            return redirect('person');
-        }
+//        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+//        if (!is_null($server) && $server->telephone) {
+//            return redirect('person');
+//        }
         if ($request->isMethod('post')) {
             $server['server'] = serialize($request->all());
             $server['use_id'] = session('user_id', 1);
@@ -47,7 +47,7 @@ class ColumnController extends WebController
             $id = $this->PurposeModel->insertGetId('use_server', $server);
             if (is_numeric($id) && $id > 0) {
                 $this->UserModel->addRecharge(30, '服务商积分');
-                header('Location: ' . URL('range/server/' . $id));
+                echo '  <script type="text/javascript">window.location.href="' . URL('range/server/' . $id) . '";</script>';
             } else {
                 echo '<script> alert("添加服务失败")</script>';
             }
