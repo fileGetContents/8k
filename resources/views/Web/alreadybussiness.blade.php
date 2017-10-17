@@ -19,7 +19,6 @@
         <a href="{{URL('connectbussiness')}}">
             <li>联系中需求</li>
         </a>
-
     </ul>
 </div>
 <div class="content">
@@ -94,6 +93,14 @@
 
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script>
+    $(function () {
+        $('.down').click(function () {
+            $('#shaixuan').css('display', 'block');
+        });
+    })
+</script>
+
 
 </body>
 </html>
