@@ -19,6 +19,19 @@ class ColumnController extends WebController
      */
     public function showServer()
     {
+        // 查看是否添加了手机号码
+        $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+        if ($userInfo->telephone == null) {
+            echo '<meta charset="utf-8"/>';
+            echo '<script>alert("请先添加手机号")</script>';
+            echo '<script>window.location.href= "' . URL('person') . '"</script>';
+            exit();
+        }
+        // 查看是否是商户用户
+        $server = $this->PurposeModel->selectFirst('use_server', ['use_id' => session('user_id', 1)]);
+        if (!is_null($server)) {
+            return back();
+        }
         $class = $this->PurposeModel->selectAll('column', ['depth' => 0]); // 顶级栏目
         foreach ($class as $value) {
             $choose[] = $this->PurposeModel->selectAll('column', ['parent_id' => $value->id]);
