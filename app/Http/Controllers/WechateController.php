@@ -306,7 +306,6 @@ class WechateController extends WebController
         return view($this->file . 'change');
     }
 
-
     /**
      *
      * 以登录的方式获取openid

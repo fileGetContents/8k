@@ -6,13 +6,17 @@
     <title>个人中心</title>
     <link rel="stylesheet" href="{{asset('css/person.css')}}">
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+    <style>
+        .input-text{
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="person-head">
     <div class="head-img">
         <img src="{{ $user->headimgurl }}">
     </div>
-    {{--<button class="upload">上传头像</button>--}}
 </div>
 <div class="messbox">
     <span>昵称:</span>
@@ -21,7 +25,6 @@
         <img src="{{asset('img/write.png')}}">
     </span>
 </div>
-
 <div class="messbox">
     <span>手机号:</span>
     <span style="margin-left: 5px;">{{$user->telephone}}</span>
@@ -31,12 +34,9 @@
 </div>
 <div class="messbox" style="display: none" id="code">
     <span>验证码:</span>
-    <span style="margin-left: 5px;width: 15px"><input type="text" name="code"> </span>
-    <span class="messright">
-         <button style="width: 60px" class="save code">验证码</button>
-    </span>
+    <span style="margin-left: 5px;width: 15px"><input  style="height: 20px" type="text" name="code"> </span>
+    <span class="messright">获取验证码</span>
 </div>
-
 <button id="save" style="display: none;" class="save">确定</button>
 
 <script src="{{asset('js/jquery.min.js')}}"></script>
@@ -104,7 +104,6 @@
                     return false;
                 }
             }
-
             $.ajax({
                 type: 'post',
                 dataType: 'json',
