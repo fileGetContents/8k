@@ -21,11 +21,11 @@ class ServerController extends WebController
     public function identifyV(Request $request)
     {
         $documents = $this->PurposeModel->selectFirst('documents', ['use_id' => session('user_id', 1)]);
-//        if (!is_null($documents)) {
-//            if ($documents->tag == 0 || $documents->tag == 10) {
-//                return back();
-//            }
-//        }
+        if (!is_null($documents)) {
+            if ($documents->tag == 0 || $documents->tag == 10) {
+                return back();
+            }
+        }
         $use = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         return view($this->file . 'identifyV')->with([
             'user' => $use
