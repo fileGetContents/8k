@@ -20,6 +20,7 @@
 </div>
 @foreach($recharge as $value)
     <div class="list">
+        <span>积分: {{ $value->info_recharge }}info_recharge</span>
         <span class="leftfont">{{date('Y-m-d H:i:s',$value->info_time)}}</span>
         <span class="rightfont">{{$value->info_text}}</span>
     </div>
