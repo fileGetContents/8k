@@ -152,6 +152,8 @@ Route::any('set/template', 'WechateController@setTemplate');   // 设置所属�
 
 Route::any('create/user/tag', 'WechateController@createUserTag'); // 添加用户标签
 Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标签
+Route::any('notify/url', 'WechateController@notifyUrl');  // 支付回调地址
+
 
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 如何挑选服务商
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
