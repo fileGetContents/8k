@@ -48,7 +48,7 @@ class IntegralController extends WebController
                 'trade_no' => $insert['order_num'],
                 'total_fee' => intval($insert['price']) * 100,
             ]);
-            echo collect(['info' => 0, 'message' => $jsApiJson]);
+            echo $jsApiJson;
         } else {
             echo collect(['info' => 1, 'message' => 'error']);
         }
