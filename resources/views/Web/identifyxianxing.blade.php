@@ -73,13 +73,7 @@
                 dataType: 'json',
                 url: '{{ URL("add/identify") }}',
                 success: function (obj) {
-                    console.log(obj);
-//                    WeixinJSBridge.invoke(
-//                            'getBrandWCPayRequest', obj.message,
-//                            functioln (res) {
-//                                WeixinJSBridge.log(res.err_msg);
-//                            }
-//                    );
+                    jsApiCall(obj);
                 },
                 error: function (obj) {
 
@@ -87,6 +81,31 @@
             })
         });
     });
+</script>
+
+<script type="text/javascript">
+    //调用微信JS api 支付
+    function jsApiCall(json) {
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                json,
+                function (res) {
+                    WeixinJSBridge.log(res.err_msg);
+                }
+        );
+    }
+    function callpay(json) {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall(json), false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall(json));
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall(json));
+            }
+        } else {
+            jsApiCall(json);
+        }
+    }
 </script>
 
 </body>
