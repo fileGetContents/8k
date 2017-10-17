@@ -114,7 +114,6 @@
                 json,
                 function (res) {
                     WeixinJSBridge.log(res.err_msg);
-                    alert(res.err_code + res.err_desc + res.err_msg);
                 }
         );
     }
