@@ -7,10 +7,10 @@
     <link href="{{asset('css/aboutus.css')}}" rel="stylesheet"/>
     <style>
         .div {
-            margin: 0 auto;
-            width: 400px;
-            height: 100px;
-
+            text-align: center;
+            position: absolute;
+            left: 35%;
+            top: 35%;
         }
     </style>
 </head>
