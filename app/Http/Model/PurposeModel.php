@@ -169,7 +169,7 @@ class PurposeModel extends Model
         if (is_array($array)) {
             $url = array();
             foreach ($array as $value) {
-                $url[] = asset(date("ymdHis") . '/' . $value . '.png');
+                $url[] = asset(date("YmdHis") . '/' . $value . '.png');
             }
             return $url;
         } else {
