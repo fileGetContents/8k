@@ -71,7 +71,7 @@
                     console.log(obj);
 //                    WeixinJSBridge.invoke(
 //                            'getBrandWCPayRequest', obj.message,
-//                            function (res) {
+//                            functioln (res) {
 //                                WeixinJSBridge.log(res.err_msg);
 //                            }
 //                    );
