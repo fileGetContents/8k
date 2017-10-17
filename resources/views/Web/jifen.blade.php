@@ -95,14 +95,17 @@
                 dataType: 'json',
                 url: '{{URL("add/recharge")}}',
                 success: function (obj) {
-                    WeixinJSBridge.invoke(
-                            'getBrandWCPayRequest',
-                            obj.message,
-                            function (res) {
-                                WeixinJSBridge.log(res.err_msg);
-                                alert(res.err_code + res.err_desc + res.err_msg);
-                            }
-                    );
+                    console.log(obj)
+//                    WeixinJSBridge.invoke(
+//                            'getBrandWCPayRequest',
+//                            obj.message,
+//                            function (res) {
+//                                WeixinJSBridge.log(res.err_msg);
+//                                alert(res.err_code + res.err_desc + res.err_msg);
+//                            }
+//                    );
+
+
                 },
                 error: function (obj) {
 
