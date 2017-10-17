@@ -360,7 +360,6 @@ class WechateController extends WebController
      */
     public function wxCallBack(Request $request)
     {
-
         header("Content-type:text/xml;charset=utf-8");
         $xmkOK = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";  // 成功
         $xmkNO = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[ERROR]]></return_code><return_msg><![CDATA[NO]]></return_msg></xml>";    // 失败
@@ -379,8 +378,7 @@ class WechateController extends WebController
                             ->where('order_num', '=', $data['out_trade_no'])
                             ->update(array(
                                 'order_tag' => 10, // 支付完成
-                            ))
-                            ->get();
+                            ));
                         if ($row) {
                             $recharge = $this->PurposeModel->selectFirst($data['attach'], ['order_num', '=', $data['out_trade_no']]);
                             if (!is_null($recharge)) {
@@ -398,8 +396,7 @@ class WechateController extends WebController
                             ->where('order_num', '=', $data['out_trade_no'])
                             ->update(array(
                                 'order_tag' => 10, // 支付完成
-                            ))
-                            ->get();
+                            ));
                         if ($row) {
                             echo $xmkOK;
                         } else {
