@@ -20,12 +20,13 @@
 <div class="choseplace">
     <div class="dateimg"><img src="{{asset('img/dizhi.png')}}" width="20px" height="auto"></div>
     <div>
-        <input name="address"   id="suggestId" class="place" placeholder="街道名、小区/大厦、门牌号" value="{{$profile->address}}">
+        <input name="address" id="suggestId" class="place" placeholder="街道名、小区/大厦、门牌号"
+               value="@if(!is_null($profile->address)){{$profile->address}} @endif">
     </div>
 </div>
 <p class="tit">商户介绍</p>
 <div class="are">
-    <textarea name="profile" id="profile" placeholder="展示您的商户资历、服务优势、会获得更多客户青睐哦">{{$profile->profile}}</textarea>
+    <textarea name="profile" id="profile" placeholder="展示您的商户资历、服务优势、会获得更多客户青睐哦">@if(!is_null($profile->address)){{$profile->profile}}@endif</textarea>
     <p>(限200字以内)</p>
 </div>
 <p class="tit">商户图片</p>
