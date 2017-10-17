@@ -152,12 +152,10 @@ Route::any('set/template', 'WechateController@setTemplate');   // 设置所属�
 
 Route::any('create/user/tag', 'WechateController@createUserTag'); // 添加用户标签
 Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标签
-Route::any('2222', 'WechateController@wxCallBack');  // 支付回调地址
-
 
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 如何挑选服务商
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
 Route::any('secrets', 'ArticleController@secrets');     // 成单秘籍
 
 
-Route::any('notify/url', 'WechateController@');         // 回调地址
+Route::any('notify/url', 'WechateController@wxCallBack');         // 回调地址
