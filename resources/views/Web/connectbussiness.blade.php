@@ -84,5 +84,13 @@
 </div>
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bussiness.js')}}"></script>
+<script>
+    $(function () {
+        $('.down').click(function () {
+            $('#shaixuan').css('display', 'block');
+        });
+    });
+</script>
+
 </body>
 </html>

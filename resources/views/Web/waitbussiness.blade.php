@@ -34,18 +34,10 @@
     </ul>
     <div class="contain" id="contain">
         <div class="no">
-        </div>
-        <div class="no">
             <div><a href="{{URL("waitbussiness?time=now")}}">今日需求</a></div>
             <div><a href="{{URL('waitbussiness?time=two')}}">近两天需求</a></div>
             <div><a href="{{URL('waitbussiness?time=there')}}">近三天需求</a></div>
             <div><a href="{{URL('waitbussiness')}}">全部</a></div>
-        </div>
-        <div class="no">
-            <div>自定义</div>
-            <div>全部分类需求</div>
-        </div>
-        <div class="no">
         </div>
     </div>
     @if(!$iden)
@@ -99,7 +91,8 @@
 <script>
     $(function () {
         $('.down').click(function () {
-            $('#shaixuan').css('display', 'block');
+            $('#contain').css('display', 'block');
+            $('#contain >div').css('display', 'block')
         });
     });
 </script>
