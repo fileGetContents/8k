@@ -105,7 +105,6 @@
     })
 </script>
 
-
 <script type="text/javascript">
     //调用微信JS api 支付
     function jsApiCall(json) {

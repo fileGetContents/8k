@@ -178,6 +178,8 @@
             url: '{{URL("insert/identifyv")}}',
             success: function (obj) {
                 if (obj.info == 0) {
+
+
                     window.location.href = '{{URL("company")}}';
                 } else {
                     alert('添加失败')

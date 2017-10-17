@@ -297,8 +297,7 @@ class ServerController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public
-    function identify()
+    public function identify()
     {
         $dentify = $this->PurposeModel->selectFirst('identify', ['use_id' => session('user_id')]);
         if (!is_null($dentify)) { // 返回上一界面
@@ -312,8 +311,7 @@ class ServerController extends WebController
      *
      * @param Request $request
      */
-    public
-    function addIdentify(Request $request)
+    public function addIdentify(Request $request)
     {
         $this->validate($request, [
             'string' => 'required',
@@ -339,9 +337,10 @@ class ServerController extends WebController
                 'body' => 'V认证支付',
                 'attach' => 'identify',
                 'trade_no' => $orderNum,
-                'total_fee' => $request->input('price') * 100,
+                // 'total_fee' => $request->input('price') * 100,
+                'total_fee' => 1
             ]);
-            echo collect(['info' => 0, 'message' => $return])->toJson();
+            echo $return;
         } else {
             echo collect(['info' => 1, 'message' => 'error']);
         }

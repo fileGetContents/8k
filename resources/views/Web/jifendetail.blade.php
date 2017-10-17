@@ -9,7 +9,8 @@
         .list {
             width: 100%;
         }
-        .center{
+
+        .center {
             text-align: left;
             width: 20px;
         }
@@ -36,6 +37,5 @@
         <span class="right">{{$value->info_text}}&nbsp;&nbsp;&nbsp;</span>
     </div>
 @endforeach
-
 </body>
 </html>
