@@ -365,6 +365,8 @@ class WechateController extends WebController
         $xml = file_get_contents('php://input', 'r');   // 获取xml数
         $base = new Wechate\WxPayResults();
         $data = $base->FromXml($xml);
+        DB::table('admin')->insert(['admin'=>serialize($data)]);
+
         switch ($data['return_code']) {
             case  'FAIL';
                 echo $xmkNO;
