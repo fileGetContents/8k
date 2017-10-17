@@ -358,7 +358,7 @@ class WechateController extends WebController
     /**
      * 支付回调地址
      */
-    public function notifyUrl(Request $request)
+    public function notifyUrl2(Request $request)
     {
         DB::table('admin')->insert(['admin' => 1111]);
         die;
