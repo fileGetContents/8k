@@ -22,9 +22,7 @@ class UserModel extends PurposeModel
             $return = array();
             foreach ($demand as $key => $value) {
                 $mean = $this->selFirst('options', ['name' => $key, 'column_id' => $column_id]);
-                var_dump($mean);
-                die;
-                $return[$mean[0]->name] = $mean[0]->mean;
+                $return[$mean->name] = $mean->mean;
             }
             return $return;
         } else {

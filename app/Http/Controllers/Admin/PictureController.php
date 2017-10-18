@@ -28,7 +28,7 @@ class PictureController extends WebController
         $insert['column_id'] = $input['id'];
         $insert['sort'] = $input['soft'];
         $insert['prompting'] = self::createMean($input['mean'], $input['required']);
-        $insert['mean'] = $input['mean'] . $_SERVER['REQUEST_TIME'];
+        $insert['mean'] = $input['mean'];
         if (isset($_POST['required'])) {
             $insert['required'] = $input['required'];
         } else {
