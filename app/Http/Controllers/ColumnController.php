@@ -218,14 +218,16 @@ class ColumnController extends WebController
             $value->need = $mean;
             $needAll[] = $value;
         };
-        // 查询用户
+
 
         dump($demand);
+        echo '1111';
+        die;
+        // 查询用户
+
 
         //  $user = $this->PurposeModel->selFirst('use', ['id' => $demand[0]->user_id]);
 
-        echo '1111';
-        die;
 
         $phone = $this->WayClass->hiddenNumber($user[0]->telephone);
         // 查询是否需要使用地图功能
