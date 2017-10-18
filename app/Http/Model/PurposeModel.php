@@ -99,6 +99,12 @@ class PurposeModel extends Model
         return DB::table($table)->where($where)->first();
     }
 
+    public function selFirst($table, $where)
+    {
+        return DB::table($table)->where($where)->get();
+    }
+
+
     /**
      * 查询一共有多少条
      *
