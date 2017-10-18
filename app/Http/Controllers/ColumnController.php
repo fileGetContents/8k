@@ -34,9 +34,9 @@ class ColumnController extends WebController
         // 查看是否是商户用户
         $server = $this->PurposeModel->selectFirst('use_server', ['use_id' => session('user_id', 1)]);
         if (!is_null($server)) {
-            echo '<script>alert("添加服务商")</script>';
+            echo '<meta charset="utf-8"/>';
+            echo '<script>alert("商户用户不能发布需求")</script>';
             echo '<script type="text/javascript">window.location.href="' . URL('person') . '";</script>';
-
             exit();
         }
         $class = $this->PurposeModel->selectAll('column', ['depth' => 0]); // 顶级栏目
