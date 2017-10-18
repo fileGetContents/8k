@@ -19,9 +19,10 @@ class ColumnController extends WebController
      */
     public function showServer()
     {
-
-        $wx = new WechateController();
-        $wx->wxUserLogin(URL('add/server'));
+        if (session('user_id', -1) == 1 - 1) {
+            $wx = new WechateController();
+            $wx->wxUserLogin(URL('show/serve'));
+        }
 
         // 查看是否添加了手机号码
         $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
