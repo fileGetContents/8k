@@ -201,15 +201,17 @@ class ColumnController extends WebController
             'id' => $request->id,
         ]);
         $need = array();
-//        foreach ($demand as $value) {
-//            $column = $this->PurposeModel->selectFirst('column', ['id' => $value->column_id]);
-//            $value->column_name = $column->column_name;
-//            $value->demand = unserialize($value->demand);
-//            // 查询报价需求
-//            $transact = $this->PurposeModel->selectTake('transact', ['demand_id' => $value->id]);
-//            $value->transact = $transact;
-//            $need[] = $value;
-//        };
+        foreach ($demand as $value) {
+            dump($value);
+            die;
+            $column = $this->PurposeModel->selectFirst('column', ['id' => $value->column_id]);
+            $value->column_name = $column->column_name;
+            $value->demand = unserialize($value->demand);
+            // 查询报价需求
+            $transact = $this->PurposeModel->selectTake('transact', ['demand_id' => $value->id]);
+            $value->transact = $transact;
+            $need[] = $value;
+        };
         // 查询字段意思
         $needAll = array();
         foreach ($need as $value) {
