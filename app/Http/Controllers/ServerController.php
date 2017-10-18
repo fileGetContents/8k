@@ -75,7 +75,6 @@ class ServerController extends WebController
     {
         $server = $this->PurposeModel->selectAll('use_server', ['use_id' => session('user_id', 1)]);
         $column = array();
-        dump($server);die;
         foreach ($server as $key => $value) {
             $uns = unserialize($value->server);
             foreach ($uns as $v) {
@@ -89,6 +88,10 @@ class ServerController extends WebController
             }
             $server[$key]->column = $column[$key];
         }
+
+        dump($server);
+        die;
+
         if (session('user_id', -1) == -1) {
             $wx = new WechateController();
             $wx->wxUserLogin('http://www.xcylkj.com/company');
