@@ -341,8 +341,8 @@ class ColumnController extends WebController
      */
     public function connectbussiness(Request $request)
     {
-        $need = self::selWhereAll(['server_id' => session('user_id', 2)]);
-        $id = self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id', 2)]);
+        $need = self::selWhereAll(['server_id' => session('user_id')]);
+        $id = self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id')]);
         dump($need);
         dump($id);
         die;
@@ -472,6 +472,7 @@ class ColumnController extends WebController
             return DB::table('use_demand')
                 ->where('add_time', '>', $where)
                 ->where(['quote' => 0])
+                ->where('user_id', '!=', session('user_id'))
                 ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
                 ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
