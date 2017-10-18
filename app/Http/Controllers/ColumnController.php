@@ -218,7 +218,8 @@ class ColumnController extends WebController
             $needAll[] = $value;
         };
         // 查询用户
-        $user = $this->PurposeModel->selFirst('use', ['id' => $demand[0]->user_id]);
+        //  $user = $this->PurposeModel->selFirst('use', ['id' => $demand[0]->user_id]);
+        $this->PurposeModel->selFirst(1, 2);
         die;
         $phone = $this->WayClass->hiddenNumber($user->telephone);
         //查询是否需要使用地图功能
