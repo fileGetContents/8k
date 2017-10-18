@@ -49,6 +49,9 @@ class ColumnController extends WebController
      */
     public function addServer(Request $request)
     {
+
+        $wx = new WechateController();
+        $wx->wxUserLogin(URL('add/server'));
         // 查看是否添加手机号
         $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         if ($userInfo->telephone == null) {
