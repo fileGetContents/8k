@@ -114,7 +114,7 @@ class ColumnController extends WebController
             $column[] = $this->PurposeModel->selectFirst('column', ['id' => $value]);
         }
         return view($this->file . 'serveplace')->with([
-            'server' => $column,
+            'server' => $column[0],
             'id' => $request->id,
         ]);
 
