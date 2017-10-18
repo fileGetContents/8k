@@ -237,6 +237,8 @@ class ColumnController extends WebController
                 }
             }
         }
+
+        die;
         return view($this->file . 'details')->with([
             'need' => $needAll[0],  // 获取需求详情
             'start' => 0,        // 开始位置
