@@ -211,10 +211,6 @@ class ColumnController extends WebController
             $value->transact = $transact;
             $need[] = $value;
         };
-
-        dump($need);
-        echo 1111;
-        die;
         // 查询字段意思
         $needAll = array();
         foreach ($need as $value) {
@@ -224,6 +220,10 @@ class ColumnController extends WebController
         };
         // 查询用户
         $user = $this->PurposeModel->selFirst('use', ['id' => $demand[0]->user_id]);
+
+        echo '1111';
+        die;
+
         $phone = $this->WayClass->hiddenNumber($user[0]->telephone);
         // 查询是否需要使用地图功能
         $options = $this->PurposeModel->selectAll('options', ['column_id' => $demand[0]->column_id]);
