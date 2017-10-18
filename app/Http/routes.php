@@ -108,7 +108,7 @@ Route::any('connectbussiness', 'ColumnController@connectbussiness');
 Route::any('alreadybussiness', 'ColumnController@alreadybussiness');
 Route::any('waitbussiness', 'ColumnController@waitbussiness');
 
-Route::any('person', 'UseController@person');                                // 用户个人中心
+Route::any('person', 'UserController@person');                                // 用户个人中心
 Route::any('user/need', 'UseController@userNeed');                           // 用户需求
 //Route::any('need/{id}', 'UseController@needInfo');                         // 需求列表
 
