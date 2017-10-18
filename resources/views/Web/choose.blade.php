@@ -16,10 +16,87 @@
             display: none;
         }
     </style>
+    <script>
+        $("#time").timepicki();
+        $(function () {
+            $("ul li").attr('class', 'choose_n').eq(0).attr('id', 'choose_b');
+            $('#next').click(function () {
+                if ($('#choose_b').attr('required') == "required") {
+                    var name = $('#choose_b').attr('name');
+                    var type = $('.' + name).eq(0).attr('type');
+                    if (type == "checkbox") {          // 单选框
+                        var string = '';
+                        $('.' + name + ':checked').each(function () {
+                            string += $(this).val();
+                        });
+                        if (string == '') {
+                            alert('此项必填');
+                            return false
+                        }
+                    } else if (type == "radio") {     // 多选框
+                        if ($('.' + name + ':checked').val() == null) {
+                            alert('选项必填');
+                            return false;
+                        }
+                    } else if (type == "text") {      // 输入框
+                        var textString = 0;
+                        var num = 0;
+                        $('.' + name).each(function () {
+                            if ($(this).val() != '') {
+                                textString++
+                            }
+                            num++
+                        });
+                        // 验证
+                        if (textString != num) {
+                            alert('此项必填');
+                            return false;
+                        }
+                    }
+                    nextStep();
+                } else {
+                    nextStep();
+                }
+            });
+
+            // 上一步
+            $("#last").click(function () {
+                var eq = $("#choose_b").index();
+                if (eq == 1) {
+                    $(this).css('display', 'none');
+                }
+                // 上一个展示
+                $('#choose_b').attr('id', '').prev().attr('id', 'choose_b');
+                // 下一个按钮展示
+                $('#next').css('display', 'block');
+                $('.goon').eq(1).css('display', 'none')
+            });
+            // 单选跳转
+            $('input[type=radio]').click(function () {
+                nextStep();
+            });
+        });
+
+        /**
+         *  下一步
+         */
+        function nextStep() {
+            // 验证是否是最倒数第二个选项
+            var eq = parseInt($('#choose_b').index()) + 2;
+            if (eq == $('ul li').length) {
+                $('.goon').eq(0).css('display', 'none');
+                $('.goon').eq(1).css('display', 'block');
+            }
+            $('#last').css('display', 'block');
+            $('#choose_b').attr('id', '').next().attr('id', 'choose_b');
+        }
+
+
+    </script>
 </head>
 <body>
 <div class="bar ">
-    <p>免费发布需求，废旧物品一收了之</p>
+    <p>免费发布需求</p>
 </div>
 <form action="" method="post" name="Form" id="Form">
     <div class="content">
