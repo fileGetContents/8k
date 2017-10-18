@@ -218,8 +218,8 @@ class ColumnController extends WebController
             $needAll[] = $value;
         };
         // 查询用户
-        $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
-        $phone = $this->WayClass->hiddenNumber($user->telephone);
+//        $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
+//        $phone = $this->WayClass->hiddenNumber($user->telephone);
         //查询是否需要使用地图功能
         $options = $this->PurposeModel->selectAll('options', ['column_id' => $demand[0]->column_id]);
         $map = ['bool' => false, 'key' => '']; //
@@ -237,6 +237,7 @@ class ColumnController extends WebController
                 }
             }
         }
+
 
         die;
         return view($this->file . 'details')->with([
