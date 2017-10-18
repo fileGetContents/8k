@@ -200,6 +200,8 @@ class ColumnController extends WebController
         $demand = $this->PurposeModel->selectAllOrder('use_demand', [
             'id' => $request->id,
         ]);
+
+        die;
         $need = array();
         foreach ($demand as $value) {
             $column = $this->PurposeModel->selectFirst('column', ['id' => $value->column_id]);
@@ -218,8 +220,8 @@ class ColumnController extends WebController
             $needAll[] = $value;
         };
         // 查询用户
-//        $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
-//        $phone = $this->WayClass->hiddenNumber($user->telephone);
+        $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
+        $phone = $this->WayClass->hiddenNumber($user->telephone);
         //查询是否需要使用地图功能
         $options = $this->PurposeModel->selectAll('options', ['column_id' => $demand[0]->column_id]);
         $map = ['bool' => false, 'key' => '']; //
@@ -239,7 +241,6 @@ class ColumnController extends WebController
         }
 
 
-        die;
         return view($this->file . 'details')->with([
             'need' => $needAll[0],  // 获取需求详情
             'start' => 0,        // 开始位置
