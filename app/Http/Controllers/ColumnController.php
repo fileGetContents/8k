@@ -54,21 +54,6 @@ class ColumnController extends WebController
      */
     public function addServer(Request $request)
     {
-
-        $wx = new WechateController();
-        $wx->wxUserLogin(URL('add/server'));
-        // 查看是否添加手机号
-        $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
-        if ($userInfo->telephone == null) {
-            echo '<meta charset="utf-8"/>';
-            echo '<script>alert("请先添加手机号")</script>';
-            echo '<script>window.location.href= "' . URL('person') . '"</script>';
-            die;
-        }
-//        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
-//        if (!is_null($server) && $server->telephone) {
-//            return redirect('person');
-//        }
         if ($request->isMethod('post')) {
             $server['server'] = serialize($request->all());
             $server['use_id'] = session('user_id', 1);
@@ -89,6 +74,20 @@ class ColumnController extends WebController
                 echo '<script> alert("添加服务失败")</script>';
             }
         }
+        $wx = new WechateController();
+        $wx->wxUserLogin(URL('add/server'));
+        // 查看是否添加手机号
+        $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+        if ($userInfo->telephone == null) {
+            echo '<meta charset="utf-8"/>';
+            echo '<script>alert("请先添加手机号")</script>';
+            echo '<script>window.location.href= "' . URL('person') . '"</script>';
+            die;
+        }
+//        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+//        if (!is_null($server) && $server->telephone) {
+//            return redirect('person');
+//        }
         $class = $this->PurposeModel->selectAll('column', ['depth' => 0]); // 顶级栏目
         foreach ($class as $value) {
             $choose[] = $this->PurposeModel->selectAll('column', ['parent_id' => $value->id]);
