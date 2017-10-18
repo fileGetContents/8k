@@ -15,6 +15,12 @@
         .choose_n {
             display: none;
         }
+
+        a {
+            text-decoration: none;
+            out-line: none;
+        }
+
     </style>
     <script>
         $("#time").timepicki();
@@ -234,10 +240,8 @@
         var _value = e.item.value;
         myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
         G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-
         setPlace();
     });
-
     function setPlace() {
         map.clearOverlays();    //清除地图上所有覆盖物
         function myFun() {
@@ -245,7 +249,6 @@
             map.centerAndZoom(pp, 18);
             map.addOverlay(new BMap.Marker(pp));    //添加标注
         }
-
         var local = new BMap.LocalSearch(map, { //智能搜索
             onSearchComplete: myFun
         });

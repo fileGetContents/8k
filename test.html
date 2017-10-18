@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="public/js/jquery.min.js"></script>
+    <style>
+        ul li {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="test">
+    <li>1</li>
+    <li>2</li>
+</ul>
+<button style="display: none">上一页</button>
+<input type="submit" class=".next" value="下一页">
+<button style="display: none">提交</button>
+<script>
+    $('ul li').eq(0).css('display', 'block');
+    $('.next').click(function () {
+        alert(111111);
+    });
+
+    function next() {
+        alert(11);
+    }
+
+    function prev() {
+
+    }
+</script>
+
+
+</body>
+</html>

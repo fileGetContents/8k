@@ -24,7 +24,7 @@
 </head>
 <body>
 <div class="pd-20">
-    <form action="" method="post" class="form form-horizontal" id="form-user-add">
+    <form action="{{URL('product-category-add')}}" method="post" class="form form-horizontal" id="form-user-add">
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>名称：</label>
             <div class="formControls col-5">

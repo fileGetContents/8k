@@ -27,7 +27,7 @@
 <div class="bar ">
     <p>选择你能提供的服务分类？</p>
 </div>
-<form action="{{ URL('add/server') }}" method="post">
+<form action="{{ URL('add/server') }}" onsubmit="return tijiao()" method="post">
     <div class="content">
         <div class="section-left">
             {{--<nav>--}}
@@ -46,7 +46,7 @@
                     <ul>
                         @foreach($value as $v)
                             <li>
-                                <input type="checkbox" name="server[]" value="{{$v->id}}">
+                                <input type="checkbox" class="server" name="server[]" value="{{$v->id}}">
                                 {{$v->column_name}}
                             </li>
                         @endforeach
@@ -56,8 +56,6 @@
 
         </div>
     </div>
-
-
     <div class="tijiao" style="margin-top: 40px;text-align: center;position:absolute;bottom:0;width: 100%">
         <p>
             <input type="submit" value="提交">
@@ -68,6 +66,21 @@
 <script type="text/javascript" src="{{'js/jquery.min.js'}}"></script>
 <script>
     $('no').eq(0).css('display', 'block');
+
+    function tijiao() {
+        var string = '';
+        $('.server:checked').each(function () {
+            string += $(this).val();
+        });
+        if (string == '') {
+            alert('请选择服务');
+            return false
+        } else {
+            return true;
+        }
+    }
 </script>
+
+
 </body>
 </html>

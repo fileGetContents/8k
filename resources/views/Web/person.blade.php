@@ -25,25 +25,25 @@
 </div>
 <div class="messbox">
     <span>昵称:</span>
-    <span style="margin-left: 5px;">{{$user->nick}}</span>
+    <span style="">{{$user->nick}}</span>
     <span class="messright" id="nkname">
         <img src="{{asset('img/write.png')}}">
     </span>
 </div>
 <div class="messbox">
     <span>手机号:</span>
-    <span style="margin-left: 5px;">{{$user->telephone}}</span>
+    <span style="">{{$user->telephone}}</span>
     <span class="messright" id="phone">
         <img src="{{asset('img/write.png')}}">
     </span>
 </div>
 <div class="messbox" style="display: none" id="code">
     <span>验证码:</span>
-    <span style="margin-left: 5px;width: 15px"><input style="height: 20px;width: 40px" type="text" name="code"> </span>
+    <span style="width: 15px">
+        <input style="height: 20px;width: 40px" type="text" name="code"> </span>
     <input type="button" id="cappp" value="获取验证码">
 </div>
 <button id="save" style="display: none;" class="save">确定</button>
-
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/person.js')}}"></script>

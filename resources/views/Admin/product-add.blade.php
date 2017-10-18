@@ -23,7 +23,7 @@
     <script type="text/javascript" src="{{asset('admin/lib/DD_belatedPNG_0.0.8a-min.js')}}"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>新增图片</title>
+    <title>新增加选项</title>
 </head>
 <body>
 <div class="pd-20">
@@ -32,7 +32,7 @@
         <div class="formControls col-2"> <span class="select-box">
 			    	<select name="column" class="select">
                         @foreach($column as $value)
-                            <option value="{{  $value->id }}">{{ $value->column_name }}</option>
+                            <option value="{{ $value->id }}">{{ $value->column_name }}</option>
                         @endforeach
                     </select>
 				</span>
@@ -51,10 +51,6 @@
         <div class="formControls col-2">
             <input type="text" class="input-text" value="0" placeholder="" id="get-php" name="">
         </div>
-        <label class="form-label col-2">后台获取名称(限英文+数字)：</label>
-        <div class="formControls col-2">
-            <input type="text" class="input-text" value="0" placeholder="" id="get-php" name="">
-        </div>
         <label class="form-label col-2">是否必填：</label>
         <div class="formControls col-2 skin-minimal">
             <div class="check-box">
@@ -63,7 +59,6 @@
             </div>
         </div>
     </div>
-
     <div class="row cl">
         <label class="form-label col-2">选择提示语言:</label>
         <div class="formControls col-2">

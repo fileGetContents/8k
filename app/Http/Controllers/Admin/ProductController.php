@@ -74,7 +74,13 @@ class ProductController extends Controller
     public function ProductCateGoryAdd(Request $request)
     {
         if ($request->isMethod('post')) {
-            $id = $this->PurposeModel->insertGetId('column', $request->all());
+            $insert = $request->all();
+            if ($insert['parent_id'] == 0) {
+                $insert['depth'] = 0;
+            } else {
+                $insert['depth'] = 1;
+            }
+            $id = $this->PurposeModel->insertGetId('column', $insert);
             if (is_numeric($id) && $id > 0) {
                 echo '<script>alert("添加成功")</script>';
             } else {
@@ -101,7 +107,6 @@ class ProductController extends Controller
                 $string = $string . ' {id: ' . $idc . ', pId:' . $idp . ' , name: "' . $v->column_name . '"},';
             }
         }
-
         return view($this->file . 'product-list')->with([
             'string' => $string
         ]);
@@ -156,7 +161,6 @@ class ProductController extends Controller
         }
 
     }
-
 
 
 }
