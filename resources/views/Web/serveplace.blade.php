@@ -192,7 +192,7 @@
                 url: '{{URL('add/range')}}',
                 success: function (obj) {
                     if (obj.info == 0) {
-                        alert('添加成功')
+                        window.location.href = "{{ URL('company') }}";
                     } else {
                         alert('添加失败')
                     }
