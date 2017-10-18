@@ -21,8 +21,8 @@ class UserModel extends PurposeModel
         if (is_array($demand) && is_numeric($column_id)) {
             $return = array();
             foreach ($demand as $key => $value) {
-                $mean = $this->selectFirst('options', ['name' => $key, 'column_id' => $column_id]);
-                $return[$mean->name] = $mean->mean;
+                $mean = $this->selFirst('options', ['name' => $key, 'column_id' => $column_id]);
+                $return[$mean[0]->name] = $mean[0]->mean;
             }
             return $return;
         } else {
