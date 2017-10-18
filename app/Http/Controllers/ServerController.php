@@ -333,8 +333,8 @@ class ServerController extends WebController
                 'body' => 'V认证支付',
                 'attach' => 'identify',
                 'trade_no' => $orderNum,
-                // 'total_fee' => $request->input('price') * 100,
-                'total_fee' => 1
+                'total_fee' => $request->input('price') * 100,
+                //'total_fee' => 1
             ]);
             echo $return;
         } else {

@@ -46,8 +46,8 @@ class IntegralController extends WebController
                 'body' => '积分充值',
                 'attach' => 'recharge',   //表名，
                 'trade_no' => $insert['order_num'],
-                //'total_fee' => intval($insert['price']) * 100,
-                'total_fee' => 1 // 金额
+                'total_fee' => intval($insert['price']) * 100,
+               // 'total_fee' => 1 // 金额
             ]);
             echo $jsApiJson;
         } else {
