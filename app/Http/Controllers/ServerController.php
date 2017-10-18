@@ -86,7 +86,7 @@ class ServerController extends WebController
                     $column[$key][] = $this->PurposeModel->selectFirst('column', ['id' => $v]);
                 }
             }
-           // $server[$key]->column = $column[$key];
+            $server[$key]->column = $column[$key];
         }
         if (session('user_id', -1) == -1) {
             $wx = new WechateController();
