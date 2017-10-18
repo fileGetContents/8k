@@ -285,6 +285,8 @@ class WechateController extends WebController
             "tagid" => 2
         ];
         $json = $this->WayClass->sendPost($url, $data);
+        dump($json);
+        die;
         //return $json;
         return view($this->file . 'change');
     }

@@ -68,7 +68,6 @@
                 left = e.pageX - bgleft;
                 if (left < 0) {
                     left = 0;
-
                 }
                 if (left > 200) {
                     left = 200;
