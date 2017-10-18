@@ -67,6 +67,7 @@
             </a>
         </div>
     @endforeach
+
     <div class="nofound">
         <p><img src="{{asset('img/nofound.png')}}"></p>
         <p>没有更多记录了</p>
