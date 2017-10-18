@@ -19,7 +19,7 @@ class ColumnController extends WebController
      */
     public function showServer()
     {
-        if (session('user_id', -1) == 1 - 1) {
+        if (session('user_id', -1) == -1) {
             $wx = new WechateController();
             $wx->wxUserLogin(URL('show/serve'));
         }
