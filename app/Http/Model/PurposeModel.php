@@ -101,7 +101,7 @@ class PurposeModel extends Model
 
     public function selFirst($table, $where)
     {
-        return DB::table($table)->where($where)->first();
+        return DB::table($table)->where($where)->get();
         // return false;
     }
 
