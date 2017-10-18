@@ -14,9 +14,11 @@ class UserController extends WebController
      */
     public function person()
     {
-        // 登录注册
-        $wx = new WechateController();
-        $wx->wxUserLogin(URL('person'));
+        if (session('user_id', -1) == -1) {
+            // 登录注册
+            $wx = new WechateController();
+            $wx->wxUserLogin(URL('person'));
+        }
         $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         return view($this->file . 'person')->with(
             ['user' => $user]
