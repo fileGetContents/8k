@@ -200,8 +200,6 @@ class ColumnController extends WebController
         $demand = $this->PurposeModel->selectAllOrder('use_demand', [
             'id' => $request->id,
         ]);
-
-        die;
         $need = array();
         foreach ($demand as $value) {
             $column = $this->PurposeModel->selectFirst('column', ['id' => $value->column_id]);
@@ -213,6 +211,7 @@ class ColumnController extends WebController
             $need[] = $value;
         };
         // 查询字段意思
+        die;
         $needAll = array();
         foreach ($need as $value) {
             $mean = $this->UserModel->getDemandMean($value->demand, $value->column_id);
