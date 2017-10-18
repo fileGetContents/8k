@@ -23,7 +23,6 @@ class ColumnController extends WebController
             $wx = new WechateController();
             $wx->wxUserLogin(URL('show/serve'));
         }
-
         // 查看是否添加了手机号码
         $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
         if ($userInfo->telephone == null) {
@@ -35,7 +34,10 @@ class ColumnController extends WebController
         // 查看是否是商户用户
         $server = $this->PurposeModel->selectFirst('use_server', ['use_id' => session('user_id', 1)]);
         if (!is_null($server)) {
-            return back();
+            echo '<script>alert("添加服务商")</script>';
+            echo '<script type="text/javascript">window.location.href="' . URL('person') . '";</script>';
+
+            exit();
         }
         $class = $this->PurposeModel->selectAll('column', ['depth' => 0]); // 顶级栏目
         foreach ($class as $value) {
