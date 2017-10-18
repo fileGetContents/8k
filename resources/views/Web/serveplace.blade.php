@@ -17,7 +17,7 @@
             <img src="{{asset('img/dizhi.png')}}" width="20px" height="auto">
         </div>
         <div>
-            <input name="place" id="suggestId" class="place" placeholder="街道名、小区/大厦、门牌号">
+            <input name="place" id="suggestId" class="place" value="{{$server->name}}" placeholder="街道名、小区/大厦、门牌号">
         </div>
     </div>
     <div id="l-map"></div>
