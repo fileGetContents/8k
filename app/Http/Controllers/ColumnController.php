@@ -211,7 +211,6 @@ class ColumnController extends WebController
             $need[] = $value;
         };
         // 查询字段意思
-        die;
         $needAll = array();
         foreach ($need as $value) {
             $mean = $this->UserModel->getDemandMean($value->demand, $value->column_id);
@@ -220,6 +219,7 @@ class ColumnController extends WebController
         };
         // 查询用户
         $user = $this->PurposeModel->selectFirst('use', ['id' => $demand[0]->user_id]);
+        die;
         $phone = $this->WayClass->hiddenNumber($user->telephone);
         //查询是否需要使用地图功能
         $options = $this->PurposeModel->selectAll('options', ['column_id' => $demand[0]->column_id]);
