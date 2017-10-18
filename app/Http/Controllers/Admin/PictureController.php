@@ -34,7 +34,7 @@ class PictureController extends WebController
         } else {
             $insert['required'] = 0;
         }
-        $insert['name'] = $input['name'] . $_SERVER['REQUEST_TIME'];
+        $insert['name'] = $input['name'];
         switch ($input['choose']) {
             case 1:
                 $insert['choose'] = self::createRadio(array_filter(explode('/', $input['string'])), $insert['name']);
