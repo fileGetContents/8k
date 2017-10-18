@@ -108,6 +108,8 @@ class ColumnController extends WebController
     public function serverRange(Request $request)
     {
         $SerServer = $this->PurposeModel->selectFirst('use_server', ['id' => $request->id]);
+        dump($SerServer);
+        die;
         $server = unserialize($SerServer->server);
         $column = array();
         foreach ($server['server'] as $value) {
