@@ -118,6 +118,7 @@ class ColumnController extends WebController
         return view($this->file . 'serveplace')->with([
             'server' => $column,
             'id' => $request->id,
+            'address' => $SerServer
         ]);
 
 
