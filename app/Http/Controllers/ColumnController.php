@@ -342,11 +342,8 @@ class ColumnController extends WebController
     public function connectbussiness(Request $request)
     {
         $need = self::selWhereAll(['server_id' => session('user_id', 2)]);
-
-        dump($need);
-die;
         return view($this->file . 'connectbussiness')->with([
-            'need' => self::selWhereAll(['server_id' => session('user', 2)]),
+            'need' => self::selWhereAll(['server_id' => session('user_id', 2)]),
             'id' => self::selFileAs('use_demand.id as id2', ['server_id' => session('user', 2)]),
             'num' => 0,
             'iden' => self::isIdentify()
