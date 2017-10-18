@@ -219,7 +219,10 @@ class ColumnController extends WebController
             $needAll[] = $value;
         };
         // 查询用户
-        $user = $this->PurposeModel->selFirst('use', ['id' => $demand[0]->user_id]);
+
+        dump($demand);
+
+        //  $user = $this->PurposeModel->selFirst('use', ['id' => $demand[0]->user_id]);
 
         echo '1111';
         die;
