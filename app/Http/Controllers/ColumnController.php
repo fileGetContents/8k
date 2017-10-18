@@ -213,6 +213,7 @@ class ColumnController extends WebController
         };
 
         dump($need);
+        echo 1111;
         die;
         // 查询字段意思
         $needAll = array();
