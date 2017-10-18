@@ -3,9 +3,9 @@
 namespace App\Http\Model;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
+use App\Http\Model\PurposeModel;
 
-class UserModel extends Model
+class UserModel extends PurposeModel
 {
 
 
