@@ -204,8 +204,6 @@ class ColumnController extends WebController
         $need = array();
         foreach ($demand as $value) {
             $column = $this->PurposeModel->selFirst('column', ['id' => $value->column_id]);
-            dump($column);
-            die;
             $value->column_name = $column[0]->column_name;
             $value->demand = unserialize($value->demand);
             // 查询报价需求
@@ -213,6 +211,9 @@ class ColumnController extends WebController
             $value->transact = $transact;
             $need[] = $value;
         };
+
+        dump($need);
+        die;
         // 查询字段意思
         $needAll = array();
         foreach ($need as $value) {
