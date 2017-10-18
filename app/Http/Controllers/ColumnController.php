@@ -200,7 +200,7 @@ class ColumnController extends WebController
         $demand = $this->PurposeModel->selectAllOrder('use_demand', [
             'id' => $request->id,
         ]);
-        die;
+
         $need = array();
         foreach ($demand as $value) {
             $column = $this->PurposeModel->selFirst('column', ['id' => $value->column_id]);
