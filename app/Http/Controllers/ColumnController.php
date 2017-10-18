@@ -113,8 +113,10 @@ class ColumnController extends WebController
         foreach ($server['server'] as $value) {
             $column[] = $this->PurposeModel->selectFirst('column', ['id' => $value]);
         }
+        dump($column);
+
         return view($this->file . 'serveplace')->with([
-            'server' => $column[0],
+            'server' => $column,
             'id' => $request->id,
         ]);
 
