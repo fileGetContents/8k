@@ -250,7 +250,7 @@ class WechateController extends WebController
         $acc = $this->getAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/get?access_token=' . $acc['access_token'];
         $accJson = file_get_contents($url);
-        /// dump($accJson);
+        dump($accJson);
     }
 
     /**
@@ -277,7 +277,7 @@ class WechateController extends WebController
         $openid = $this->wxUserLogin('http://www.xcylkj.com/create/user/tag');
         // 查看是否成为服务商
         $server = $this->PurposeModel->selectFirst('use_server', ['use_id' => session('user_id', 1)]);
-        if (is_null($server)) {  // 跳转服务商
+        if (is_null($server)) {  // 跳转选择服务商
             return redirect('add/server');
         }
         $data = [
@@ -285,8 +285,6 @@ class WechateController extends WebController
             "tagid" => 2
         ];
         $json = $this->WayClass->sendPost($url, $data);
-        dump($json);
-        die;
         //return $json;
         return view($this->file . 'change');
     }
