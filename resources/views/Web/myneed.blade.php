@@ -6,11 +6,11 @@
     <title>我的需求</title>
     <link href="{{asset('css/myneed.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/bussiness.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/demand_state.css')}}">
     <style>
         .hind {
             display: none;
         }
-
         #show {
             display: block;
         }

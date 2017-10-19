@@ -59,7 +59,11 @@
         // 手机号
         $('#phone').click(function () {
             var val = $(this).prev().html();
+<<<<<<< HEAD
             $(this).prev().empty().html('<input type="text" style="height:20px;line-height:20px;"  placeholder="电话号码" class="input-text" name="phone" value="' + val + '" >');
+=======
+            $(this).prev().empty().html('<input type="text" style="font-size:18px;"  placeholder="电话号码" class="input-text" name="phone" value="' + val + '" >');
+>>>>>>> fc8897531a0913a50b1154aacdb25948c448887f
             $(this).css('display', 'none');
             $('.save').css('display', 'block');
             $('#code').css('display', 'block')

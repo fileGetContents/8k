@@ -1,8 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    color: #000000;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*font-size: 12px;*/
+    /*color: #000000;*/
 }
 
 .content {
@@ -46,7 +46,6 @@ li {
 
 .jifen {
     float: left;
-
 }
 
 .jifen img {
@@ -66,7 +65,6 @@ li {
     height: 39px;
     line-height: 39px;
     text-align: center;
-
 }
 
 .nav3 li {
@@ -75,7 +73,6 @@ li {
     height: 39px;
     line-height: 39px;
     text-align: left;
-
 }
 
 .contain {
@@ -118,7 +115,6 @@ li {
     border-radius: 5px;
     margin-left: 2%;
     background: rgba(29, 32, 30, 0.8);
-
 }
 
 .right {

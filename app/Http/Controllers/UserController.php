@@ -12,8 +12,9 @@ class UserController extends WebController
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function person()
+    public function userPerson()
     {
+
         if (session('user_id', 1) == -1) {
             // 登录注册
             $wx = new WechateController();
@@ -23,8 +24,8 @@ class UserController extends WebController
         return view($this->file . 'person')->with(
             ['user' => $user]
         );
-    }
 
+    }
 
     /**
      *我的需求
@@ -35,10 +36,10 @@ class UserController extends WebController
     public function userNeed(Request $request)
     {
         // 登录注册
-        if (session('user_id', -1) == -1) {
-            $wx = new WechateController();
-            $wx->wxUserLogin(URL('person'));
-        }
+//        if (session('user_id', -1) == -1) {
+//            $wx = new WechateController();
+//            $wx->wxUserLogin(URL('person'));
+//        }
         $demand = $this->PurposeModel->selectAllOrder('use_demand', ['user_id' => session('user_id', 1)]);
         $need = array();
         foreach ($demand as $value) {
@@ -64,6 +65,7 @@ class UserController extends WebController
             'start' => 0,        // 开始位置
         ]);
     }
+
 
     /**
      * 需求详情
