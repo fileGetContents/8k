@@ -226,6 +226,8 @@ class ServerController extends WebController
         if (is_null($request->id)) {
             // 添加
             $user = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
+            dump($user);
+            die;
             return view($this->file . 'addmodal')->with([
                 'add' => true,
                 'server' => parent::getServerAll(session('user_id', 1)),
