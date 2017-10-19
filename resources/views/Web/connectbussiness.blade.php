@@ -38,7 +38,7 @@
         </span>
         </div>
     @endif
-    @if(!empty($need))
+    @if(!empty($need)) 
         @foreach($need as $value)
             <div class="section">
                 <a href="{{URL('demand/details2/'.$id[$num]->id2.'/'.$value->price)}}">
