@@ -40,7 +40,7 @@
 <div class="messbox" style="display: none" id="code">
     <span>验证码:</span>
     <span style="width: 15px">
-        <input style="height: 20px;width: 40px" type="text" name="code"> </span>
+        <input style="height: 20px;line-height:20px;width: 40px" type="text" name="code"> </span>
     <input type="button" id="cappp" value="获取验证码">
 </div>
 <button id="save" style="display: none;" class="save">确定</button>
@@ -52,14 +52,14 @@
         // 昵称
         $('#nkname').click(function () {
             var val = $(this).prev().html();
-            $(this).prev().empty().html('<input type="text"  placeholder="昵称不能为空" class="input-text" name="nkname" value="' + val + '" >');
+            $(this).prev().empty().html('<input type="text"  style="height:20px;line-height:20px;" placeholder="昵称不能为空" class="input-text" name="nkname" value="' + val + '" >');
             $(this).css('display', 'none');
             $('.save').css('display', 'block')
         });
         // 手机号
         $('#phone').click(function () {
             var val = $(this).prev().html();
-            $(this).prev().empty().html('<input type="text"  placeholder="电话号码" class="input-text" name="phone" value="' + val + '" >');
+            $(this).prev().empty().html('<input type="text" style="height:20px;line-height:20px;"  placeholder="电话号码" class="input-text" name="phone" value="' + val + '" >');
             $(this).css('display', 'none');
             $('.save').css('display', 'block');
             $('#code').css('display', 'block')
