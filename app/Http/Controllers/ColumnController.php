@@ -43,6 +43,7 @@ class ColumnController extends WebController
         foreach ($class as $value) {
             $choose[] = $this->PurposeModel->selectAll('column', ['parent_id' => $value->id]);
         }
+
         return view($this->file . 'server')->with([
             'class' => $class,
             'choose' => $choose
@@ -120,8 +121,6 @@ class ColumnController extends WebController
             'id' => $request->id,
             'address' => $SerServer
         ]);
-
-
     }
 
     /**
@@ -345,9 +344,13 @@ class ColumnController extends WebController
     {
         $need = self::selWhereAll(['server_id' => session('user_id')]);
         $id = self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id')]);
+
+        dump($need);
+        dump($id);
+        die;
         return view($this->file . 'connectbussiness')->with([
-            'need' => self::selWhereAll(['server_id' => session('user_id', 2)]),
-            'id' => self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id', 2)]),
+            'need' => self::selWhereAll(['server_id' => session('user_id')]),
+            'id' => self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id')]),
             'num' => 0,
             'iden' => self::isIdentify()
         ]);
