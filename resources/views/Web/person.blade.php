@@ -25,14 +25,14 @@
 </div>
 <div class="messbox">
     <span>昵称:</span>
-    <span style="">{{$user->nick}}</span>
+    <span style="">{{ $user->nick }}</span>
     <span class="messright" id="nkname">
         <img src="{{asset('img/write.png')}}">
     </span>
 </div>
 <div class="messbox">
     <span>手机号:</span>
-    <span style="">{{$user->telephone}}</span>
+    <span style="">{{ $user->telephone }}</span>
     <span class="messright" id="phone">
         <img src="{{asset('img/write.png')}}">
     </span>
