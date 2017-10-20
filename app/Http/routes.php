@@ -41,6 +41,7 @@ Route::group(["namespace" => "Admin"], function () {
     Route::any('admin-permission', 'AdminController@AdminPermission');
     Route::any('admin-role', 'AdminController@AdminRole');
     Route::any('admin-role-add', 'AdminController@AdminRoleAdd');
+    Route::any('alert/admin', 'AdminController@alterAdmin');
 
     Route::any('article-add/{id}', 'ArticleController@ArticleAdd'); // 添加修改文章
     Route::any('article-list', 'ArticleController@ArticleList');  // 文章管理
