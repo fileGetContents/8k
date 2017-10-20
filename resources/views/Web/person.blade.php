@@ -61,7 +61,7 @@
         // 手机号
         $('#phone').click(function () {
             var val = $(this).prev().html();
-            $(this).prev().empty().html('<input type="text" style="font-size:18px;"  placeholder="电话号码" class="input-text" name="phone" value="' + val + '" >');
+            $(this).prev().empty().html('<input type="text"   placeholder="电话号码" class="input-text" name="phone" value="' + val + '" >');
             $(this).css('display', 'none');
             $('.save').css('display', 'block');
             $('#code').css('display', 'block')
