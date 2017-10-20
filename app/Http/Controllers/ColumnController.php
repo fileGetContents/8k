@@ -284,6 +284,8 @@ class ColumnController extends WebController
         // 查询是否需要使用地图功能
         $documents = $this->PurposeModel->selectAll('options', ['id' => $need->id]);
         $value = parent::getUserInfo($need->use_id);
+
+        dump($need->id);
         dump(parent::getUserInfo($need->use_id));
         die;
         return view($this->file . 'details2')->with([
