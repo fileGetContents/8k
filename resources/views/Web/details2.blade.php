@@ -13,7 +13,7 @@
 <body onload="init()">
 <div class="content">
     <div class="ji">急</div>
-    <p style="color: #3399FF;">({{$myOrder["telephone"]}})</p>
+    <p style="color: #3399FF;">({{$myOrder->telephone}})</p>
     <div class="controduce">
         感谢您的报价，我觉得还不错，想和你详细沟通一下，上面是我的联系手机，麻烦尽快与我联系，谢谢!
         <img src="{{asset('img/ion3.png')}}">
