@@ -10,15 +10,9 @@
 <body>
 <div class="bar">
     <ul class="nav1">
-        <a href="{{URL('waitbussiness')}}">
-            <li class="active">待报价需求</li>
-        </a>
-        <a href="{{URL('alreadybussiness')}}">
-            <li>已报价需求</li>
-        </a>
-        <a href="{{URL('connectbussiness')}}">
-            <li>联系中需求</li>
-        </a>
+        <li class="active"><a href="{{URL('waitbussiness')}}">待报价需求 </a></li>
+        <li><a href="{{URL('alreadybussiness')}}">已报价需求 </a></li>
+        <li><a href="{{URL('connectbussiness')}}">联系中需求 </a></li>
     </ul>
 </div>
 <div class="content">
