@@ -56,6 +56,8 @@
             $(this).css('display', 'none');
             $('.save').css('display', 'block')
         });
+
+        
         // 手机号
         $('#phone').click(function () {
             var val = $(this).prev().html();
