@@ -109,8 +109,6 @@
         <dd>
         <ul>
         <li><a _href="{{URL('admin-role')}}" href="javascript:void(0)">角色管理</a></li>
-        <li><a _href="{{URL('admin-permission')}}" href="javascript:void(0)">权限管理</a></li>
-        <li><a _href="{{URL('admin-list')}}" href="javascript:void(0)">管理员列表</a></li>
         {{--</ul>--}}
         {{--</dd>--}}
         {{--</dl>--}}

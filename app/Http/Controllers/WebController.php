@@ -100,7 +100,6 @@ class WebController extends Controller
         $acc = $wx->getAccessToken();
         $url = 'https://api.weixin.qq.com/sns/userinfo?access_token=' . $acc['access_token'] . '&openid=' . $openId . '&lang=zh_CN';
         $json = file_get_contents($url);
-        dump($json);
     }
 
 

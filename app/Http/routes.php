@@ -36,12 +36,12 @@
 //Route::any('login', 'ApiController@login');       // 用户登录/注册
 // 后台管理系统
 Route::group(["namespace" => "Admin"], function () {
+    Route::get("admin-login", "IndexController@login");
     Route::any('admin-add', 'AdminController@AdminAdd');
     Route::any('admin-list', 'AdminController@AdminList');
     Route::any('admin-permission', 'AdminController@AdminPermission');
     Route::any('admin-role', 'AdminController@AdminRole');
     Route::any('admin-role-add', 'AdminController@AdminRoleAdd');
-    Route::any('alert/admin', 'AdminController@alterAdmin');
 
     Route::any('article-add/{id}', 'ArticleController@ArticleAdd'); // 添加修改文章
     Route::any('article-list', 'ArticleController@ArticleList');  // 文章管理

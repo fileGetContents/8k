@@ -22,6 +22,7 @@ class ColumnController extends WebController
         if (session('user_id', -1) == -1) {
             $wx = new WechateController();
             $wx->wxUserLogin(URL('show/serve'));
+            exit();
         }
         // 查看是否添加了手机号码
         $userInfo = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
@@ -89,7 +90,7 @@ class ColumnController extends WebController
             echo '<meta charset="utf-8"/>';
             echo '<script>alert("请先添加手机号")</script>';
             echo '<script>window.location.href= "' . URL('person') . '"</script>';
-            die;
+            exit();
         }
 //        $server = $this->PurposeModel->selectFirst('use', ['id' => session('user_id', 1)]);
 //        if (!is_null($server) && $server->telephone) {
