@@ -11,10 +11,54 @@
         .hind {
             display: none;
         }
+
         #show {
             display: block;
         }
+
+        .footer {
+            width: 100%;
+            height: 60px;
+            background-color: #F0F0F0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        .goon {
+            width: 40%;
+            height: 40px;
+            color: #FFFFFF;
+            padding: 0 10px 0 10px;
+            border: 0;
+            outline: none;
+            background-color: #F9A600;
+            border-radius: 10px;
+            margin: 10px 30% 0 30%;
+            float: left;
+            position: absolute;
+        }
+
+        .last {
+            color: #2469C7;
+            bottom: 20px;
+            left: 30px;
+            display: flex;
+            z-index: 500;
+            position: absolute;
+            font-size: 0.8rem;
+        }
+
+        #actice {
+            display: block;
+        }
+
+        .panes-page {
+            display: none;
+        }
     </style>
+
+
 </head>
 <body>
 @if(empty($need))
@@ -48,62 +92,51 @@
         {{--</div>--}}
         <div class="main-panes-wrap">
             <div class="js_agent" id="main_panes">
-                @foreach( $need as $value)
-                    <div class="panes-page" id="662168">
+                @foreach( $need as $key=>$value)
+                    <div class="panes-page" id="{{ $key + 1 }}">
                         <!-- step-box-wrap s1-->
                         <div class="step-box-wrap s2">
-                            <i class="ico ico-state"><span>已解决</span></i>
+                            <i class="ico ico-state">
+                                @if($value->tag ==0)
+                                    <span>待解决</span>
+                                @elseif($value->tag ==10)
+                                    <span>已解决</span>
+                                @else
+                                    <span>已解决</span>
+                                @endif
+                            </i>
                             <!-- tag-ebox -->
                             <div class="tag-ebox">
                                 <i class="tips"></i>
                                 <div class="tag-con">
-                                    暂无报价
+                                    @if($value->quote ==0)
+                                        暂无报价
+                                    @else
+                                        {{$value->quote}}
+                                    @endif
                                 </div>
                             </div>
                             <!-- dm-cell -->
                             <div class="dm-cell">
                                 <div class="dm-li1">
-                                    <div class="tab-title1"><span class="title">个人搬家</span></div>
-                                    <div class="time">截止日期：2017-09-08 22:01:38</div>
+                                    <div class="tab-title1"><span class="title">{{$value->column_name}}</span></div>
+                                    <div class="time">发布时间:{{ date('Y-m-d',$value->add_time) }}</div>
                                 </div>
                                 <div class="dm-li2">
-                                    <div class="loading-txt">需求已解决</div>
-                                </div>
-                                <div class="dm-li3">
-                                    <div class="l-quote-con">
-                                        <div class="l-detail">
-                                            <span class="l-underline">查看需求详情</span>>>
+                                    @if($value->tag ==0)
+                                        <div class="loading-txt">
+                                            需求未解决
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="panes-page" id="662145">
-                        <!-- step-box-wrap s1-->
-                        <div class="step-box-wrap s2">
-                            <i class="ico ico-state"><span>已解决</span></i>
-                            <!-- tag-ebox -->
-                            <div class="tag-ebox">
-                                <i class="tips"></i>
-                                <div class="tag-con">
-                                    暂无报价
-                                </div>
-                            </div>
-                            <!-- dm-cell -->
-                            <div class="dm-cell">
-                                <div class="dm-li1">
-                                    <div class="tab-title1"><span class="title">个人搬家</span></div>
-                                    <div class="time">截止日期：2017-09-08 21:54:48</div>
-                                </div>
-                                <div class="dm-li2">
-                                    <div class="loading-txt">需求已解决</div>
+                                    @else
+                                        <div class="loading-txt">
+                                            需求已解决
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="dm-li3">
                                     <div class="l-quote-con">
                                         <div class="l-detail">
-                                            <span class="l-underline">查看需求详情</span>>>
+                                            <span class="l-underline"><a href="{{ URL('demand/details/'.$value->id) }}">查看需求详情</a></span>>>
                                         </div>
                                     </div>
                                 </div>
@@ -116,31 +149,43 @@
             <div class="clear"></div>
         </div>
     </div>
+    <div class="footer">
+        <button class="goon" id="next" page="2">下一页</button>
+        <span class="last" id="last" page="0" style="display: block;">上一页</span>
+    </div>
 @endif
 <script src="{{asset('js/jquery.min.js')}}"></script>
+
 <script>
     $(function () {
-        $("ul li").attr('class', 'hind').eq(0).attr('id', "show");
-        var len = $('ul li').length;
-        // 上一页
-        $('.prev').click(function () {
-            $(".next").css('display', 'block');
-            if ($('#show').index() == len - 1) {
-                $(this).css('display', 'none');
+        $('.panes-page').eq(0).css('display', 'block');
+        $('#next').click(function () {
+            var num = parseInt($(this).attr('page'));
+            if (document.getElementById(num)) {
+                var a = num - 1;
+                $("#" + num).css('display', 'block');
+                $('#' + a).css('display', 'none');
+                $(this).attr('page', num + 1);
+                var num2 = parseInt($('#last').attr('page'));
+                $("#last").attr('page', num2 + 1)
             }
-            $('#show').attr('id', '').prev().attr('id', 'show')
         });
 
-        // 下一页
-        $('.next').click(function () {
-            $(".prev").css('display', 'block');
-            if ($('#show').index() == len - 1) {
-                $(this).css('display', 'none');
-                $('.prev').css('display', 'block')
+        $('#last').click(function () {
+            var num = parseInt($(this).attr('page'));
+            if (document.getElementById(num)) {
+                var b = num + 1;
+                $('#' + b).css('display', 'none');
+                $("#" + num).css('display', 'block'); // 上一页
+
+                $(this).attr('page', num - 1);
+                var num2 = parseInt($('#next').attr('page'));
+                $("#next").attr('page', num2 - 1);
             }
-            $('#show').attr('id', '').next().attr('id', 'show')
-        });
+        })
+
     })
 </script>
+
 </body>
 </html>
