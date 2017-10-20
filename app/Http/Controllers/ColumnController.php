@@ -460,17 +460,16 @@ class ColumnController extends WebController
             if (!in_array($value->column_id, $serverAll)) {
                 $need[$key] = null;
             }
-            if (in_array($value->column_id, $quoteAll)) {
+            if (in_array($value->demand_id, $quoteAll)) {
                 $need[$key] = null;
             }
-
             dump($value->column_id);
-
         }
 
         var_dump($quoteAll);
         var_dump($server);
 
+        var_dump($need);
         die;
 
         return view($this->file . 'waitbussiness')->with([
