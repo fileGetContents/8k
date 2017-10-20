@@ -279,18 +279,11 @@ class ColumnController extends WebController
             ]);
         }
         $need = self::selQouteInfo($request->id, $request->price);
-
-
-        var_dump($need);
         $needClass = unserialize($need->demand);
         $mean = parent::getClassMeta($needClass, $need->column_id);
         // 查询是否需要使用地图功能
         $documents = $this->PurposeModel->selectAll('options', ['id' => $need->id]);
         $value = parent::getUserInfo($need->use_id);
-
-        var_dump($need->use_id);
-        var_dump(parent::getUserInfo($need->use_id));
-        die;
         return view($this->file . 'details2')->with([
             'server' => $server,
             'need' => $need,
