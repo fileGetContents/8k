@@ -449,17 +449,14 @@ class ColumnController extends WebController
                 }
             }
         }
+        $quote = $this->PurposeModel->selectAll('quote', ['server_id' => session('user_id')]);
+//        foreach ($need as $key => $value) {
+//            if (!in_array($value->column_id, $serverAll)) {
+//                $need[$key] = null;
+//            }
+//        }
 
-        dump($serverAll);
-        // 删除不再服务范围的服务
-        foreach ($need as $key => $value) {
-            if (!in_array($value->column_id, $serverAll)) {
-                $need[$key] = null;
-            }
-        }
 
-        dump($need);
-        die;
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
             'id' => $id,
