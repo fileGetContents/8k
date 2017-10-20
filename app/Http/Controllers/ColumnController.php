@@ -423,6 +423,8 @@ class ColumnController extends WebController
             $need = DB::table('use_demand')
                 ->where('add_time', '>', $where['add_time'])
                 ->where(['quote' => 0])
+                ->where('server_id', '!=', session('user_id'))
+                ->leftJoin('quote', 'use_demand.id', '=', 'quote.demand_id')
                 ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
 //                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
@@ -431,6 +433,8 @@ class ColumnController extends WebController
         } else {
             $need = DB::table('use_demand')
                 ->where(['quote' => 0])
+                ->where('server_id', '!=', session('user_id'))
+                ->leftJoin('quote', 'use_demand.id', '=', 'quote.demand_id')
                 ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
 //                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
@@ -465,7 +469,7 @@ class ColumnController extends WebController
             }
         }
         dump($need);
-        
+
         die;
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
