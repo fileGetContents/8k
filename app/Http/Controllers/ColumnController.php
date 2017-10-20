@@ -285,8 +285,8 @@ class ColumnController extends WebController
         $documents = $this->PurposeModel->selectAll('options', ['id' => $need->id]);
         $value = parent::getUserInfo($need->use_id);
 
-        dump($need->use_id);
-        dump(parent::getUserInfo($need->use_id));
+        var_dump($need->use_id);
+        var_dump(parent::getUserInfo($need->use_id));
         die;
         return view($this->file . 'details2')->with([
             'server' => $server,
