@@ -139,6 +139,7 @@
 
         // 提交选项
         $('#submit').click(function () {
+            var required = 0;
             var id = $("select[name=column]").val();        // 编号
             var soft = $('#soft').val();                    // 排序
             var mean = $('#mean').val();                    // 用户提示语
@@ -146,11 +147,10 @@
             var check = $('#checkbox-1:checked').val();     // 是否必填
             var choose = $('#choose').val();                // 选型
             var prompting = $('#prompting').val();          // 选项用语
-
             if (check == null) {
-                var required = 1;
+                required = 0;
             } else {
-                var required = 0;
+                required = 1;
             }
 
             var string = '';
@@ -164,7 +164,7 @@
                     'soft': soft,
                     'mean': mean,
                     'name': phpName,
-                    'required': check,
+                    'required': required,
                     'string': string,
                     'choose': choose,
                     'prompting': prompting
