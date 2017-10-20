@@ -455,7 +455,7 @@ class ColumnController extends WebController
         foreach ($quote as $value) {
             $quoteAll [] = $value->demand_id;
         }
-        
+
         foreach ($need as $key => $value) {
             if (!in_array($value->column_id, $serverAll)) {
                 $need[$key] = null;
@@ -463,8 +463,15 @@ class ColumnController extends WebController
             if (in_array($value->column_id, $quoteAll)) {
                 $need[$key] = null;
             }
+
+            dump($value->column_id);
+
         }
 
+        var_dump($quoteAll);
+        var_dump($server);
+
+        die;
 
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
