@@ -329,7 +329,7 @@ class ColumnController extends WebController
         return DB::table('quote')
             ->where([
                 'demand_id' => $demand_id,
-                'server_id' => session('user_id', 2),
+                'server_id' => session('user_id'),
                 'price' => $price
             ])
             ->leftJoin('use_demand', 'quote.demand_id', '=', 'use_demand.id')
@@ -357,10 +357,20 @@ class ColumnController extends WebController
      */
     public function connectbussiness(Request $request)
     {
-        $need = self::selWhereAll(['server_id' => session('user_id')]);
-        $id = self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id')]);
+//        $need = self::selWhereAll(['server_id' => session('user_id')]);
+//        $id = self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id')]);
+
+        $need = DB::table('use_demand')
+            ->where(['server_id' => session('user_id')])
+            ->where(['quote' => 0])
+            ->where('user_id', '!=', session('user_id'))
+            ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
+            ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
+            ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
+            ->get();
+
         return view($this->file . 'connectbussiness')->with([
-            'need' => self::selWhereAll(['server_id' => session('user_id')]),
+            'need' => $need,
             'id' => self::selFileAs('use_demand.id as id2', ['server_id' => session('user_id')]),
             'num' => 0,
             'iden' => self::isIdentify()
