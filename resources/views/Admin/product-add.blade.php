@@ -152,7 +152,6 @@
             } else {
                 required = 1;
             }
-
             var string = '';
             $('.input_choose').map(function () {
                 string += $(this).val() + '/';              // 选项值
@@ -174,14 +173,12 @@
                 success: function (obj) {
                     if (obj.info == 0) {
                         alert('添加成功');
-                        history.go(0)
+                        history.go(0);
                     }
                 },
                 error: function (obj) {
 
                 }
-
-
             });
         });
 

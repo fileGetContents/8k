@@ -125,12 +125,12 @@ class ProductController extends Controller
         foreach ($options as $value) {
             $string .= $value->prompting . $value->choose;
             $string .= "<p class='other'>
-                        <button  id='" . $value->id . "' class='del btn'>删除</button>
                         排序:<input type='text' value='" . $value->sort . "' >
                         必填与否:<select  class='req' name='required' ><option value='1'>必填</option><option value='0'>不需要</option></select>
                         </p>";
         }
         echo collect(array('message' => $string))->toJson();
+        // <button  id='" . $value->id . "' class='del btn'>删除</button>
     }
 
 

@@ -21,7 +21,7 @@
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>建材列表</title>
+    <title>选项查看</title>
     <style>
         .input-text {
             width: 400px;
