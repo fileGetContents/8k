@@ -51,6 +51,8 @@ class ServerController extends WebController
         $insert['documents'][2] = $input['image2'];
         $insert['documents'][3] = $input['image3'];
         $insert['documents'] = serialize($insert['documents']);
+        dump($insert);
+        die;
         $documents = $this->PurposeModel->selectFirst('documents', ['use_id' => session('user_id', 1)]);
         if (is_null($documents)) {
             $whether = $this->PurposeModel->up('documents', ['use_id' => session('user_id', 1)], $insert);
