@@ -58,7 +58,8 @@ class WechateController extends WebController
         $input->SetBody($pay['body']);                           // 设置商品或支付单简要描述
         $input->SetAttach($pay['attach']);                       // 附加信息
         $input->SetOut_trade_no($pay['trade_no']);               // 商户订单号
-        $input->SetTotal_fee($pay['total_fee']);                 // 订单总金额，只能为整数，详见支付金额
+        //$input->SetTotal_fee($pay['total_fee']);                 // 订单总金额，只能为整数，详见支付金额
+        $input->SetTotal_fee(1);
         $input->SetTime_start(date("YmdHis"));                   // 交易起始时间
         $input->SetTime_expire(date("YmdHis", time() + 36000));  // 交易结束时间
         //$input->SetGoods_tag("test");
