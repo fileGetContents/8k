@@ -21,7 +21,7 @@
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>建材列表</title>
+    <title>选项查看</title>
     <style>
         .input-text {
             width: 400px;
@@ -46,9 +46,7 @@
            href="javascript:location.replace(location.href);" title="刷新">
             <i class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="pd-20">
-        <div id="choose" class="content">
-
-        </div>
+        <div id="choose" class="content"></div>
     </div>
 </div>
 <script type="text/javascript" src="{{asset('admin/lib/jquery/1.9.1/jquery.min.js')}}"></script>
@@ -83,7 +81,6 @@
                 })
             }
         });
-
 
         $("#choose").on('click', '.addChoose', function () {
             var type = $(this).prev().children().eq(1).attr('type');

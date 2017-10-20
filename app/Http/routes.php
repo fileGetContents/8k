@@ -34,8 +34,6 @@
 //
 //Route::any('send/sms', 'ApiController@sendSMS');  // 发送短信
 //Route::any('login', 'ApiController@login');       // 用户登录/注册
-
-
 // 后台管理系统
 Route::group(["namespace" => "Admin"], function () {
     Route::any('admin-add', 'AdminController@AdminAdd');
@@ -100,7 +98,6 @@ Route::any('add/server', 'ColumnController@addServer');                       //
 Route::any('range/server/{id}', 'ColumnController@serverRange');              // 添加地址信息
 Route::any('add/range', 'ColumnController@addRange');                         // 添加服务半径
 
-
 Route::any('choose/server/{id}', 'ColumnController@chooseServer');             // 填写需求
 Route::any('demand/details/{id}', 'ColumnController@demandDetails');           // 需求详细
 Route::any('demand/details2/{id}/{price}', 'ColumnController@demandDetails2'); // 添加需求相信
@@ -133,7 +130,6 @@ Route::any('jifen/info', 'IntegralController@listRecharge');                // �
 // ajax上传图片
 Route::any('update/image2', 'ApiController@ajaxUpdateFileImage');
 Route::any('update/image', 'ApiController@ajaxUpdateFileImage2');
-
 // 意见反馈
 Route::any('suggest', 'FeedBackController@suggest');
 Route::any('user/suggest', 'FeedBackController@userSuggest');
@@ -155,6 +151,5 @@ Route::any('del/user/tag', 'WechateController@delUserTag'); // 删除用户标�
 Route::any('service/provider', 'ArticleController@serviceProvider'); // 如何挑选服务商
 Route::any('abouts/us', 'ArticleController@aboutUs');   // 关于我们
 Route::any('secrets', 'ArticleController@secrets');     // 成单秘籍
-
 
 Route::any('notify/url', 'WechateController@wxCallBack');         // 回调地址

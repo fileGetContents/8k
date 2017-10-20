@@ -46,5 +46,16 @@ class UserModel extends PurposeModel
         ]);
     }
 
+    /**
+     * 用户添加积分
+     *
+     * @param $where
+     * @param $integral
+     * @return bool
+     */
+    public function addIntegral($where, $integral)
+    {
+        return DB::table('use')->where($where)->increment('recharge', $integral);
+    }
 
 }

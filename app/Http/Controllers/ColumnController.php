@@ -59,6 +59,9 @@ class ColumnController extends WebController
     {
         if ($request->isMethod('post')) {
             $server['server'] = serialize($request->all());
+            if (empty($server['server'])) {
+                return back();
+            };
             $server['use_id'] = session('user_id', 1);
             $server['time'] = $_SERVER['REQUEST_TIME'];
             $id = $this->PurposeModel->insertGetId('use_server', $server);
@@ -71,6 +74,7 @@ class ColumnController extends WebController
                 ]);
                 if (is_null($info_recharge)) {
                     $this->UserModel->addRecharge(session('user_id'), 30, '服务商积分');
+                    $this->UserModel->addIntegral(['id' => session('user_id')], 30); // 添加积分
                 }
                 echo '<script type="text/javascript">window.location.href="' . URL('range/server/' . $id) . '";</script>';
             } else {
@@ -112,6 +116,10 @@ class ColumnController extends WebController
     {
         $SerServer = $this->PurposeModel->selectFirst('use_server', ['id' => $request->id]);
         $server = unserialize($SerServer->server);
+        if (empty($server)) {  // 为空删除返回上一界面
+            $this->PurposeModel->PurDel('use_server', ['id' => $request->id]);
+            return back();
+        }
         $column = array();
         foreach ($server['server'] as $value) {
             $column[] = $this->PurposeModel->selectFirst('column', ['id' => $value]);

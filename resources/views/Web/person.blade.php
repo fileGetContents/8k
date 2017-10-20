@@ -80,7 +80,7 @@
                 data: {'telephone': $('input[name=phone]').val()},
                 url: '{{URL('send/sms')}}',
                 success: function (obj) {
-                    code = obj.message
+                    code = obj.message;
                     sms();
                 },
                 error: function (obj) {

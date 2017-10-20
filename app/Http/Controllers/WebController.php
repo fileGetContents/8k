@@ -89,6 +89,9 @@ class WebController extends Controller
     }
 
 
+    /**
+     * 微信登录
+     */
     public function WxUserInfo()
     {
         $tools = new Wechate\JsApiPay();
@@ -99,6 +102,7 @@ class WebController extends Controller
         $json = file_get_contents($url);
         dump($json);
     }
+
 
 
 }
