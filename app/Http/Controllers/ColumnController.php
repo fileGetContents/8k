@@ -455,20 +455,18 @@ class ColumnController extends WebController
         foreach ($quote as $value) {
             $quoteAll [] = $value->demand_id;
         }
-
-        dump($need);
         foreach ($need as $key => $value) {
             if (!in_array($value->column_id, $serverAll)) {
                 $need[$key] = null;
             }
-
-            //
-
-
+            // 删除已经报价的数据
+            if (in_array($value->id, $quoteAll)) {
+                $need[$key] = null;
+            }
         }
+        dump($need);
         
         die;
-
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
             'id' => $id,
