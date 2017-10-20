@@ -10,27 +10,19 @@
 <body>
 <div class="bar">
     <ul class="nav1">
-        <a href="{{URL('waitbussiness')}}">
-            <li>待报价需求</li>
-        </a>
-        <a href="{{URL('alreadybussiness')}}">
-            <li class="active">已报价需求</li>
-        </a>
-        <a href="{{URL('connectbussiness')}}">
-            <li>联系中需求</li>
-        </a>
+        <li><a href="{{URL('waitbussiness')}}">待报价需求</a></li>
+        <li class="active"><a href="{{URL('alreadybussiness')}}">已报价需求 </a></li>
+        <li><a href="{{URL('connectbussiness')}}">联系中需求 </a></li>
     </ul>
 </div>
 <div class="content">
-    <ul class="nav3">
-        <ul class="nav2" id="nav2">
-            <li style="width:49% ;text-align: center">
-                <a href="{{URL('jifen/info')}}">我的积分</a>
-            </li>
-            <li style="width: 49% ;text-align: center">
-                <a href="{{URL('model')}}">通用设置</a>
-            </li>
-        </ul>
+    <ul class="nav2" id="nav2">
+        <li style="width:49% ;text-align: center">
+            <a href="{{URL('jifen/info')}}">我的积分</a>
+        </li>
+        <li style="width: 49% ;text-align: center">
+            <a href="{{URL('model')}}">通用设置</a>
+        </li>
     </ul>
     @if(!$iden)
         <div class="approve">
