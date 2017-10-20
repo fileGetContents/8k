@@ -51,14 +51,17 @@ class ServerController extends WebController
         $insert['documents'][2] = $input['image2'];
         $insert['documents'][3] = $input['image3'];
         $insert['documents'] = serialize($insert['documents']);
-        dump($insert);
-        die;
-        $documents = $this->PurposeModel->selectFirst('documents', ['use_id' => session('user_id', 1)]);
+        $documents = $this->PurposeModel->selectFirst('documents', ['use_id' => session('user_id')]);
         if (is_null($documents)) {
-            $whether = $this->PurposeModel->up('documents', ['use_id' => session('user_id', 1)], $insert);
+
+            echo 11111;
+            $whether = $this->PurposeModel->up('documents', ['use_id' => session('user_id')], $insert);
         } else {
+            echo 2222222222;
             $whether = $this->PurposeModel->insertWhether('documents', $insert);
         }
+
+        dump($whether);
         if ($whether) {
             return collect(['info' => 0, 'message' => 'success'])->toJson();
         } else {
