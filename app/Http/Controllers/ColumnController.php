@@ -439,7 +439,7 @@ class ColumnController extends WebController
         }
 
 
-        // 参数不是自己的服务项目
+        // 删除不是自己的服务项目
         $server = $this->PurposeModel->selectAll('use_server', ['use_id' => session('user_id', 1)]);
         foreach ($server as $value) {
             $unser = unserialize($value->server);
@@ -451,12 +451,14 @@ class ColumnController extends WebController
         }
 
         // 删除不再服务范围的服务
-
         foreach ($need as $key => $value) {
             if (!in_array($value->column_id, $serverAll)) {
                 $need[$key] = null;
             }
         }
+
+        dump($need);
+        die;
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
             'id' => $id,
