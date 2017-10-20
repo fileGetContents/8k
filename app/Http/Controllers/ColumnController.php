@@ -266,12 +266,12 @@ class ColumnController extends WebController
      */
     public function demandDetails2(Request $request)
     {
-        $server = $this->PurposeModel->selectFirst('use', ['id' => session('use_id', 2)]);
+        $server = $this->PurposeModel->selectFirst('use', ['id' => session('use_id')]);
         $whether = self::isInsert('quote', ['demand_id' => $request->id, 'server_id' => session('user_id', 2)]);
         if (!$whether) { // 添加
             $user = $this->PurposeModel->selectFirst('use_demand', ['id' => $request->id]);
             $this->PurposeModel->insertWhether('quote', [
-                'use_id' => $user->id,
+                'use_id' => $user->user_id,
                 'price' => $request->price,
                 'time' => $_SERVER['REQUEST_TIME'],
                 'server_id' => session('user_id', 2),
@@ -279,9 +279,6 @@ class ColumnController extends WebController
             ]);
         }
         $need = self::selQouteInfo($request->id, $request->price);
-        echo '<meta charset="utf-8">';
-        var_dump($need);
-die;
         $needClass = unserialize($need->demand);
         $mean = parent::getClassMeta($needClass, $need->column_id);
         // 查询是否需要使用地图功能
