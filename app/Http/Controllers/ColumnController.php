@@ -424,7 +424,7 @@ class ColumnController extends WebController
                 ->where('add_time', '>', $where['add_time'])
                 ->where(['quote' => 0])
                 ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
-                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
+//                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
                 ->get();
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0], ['add_time', '>', $where['add_time']]);
@@ -432,12 +432,11 @@ class ColumnController extends WebController
             $need = DB::table('use_demand')
                 ->where(['quote' => 0])
                 ->leftJoin('column', 'column.id', '=', 'use_demand.column_id')
-                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
+//                ->leftJoin('quote', 'quote.demand_id', '=', 'use_demand.id')
                 ->leftJoin('use', 'use.id', '=', 'use_demand.user_id')
                 ->get();
             $id = self::selFileAs('use_demand.id as id2', ['quote' => 0]);
         }
-
 
         // 删除不是自己的服务项目
         $server = $this->PurposeModel->selectAll('use_server', ['use_id' => session('user_id', 1)]);
@@ -449,12 +448,22 @@ class ColumnController extends WebController
                 }
             }
         }
+
+        //  删除已经报价的
+        $quoteAll = array();
         $quote = $this->PurposeModel->selectAll('quote', ['server_id' => session('user_id')]);
-//        foreach ($need as $key => $value) {
-//            if (!in_array($value->column_id, $serverAll)) {
-//                $need[$key] = null;
-//            }
-//        }
+        foreach ($quote as $value) {
+            $quoteAll [] = $value->demand_id;
+        }
+        
+        foreach ($need as $key => $value) {
+            if (!in_array($value->column_id, $serverAll)) {
+                $need[$key] = null;
+            }
+            if (in_array($value->column_id, $quoteAll)) {
+                $need[$key] = null;
+            }
+        }
 
 
         return view($this->file . 'waitbussiness')->with([
