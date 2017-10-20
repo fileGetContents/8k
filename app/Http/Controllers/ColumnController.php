@@ -468,9 +468,6 @@ class ColumnController extends WebController
                 $need[$key] = null;
             }
         }
-        dump($need);
-
-        die;
         return view($this->file . 'waitbussiness')->with([
             'need' => $need,
             'id' => $id,
