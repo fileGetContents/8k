@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Crypt;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,7 @@ class AdminController extends Controller
 
     public function AdminAdd()
     {
-        return  view($this->file . 'admin-add');
+        return view($this->file . 'admin-add');
     }
 
 
@@ -37,6 +38,21 @@ class AdminController extends Controller
         return view($this->file . 'admin-role-add');
     }
 
+
+    /**
+     *更新管理员
+     * @param Request $request
+     */
+    public function alterAdmin(Request $request)
+    {
+        $pass = Crypt::encrypt($request->input('pass'));
+        $whether = $this->public->updateAdmin($request->input('admin'), $pass);
+        if ($whether) {
+            echo collect(array('info' => 0, 'message' => 'success'));
+        } else {
+            echo collect(array('info' => 1, 'message' => 'error'));
+        }
+    }
 
 }
 

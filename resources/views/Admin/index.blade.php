@@ -105,12 +105,10 @@
         {{--</dd>--}}
         {{--</dl>--}}
         {{--<dl id="menu-admin">--}}
-        {{--<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>--}}
-        {{--<dd>--}}
-        {{--<ul>--}}
-        {{--<li><a _href="{{URL('admin-role')}}" href="javascript:void(0)">角色管理</a></li>--}}
-        {{--<li><a _href="{{URL('admin-permission')}}" href="javascript:void(0)">权限管理</a></li>--}}
-        {{--<li><a _href="{{URL('admin-list')}}" href="javascript:void(0)">管理员列表</a></li>--}}
+        <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+        <dd>
+        <ul>
+        <li><a _href="{{URL('admin-role')}}" href="javascript:void(0)">修改密码</a></li>
         {{--</ul>--}}
         {{--</dd>--}}
         {{--</dl>--}}

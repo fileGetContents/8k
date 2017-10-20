@@ -81,6 +81,11 @@ Route::group(["namespace" => "Admin"], function () {
     Route::any('welcome', 'WelcomeController@Welcome');
     Route::any('identify-list', 'PictureController@identifyList');// 申请认证管理
     Route::any('recharge-list', 'SystemController@recharge');         // 积分充值记录
+
+    Route::post('alert/admin', 'AdminController@alterAdmin');            // 修改密码
+    Route::post('login/admin', 'AdminController@loginAdmin');            // 用户登录
+
+
 });
 
 // API 接口管理
