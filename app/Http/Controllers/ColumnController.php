@@ -279,6 +279,9 @@ class ColumnController extends WebController
             ]);
         }
         $need = self::selQouteInfo($request->id, $request->price);
+
+
+        var_dump($need);
         $needClass = unserialize($need->demand);
         $mean = parent::getClassMeta($needClass, $need->column_id);
         // 查询是否需要使用地图功能
