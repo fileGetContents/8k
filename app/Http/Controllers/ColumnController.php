@@ -450,6 +450,7 @@ class ColumnController extends WebController
             }
         }
 
+        dump($serverAll);
         // 删除不再服务范围的服务
         foreach ($need as $key => $value) {
             if (!in_array($value->column_id, $serverAll)) {
