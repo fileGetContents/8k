@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>生意机会</title>
     <link href="{{asset('css/bussiness.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 </head>
 <body>
 <div class="bar">
