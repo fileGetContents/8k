@@ -120,8 +120,7 @@
                                     <span>
                                         @if($value->tag ==0)  待解决
                                         @elseif($value->tag ==10)  已解决
-                                        @else
-                                            关闭需求
+                                        @else关闭需求
                                         @endif
                                     </span>
                                 </i>
@@ -150,7 +149,9 @@
                                     <div class="dm-li3">
                                         <div class="l-quote-con">
                                             <div class="l-detail">
-                                                <span class="l-underline">查看需求详情</span>&gt;&gt;
+                                                <span class="l-underline">
+                                                    <a href="{{URL('demand/details/'.$value->id)}}">查看需求详情</a>
+                                                </span>&gt;&gt;
                                             </div>
                                         </div>
                                     </div>
