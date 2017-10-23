@@ -118,7 +118,11 @@
                             <div class="step-box-wrap s2">
                                 <i class="ico ico-state">
                                     <span>
-                                      @if($value->tag ==1)  已解决 @else  待解决 @endif
+                                        @if($value->tag ==0)  待解决
+                                        @elseif($value->tag ==10)  已解决
+                                        @else
+                                            关闭需求
+                                        @endif
                                     </span>
                                 </i>
                                 <!-- tag-ebox -->
