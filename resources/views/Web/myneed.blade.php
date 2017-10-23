@@ -63,15 +63,10 @@
 
         body {
             position: relative;
-            border: 1px solid red;
         }
-
         .footer {
-            border: 1px solid red;
             margin-bottom: -10px;
         }
-
-
     </style>
     <link href="{{asset('CSS2/quote.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('CSS2/demand_state.css')}}" rel="stylesheet" type="text/css">
