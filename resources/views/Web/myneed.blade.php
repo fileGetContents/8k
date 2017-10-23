@@ -63,7 +63,7 @@
 
         .footer {
             position: absolute;
-            border-bottom: 0;
+           margin-top: 5%;
         }
 
         body {
