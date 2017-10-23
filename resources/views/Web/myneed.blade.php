@@ -63,11 +63,13 @@
 
         body {
             position: relative;
+            border: 1px  solid  red;
         }
 
         .footer {
-            border: 1px  solid  red;
+            border: 1px solid red;
         }
+
 
     </style>
     <link href="{{asset('CSS2/quote.css')}}" rel="stylesheet" type="text/css">
