@@ -103,7 +103,7 @@
     <div class="pagewrap" id="mainpage">
         <div class="clear"></div>
         <!--m站 header end-->    <!-- main -->
-        <div class="main bg-gray padd-wrap1" style="margin-top: 62px; margin-bottom: 0px;">
+        <div class="main bg-gray padd-wrap1" style="margin-top: 62px; margin-bottom: 0;">
             <div class="demand-title">您已发布了
                 <span class="num">{{ $num }}</span>个需求
                 <i class="ico ico-swipe-tips"></i>
@@ -111,15 +111,15 @@
             <div class="main-panes-wrap"
                  onclick="ga('send', 'event', 'Myneed_page', 'click_need');_hmt.push(['_trackEvent', 'Myneed_page', 'click_need']);">
                 <div class="js_agent" id="main_panes"
-                     style="width: 776px; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                     style="width: 80%; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
                     @foreach($need as $value)
                         <div class="panes-page" style="width: 388px;">
                             <!-- step-box-wrap s1-->
                             <div class="step-box-wrap s2">
                                 <i class="ico ico-state">
                                     <span>
-                                        @if($value->tag ==0)  待解决
-                                        @elseif($value->tag ==10)  已解决
+                                        @if($value->tag ==0)待解决
+                                        @elseif($value->tag ==10)已解决
                                         @else关闭需求
                                         @endif
                                     </span>
@@ -176,7 +176,6 @@
 @endif
 </body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
-
 <script>
     $(function () {
         $('.panes-page').eq(0).css('display', 'block');
@@ -191,7 +190,6 @@
                 $("#last").attr('page', num2 + 1)
             }
         });
-
         $('#last').click(function () {
             var num = parseInt($(this).attr('page'));
             if (document.getElementById(num)) {
@@ -204,8 +202,8 @@
                 $("#next").attr('page', num2 - 1);
             }
         })
-
     })
+
 </script>
 
 </html>
