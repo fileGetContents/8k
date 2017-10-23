@@ -72,7 +72,7 @@
     <link href="{{asset('CSS2/quote.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('CSS2/demand_state.css')}}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="bg-gray ios android">
 @if(empty($need))
     <div class="header">
         <p><img src="{{asset('img/needbg.jpg')}}"></p>
