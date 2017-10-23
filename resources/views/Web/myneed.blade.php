@@ -63,6 +63,7 @@
 
         .footer {
             position: absolute;
+            border-bottom: 0;
         }
 
         body {
@@ -217,7 +218,6 @@
         <button class="goon" id="next" page="2">下一页</button>
         <span class="last" id="last" page="0" style="display: none;">上一页</span>
     </div>
-
 @endif
 </body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
