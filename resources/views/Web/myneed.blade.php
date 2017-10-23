@@ -63,11 +63,11 @@
 
         .footer {
             position: absolute;
-            bottom: 0; /* 关键 */
-            left: 0; /* IE下一定要记得 */
         }
 
-
+        body {
+            position: relative;
+        }
     </style>
 
 </head>
@@ -165,6 +165,7 @@
         <span class="last" id="last" page="0" style="display: block;">上一页</span>
     </div>
 @endif
+</body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
 
 <script>
@@ -198,5 +199,4 @@
     })
 </script>
 
-</body>
 </html>
