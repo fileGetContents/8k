@@ -61,8 +61,14 @@
             text-decoration: none
         }
 
-    </style>
+        .footer {
+            position: absolute;
+            bottom: 0; /* 关键 */
+            left: 0; /* IE下一定要记得 */
+        }
 
+
+    </style>
 
 </head>
 <body>

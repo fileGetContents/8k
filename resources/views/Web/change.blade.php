@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+
 <div class="div">
     <img src="{{asset('img/5121204193.gif')}}" alt="">
     <p>正在切换菜单,预计5-10分钟后,重新进入公众号可以查看</p>
