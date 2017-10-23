@@ -61,10 +61,7 @@
             text-decoration: none
         }
 
-        .footer {
-            position: absolute;
-           margin-top: 5%;
-        }
+  
 
         body {
             position: relative;
