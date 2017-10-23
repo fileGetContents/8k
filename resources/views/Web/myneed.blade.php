@@ -118,7 +118,7 @@
                             <div class="step-box-wrap s2">
                                 <i class="ico ico-state">
                                     <span>
-                                      @if($value->tag ==1)  已解决 @else  {{$value->tag ==0}}  @endif
+                                      @if($value->tag ==1)  已解决 @else  待解决 @endif
                                     </span>
                                 </i>
                                 <!-- tag-ebox -->
