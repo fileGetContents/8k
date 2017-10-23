@@ -157,6 +157,51 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="panes-page" id="{{$key+1}}" style="width: 120%;">
+                            <!-- step-box-wrap s1-->
+                            <div class="step-box-wrap s2">
+                                <i class="ico ico-state">
+                                    <span>
+                                        @if($value->tag ==0)待解决
+                                        @elseif($value->tag ==10)已解决
+                                        @else关闭需求
+                                        @endif
+                                    </span>
+                                </i>
+                                <!-- tag-ebox -->
+                                <div class="tag-ebox">
+                                    <i class="tips"></i>
+                                    <div class="tag-con">
+                                        暂无报价
+                                    </div>
+                                </div>
+                                <!-- dm-cell -->
+                                <div class="dm-cell">
+                                    <div class="dm-li1">
+                                        <div class="tab-title1"><span class="title">{{$value->column_name}}</span></div>
+                                        <div class="time">发布日期：{{ date('Y-m-d',$value->add_time) }}</div>
+                                    </div>
+                                    <div class="dm-li2">
+                                        <div class="loading-txt">
+                                            @if($value->tag == 0)
+                                                需求已解决
+                                            @else
+                                                需求待解决
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="dm-li3">
+                                        <div class="l-quote-con">
+                                            <div class="l-detail">
+                                                <span class="l-underline">
+                                                    <a href="{{URL('demand/details/'.$value->id)}}">查看需求详情</a>
+                                                </span>&gt;&gt;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                     <div class="clear"></div>
                 </div>
