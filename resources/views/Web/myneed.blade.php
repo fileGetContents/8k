@@ -61,8 +61,6 @@
             text-decoration: none
         }
 
-  
-
         body {
             position: relative;
         }
@@ -155,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panes-page" id="{{$key+1}}" style="width: 120%;">
+                        <div class="panes-page" id="{{$key+2}}" style="width: 120%;">
                             <!-- step-box-wrap s1-->
                             <div class="step-box-wrap s2">
                                 <i class="ico ico-state">
@@ -206,15 +204,17 @@
                 <div class="clear"></div>
             </div>
         </div>
+
         <div class="l-return-top btn-go-top hidden">
             <a class="ico-return-top" href="javascript:;"></a>
         </div>
-    </div>
 
+    </div>
     <div class="footer">
         <button class="goon" id="next" page="2">下一页</button>
         <span class="last" id="last" page="0" style="display: none;">上一页</span>
     </div>
+
 @endif
 </body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
