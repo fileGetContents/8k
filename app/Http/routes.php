@@ -112,7 +112,7 @@ Route::any('alreadybussiness', 'ColumnController@alreadybussiness');
 Route::any('waitbussiness', 'ColumnController@waitbussiness');
 
 Route::any('person', 'UserController@userPerson');                            // 用户个人中心
-Route::any('user/need', 'UseController@userNeed');                            // 用户需求
+Route::any('user/need', 'UserController@userNeed');                            // 用户需求
 //Route::any('need/{id}', 'UseController@needInfo');                          // 需求列表
 
 Route::any('company', 'ServerController@company');                          // 商户中心
