@@ -102,8 +102,7 @@
     {{--</div>--}}
     <div class="pagewrap" id="mainpage">
         <div class="clear"></div>
-        <!--m站 header end-->    <!-- main -->
-        <div class="main bg-gray padd-wrap1" style="margin-top: 62px; margin-bottom: 0;">
+        <div class="main bg-gray padd-wrap1" style="margin-bottom: 0;">
             <div class="demand-title">您已发布了
                 <span class="num">{{ $num }}</span>个需求
                 <i class="ico ico-swipe-tips"></i>
