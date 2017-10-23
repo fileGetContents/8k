@@ -68,6 +68,7 @@
 
         .footer {
             border: 1px solid red;
+            margin-bottom: -10px;
         }
 
 
