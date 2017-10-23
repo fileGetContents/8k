@@ -56,6 +56,11 @@
         .panes-page {
             display: none;
         }
+
+        a {
+            text-decoration: none
+        }
+
     </style>
 
 
