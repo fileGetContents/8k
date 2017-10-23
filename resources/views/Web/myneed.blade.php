@@ -69,7 +69,8 @@
             position: relative;
         }
     </style>
-
+    <link href="{{asset('CSS2/quote.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('CSS2/demand_state.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
 @if(empty($need))
@@ -101,68 +102,71 @@
         {{--</div>--}}
         {{--</a>--}}
         {{--</div>--}}
-        <div class="main-panes-wrap">
-            <div class="js_agent" id="main_panes">
-                @foreach( $need as $key=>$value)
-                    <div class="panes-page" id="{{ $key + 1 }}">
-                        <!-- step-box-wrap s1-->
-                        <div class="step-box-wrap s2">
-                            <i class="ico ico-state">
-                                @if($value->tag ==0)
-                                    <span>待解决</span>
-                                @elseif($value->tag ==10)
-                                    <span>已解决</span>
-                                @else
-                                    <span>已解决</span>
-                                @endif
-                            </i>
-                            <!-- tag-ebox -->
-                            <div class="tag-ebox">
-                                <i class="tips"></i>
-                                <div class="tag-con">
-                                    @if($value->quote ==0)
+        <div class="pagewrap" id="mainpage">
+            <div class="clear"></div>
+            <!--m站 header end-->    <!-- main -->
+            <div class="main bg-gray padd-wrap1" style="margin-top: 62px; margin-bottom: 0px;">
+                <div class="step-tab1">
+                    <span class="step-li cur s2"><i>1</i></span>
+                    <span class="step-li s2"><i>2</i></span>
+                    <div class="clear"></div>
+                </div>
+                <div class="demand-title">您已发布了
+                    <span class="num">{{ $num }}</span>个需求
+                    <i class="ico ico-swipe-tips"></i>
+                </div>
+                <div class="main-panes-wrap"
+                     onclick="ga('send', 'event', 'Myneed_page', 'click_need');_hmt.push(['_trackEvent', 'Myneed_page', 'click_need']);">
+                    <div class="js_agent"  id="main_panes" style="width: 776px; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <div class="panes-page" style="width: 388px;">
+                            <!-- step-box-wrap s1-->
+                            <div class="step-box-wrap s2" style="height: 397.149px;">
+                                <i class="ico ico-state">
+                                    <span>
+                                      @if($value->tag ==1)  已解决 @else  {{$value->tag ==0}}  @endif
+                                    </span>
+                                </i>
+                                <!-- tag-ebox -->
+                                <div class="tag-ebox">
+                                    <i class="tips"></i>
+                                    <div class="tag-con">
                                         暂无报价
-                                    @else
-                                        {{$value->quote}}
-                                    @endif
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- dm-cell -->
-                            <div class="dm-cell">
-                                <div class="dm-li1">
-                                    <div class="tab-title1"><span class="title">{{$value->column_name}}</span></div>
-                                    <div class="time">发布时间:{{ date('Y-m-d',$value->add_time) }}</div>
-                                </div>
-                                <div class="dm-li2">
-                                    @if($value->tag ==0)
-                                        <div class="loading-txt">
-                                            需求未解决
-                                        </div>
-                                    @else
-                                        <div class="loading-txt">
-                                            需求已解决
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="dm-li3">
-                                    <div class="l-quote-con">
-                                        <div class="l-detail">
-                                            <span class="l-underline"><a href="{{ URL('demand/details/'.$value->id) }}">查看需求详情</a></span>>>
+                                <!-- dm-cell -->
+                                <div class="dm-cell">
+                                    <div class="dm-li1">
+                                        <div class="tab-title1"><span class="title">个人搬家</span></div>
+                                        <div class="time">截止日期：2017-09-08 22:01:38</div>
+                                    </div>
+                                    <div class="dm-li2">
+                                        <div class="loading-txt">需求已解决</div>
+                                    </div>
+                                    <div class="dm-li3">
+                                        <div class="l-quote-con">
+                                            <div class="l-detail">
+                                                <span class="l-underline">查看需求详情</span>&gt;&gt;
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="clear"></div>
                     </div>
-                @endforeach
-                <div class="clear"></div>
+                    <div class="clear"></div>
+                </div>
             </div>
-            <div class="clear"></div>
+            <div class="l-return-top btn-go-top hidden">
+                <a class="ico-return-top" href="javascript:;"></a>
+            </div>
         </div>
+
+
     </div>
     <div class="footer">
         <button class="goon" id="next" page="2">下一页</button>
-        <span class="last" id="last" page="0" style="display: block;">上一页</span>
+        <span class="last" id="last" page="0" style="display: none;">上一页</span>
     </div>
 @endif
 </body>
