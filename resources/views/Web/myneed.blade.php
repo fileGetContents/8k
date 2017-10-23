@@ -64,6 +64,11 @@
         body {
             position: relative;
         }
+
+        .footer {
+            margin-top: 100px;
+        }
+
     </style>
     <link href="{{asset('CSS2/quote.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('CSS2/demand_state.css')}}" rel="stylesheet" type="text/css">
@@ -204,17 +209,14 @@
                 <div class="clear"></div>
             </div>
         </div>
-
         <div class="l-return-top btn-go-top hidden">
             <a class="ico-return-top" href="javascript:;"></a>
         </div>
-
     </div>
     <div class="footer">
         <button class="goon" id="next" page="2">下一页</button>
         <span class="last" id="last" page="0" style="display: none;">上一页</span>
     </div>
-
 @endif
 </body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
@@ -245,7 +247,6 @@
             }
         })
     })
-
 </script>
 
 </html>
