@@ -113,7 +113,7 @@
                 <div class="js_agent" id="main_panes"
                      style="width: 80%; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
                     @foreach($need as $value)
-                        <div class="panes-page" style="width: 388px;">
+                        <div class="panes-page" style="width: 80%;">
                             <!-- step-box-wrap s1-->
                             <div class="step-box-wrap s2">
                                 <i class="ico ico-state">
