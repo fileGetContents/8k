@@ -111,8 +111,8 @@
                  onclick="ga('send', 'event', 'Myneed_page', 'click_need');_hmt.push(['_trackEvent', 'Myneed_page', 'click_need']);">
                 <div class="js_agent" id="main_panes"
                      style="width: 80%; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                    @foreach($need as $value)
-                        <div class="panes-page" style="width: 120%;">
+                    @foreach($need as $key=>$value)
+                        <div class="panes-page" id="{{$key+1}}" style="width: 120%;">
                             <!-- step-box-wrap s1-->
                             <div class="step-box-wrap s2">
                                 <i class="ico ico-state">
@@ -167,11 +167,12 @@
             <a class="ico-return-top" href="javascript:;"></a>
         </div>
     </div>
-    {{--</div>--}}
-    {{--<div class="footer">--}}
-    {{--<button class="goon" id="next" page="2">下一页</button>--}}
-    {{--<span class="last" id="last" page="0" style="display: none;">上一页</span>--}}
-    {{--</div>--}}
+
+    <div class="footer">
+        <button class="goon" id="next" page="2">下一页</button>
+        <span class="last" id="last" page="0" style="display: none;">上一页</span>
+    </div>
+
 @endif
 </body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
