@@ -84,7 +84,6 @@
     </button>
     <p class="advertise">[8公里，不再是距离，而是服务品质]</p>
 @else
-    <div class="my_need">
         {{--<div class="section" style="border: 1px red solid">--}}
         {{--<a href="{{ URL('demand/details/'.$value->id) }}">--}}
         {{--<div class="section-mess">--}}
@@ -165,13 +164,11 @@
                 <a class="ico-return-top" href="javascript:;"></a>
             </div>
         </div>
-
-
-    </div>
-    <div class="footer">
-        <button class="goon" id="next" page="2">下一页</button>
-        <span class="last" id="last" page="0" style="display: none;">上一页</span>
-    </div>
+    {{--</div>--}}
+    {{--<div class="footer">--}}
+        {{--<button class="goon" id="next" page="2">下一页</button>--}}
+        {{--<span class="last" id="last" page="0" style="display: none;">上一页</span>--}}
+    {{--</div>--}}
 @endif
 </body>
 <script src="{{asset('js/jquery.min.js')}}"></script>
