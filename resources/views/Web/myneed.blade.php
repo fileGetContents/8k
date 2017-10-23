@@ -63,7 +63,7 @@
 
         body {
             position: relative;
-            border: 1px  solid  red;
+            border: 1px solid red;
         }
 
         .footer {
@@ -75,7 +75,7 @@
     <link href="{{asset('CSS2/quote.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('CSS2/demand_state.css')}}" rel="stylesheet" type="text/css">
 </head>
-<body class="bg-gray ios android">
+<body style="height: 100%" class="bg-gray ios android">
 @if(empty($need))
     <div class="header">
         <p><img src="{{asset('img/needbg.jpg')}}"></p>
