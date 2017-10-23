@@ -117,41 +117,46 @@
                 </div>
                 <div class="main-panes-wrap"
                      onclick="ga('send', 'event', 'Myneed_page', 'click_need');_hmt.push(['_trackEvent', 'Myneed_page', 'click_need']);">
-                    <div class="js_agent"  id="main_panes" style="width: 776px; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                        <div class="panes-page" style="width: 388px;">
-                            <!-- step-box-wrap s1-->
-                            <div class="step-box-wrap s2" style="height: 397.149px;">
-                                <i class="ico ico-state">
+                    <div class="js_agent" id="main_panes"
+                         style="width: 776px; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+                        @foreach($need as $value)
+                            <div class="panes-page" style="width: 388px;">
+                                <!-- step-box-wrap s1-->
+                                <div class="step-box-wrap s2" style="height: 397.149px;">
+                                    <i class="ico ico-state">
                                     <span>
                                       @if($value->tag ==1)  已解决 @else  {{$value->tag ==0}}  @endif
                                     </span>
-                                </i>
-                                <!-- tag-ebox -->
-                                <div class="tag-ebox">
-                                    <i class="tips"></i>
-                                    <div class="tag-con">
-                                        暂无报价
+                                    </i>
+                                    <!-- tag-ebox -->
+                                    <div class="tag-ebox">
+                                        <i class="tips"></i>
+                                        <div class="tag-con">
+                                            暂无报价
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- dm-cell -->
-                                <div class="dm-cell">
-                                    <div class="dm-li1">
-                                        <div class="tab-title1"><span class="title">个人搬家</span></div>
-                                        <div class="time">截止日期：2017-09-08 22:01:38</div>
-                                    </div>
-                                    <div class="dm-li2">
-                                        <div class="loading-txt">需求已解决</div>
-                                    </div>
-                                    <div class="dm-li3">
-                                        <div class="l-quote-con">
-                                            <div class="l-detail">
-                                                <span class="l-underline">查看需求详情</span>&gt;&gt;
+                                    <!-- dm-cell -->
+                                    <div class="dm-cell">
+                                        <div class="dm-li1">
+                                            <div class="tab-title1"><span class="title">{{$value->column_name}}</span></div>
+                                            <div class="time">发布日期：{{ date('Y-m-d',$value->add_time) }}</div>
+                                        </div>
+                                        <div class="dm-li2">
+                                            <div class="loading-txt">需求已解决</div>
+                                        </div>
+                                        <div class="dm-li3">
+                                            <div class="l-quote-con">
+                                                <div class="l-detail">
+                                                    <span class="l-underline">查看需求详情</span>&gt;&gt;
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
+
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
