@@ -66,8 +66,7 @@
         }
 
         .footer {
-            display: none;
-            margin-top: 100px;
+            border: 1px  solid  red;
         }
 
     </style>
