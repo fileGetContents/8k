@@ -104,11 +104,6 @@
             <div class="clear"></div>
             <!--m站 header end-->    <!-- main -->
             <div class="main bg-gray padd-wrap1" style="margin-top: 62px; margin-bottom: 0px;">
-                <div class="step-tab1">
-                    <span class="step-li cur s2"><i>1</i></span>
-                    <span class="step-li s2"><i>2</i></span>
-                    <div class="clear"></div>
-                </div>
                 <div class="demand-title">您已发布了
                     <span class="num">{{ $num }}</span>个需求
                     <i class="ico ico-swipe-tips"></i>
