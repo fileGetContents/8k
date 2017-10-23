@@ -85,7 +85,6 @@
     <p class="advertise">[8公里，不再是距离，而是服务品质]</p>
 @else
     <div class="my_need">
-        <p>您已经发布了{{ $num }}个需求</p>
         {{--<div class="section" style="border: 1px red solid">--}}
         {{--<a href="{{ URL('demand/details/'.$value->id) }}">--}}
         {{--<div class="section-mess">--}}
